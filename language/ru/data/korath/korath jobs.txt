@@ -1,0 +1,245 @@
+# Copyright (c) 2020 by W1zrad
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+mission "Kor Efreti: Cargo"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination> для Kor Efreti. Платеж <payment>."
+	cargo random 10 2 .18
+	to offer
+		has "wanderers sestor done"
+		random < 50
+	source
+		government "Kor Efret"
+	destination
+		distance 1 8
+		government "Kor Efret" "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		dialog phrase "родовая доставка груза"
+		
+mission "Kor Efreti: Cargo [1]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination> для Kor Efreti. Платеж <payment>."
+	cargo random 10 2 .14
+	to offer
+		has "wanderers sestor done"
+		random < 20
+	source
+		government "Kor Efret"
+	destination
+		distance 1 8
+		government "Kor Efret" "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 500
+		dialog phrase "родовая доставка груза"
+
+mission "Kor Efreti: Food Cargo [0]"
+	name "Продукты питания для <planet>"
+	job
+	repeat
+	description "Кор-Эфрети нужны запасы продовольствия, перенесенные на другую планету. Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo "Food" 5 3 .16
+	to offer
+		has "wanderers sestor done"
+	source
+		government "Kor Efret"
+		not attributes "station"
+	destination
+		distance 1 8
+		government "Kor Efret"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		dialog phrase "родовая доставка груза"
+
+mission "Kor Efreti: Food Cargo [1]"
+	name "Продукты питания для <planet>"
+	job
+	repeat
+	description "Кор-Эфрети нужны запасы продовольствия, перенесенные на другую планету. Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo "Food" 5 3 .14
+	to offer
+		has "wanderers sestor done"
+		random < 70
+	source
+		government "Kor Efret"
+		not attributes "station"
+	destination
+		distance 1 8
+		government "Kor Efret"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 1000
+		dialog phrase "родовая доставка груза"
+
+
+mission "Kor Efreti: Industrial to Wanderers"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Kor Efreti не имеет больших производственных возможностей, но Wanderers могут использовать эти материалы. Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo "Industrial" 5 3 .13
+	to offer
+		has "wanderers sestor done"
+		random < 75
+	source
+		government "Kor Efret"
+	destination
+		distance 2 8
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 500
+		dialog phrase "родовая доставка груза"
+		
+mission "Kor Efreti: Cargo to Wanderers"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Kor Efreti не имеет больших производственных возможностей, но Wanderers могут использовать эти материалы. Доставить <cargo> передвижникам на <destination>. Платеж <payment>."
+	cargo random 5 4 .12
+	to offer
+		has "wanderers sestor done"
+		random < 60
+	source
+		government "Kor Efret"
+	destination
+		distance 2 8
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 700
+		dialog phrase "родовая доставка груза"
+		
+mission "Kor Efreti: Rush Delivery Food"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	description "Кор-Эфрети на <destination> опасно низкое содержание продуктов питания. Поставка <cargo> от <date> для облегчения кризиса. Платеж <payment>."
+	cargo "Food" 10 6 .1
+	deadline
+	to offer
+		has "wanderers sestor done"
+		random < 60
+	source
+		government "Kor Efret"
+		not attributes "station"
+	destination
+		distance 1 8
+		government "Kor Efret"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog phrase "родовая доставка груза"
+
+mission "Kor Efreti: Passengers [0]"
+	name "Пассажиры Корат <planet>"
+	job
+	repeat
+	description "Приведите эту группу <bunks> Kor Efreti в <destination>. Платеж <payment>."
+	passengers 3 2 .15
+	to offer
+		has "wanderers sestor done"
+	source
+		government "Kor Efret"
+	destination
+		distance 1 8
+		government "Kor Efret"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		dialog phrase "общий платеж пассажира"
+
+mission "Kor Efreti: Passengers [1]"
+	name "Пассажиры Корат <planet>"
+	job
+	repeat
+	description "Приведите эту группу <bunks> Kor Efreti в <destination>. Платеж <payment>."
+	passengers 3 2 .1
+	to offer
+		has "wanderers sestor done"
+		random < 60
+	source
+		government "Kor Efret"
+		not attributes "station"
+	destination
+		distance 1 8
+		government "Kor Efret"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 500
+		dialog phrase "общий платеж пассажира"
+
+mission "Kor Efreti: Settlers"
+	name "Коратские поселенцы <planet>"
+	job
+	repeat
+	description "Возьмите эти <bunks>, мигрирующие Kor Efreti и их <cargo> в новое поселение Wanderer-Korath на <destination>. Платеж <payment>."
+	passengers 10 5 .15
+	cargo "supplies" 5 3 .16
+	to offer
+		has "event: wanderers: sabira eseskrai colony"
+		random < 90
+	source
+		government "Kor Efret"
+		not attributes "station"
+	destination "Sabira Eseskrai"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog "Поселенцы Кората медленно покидают ваш корабль со своим грузом, по-видимому, опасаясь ступить на этот некогда мертвый мир. Руководящий Корат дает вам знак благодарности и вручает вам <payment>."
+
+mission "Kor Efreti to Wanderers: Farming"
+	name "Обучение методам ведения сельского хозяйства Wanderer"
+	job
+	repeat
+	description "Возьмите <bunks> Кор Эфрети изучает методы ведения сельского хозяйства на <stopovers>, а затем возвращает их в <planet>. Платеж <payment>."
+	passengers 5 1 .2
+	to offer
+		has "wanderers sestor done"
+		random < 70
+	source
+		government "Kor Efret"
+	stopover
+		distance 2 8
+		government "Wanderer"
+	on visit
+		dialog phrase "универсальная недостающая остановка или пассажиры"
+	on stopover
+		dialog `Странники пытаются объяснить свои методы ведения сельского хозяйства фермерам Кората, но языковой барьер делает его сложным. В конце концов, Корат собирает кусочки того, что делают Странники. Время вернуться к <destination>.`
+	on complete
+		payment 10000 200
+		dialog `Когда вы возвращаетесь, Кораф двигает своими руками по кругу своими ладонями к вам в знак благодарности. Они передадут вам <payment> и высадят ваш корабль.`

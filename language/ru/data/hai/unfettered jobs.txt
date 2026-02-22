@@ -1,0 +1,366 @@
+# Copyright (c) 2014 by Michael Zahniser
+# Copyright (c) 2022 by Hurleveur
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+phrase "unfettered tribute payment dialog"
+	word
+		`Вы отдаете дань уважения Неограниченным, и они платят вам <payment>.`
+
+phrase "unfettered tribute pickup dialog"
+	word
+		`Когда вы сообщаете Хай, что вы здесь, чтобы получить дань за Неограниченных, они загружают груз на ваш корабль с довольно удивительной быстротой и жизнерадостностью.`
+		`Работники дока Хай загружают дань за Неограниченного на ваш корабль. Один из них говорит тебе: "Спасибо. Это гораздо лучше, чем смотреть, как наши сородичи голодают»`
+		`Когда хай грузит дань на ваш корабль, один из них говорит: «Скажите нашим братьям и сестрам, что если они только покаются, они будут рады вернуться домой»`
+
+mission "Unfettered Tribute 1"
+	name "Hai Tribute от <planet stopovers>"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the tribute from the other Hai."
+	description "Соберите дань <tons> еды из <stopovers> и принесите ее в Unfettered на <destination>. Ваша доля дани будет <payment>."
+	to offer
+		has "Unfettered Jump Drive 2: offered"
+		random < 80
+	cargo "food (tribute)" 25 2 .05
+	on complete
+		payment 5000 1600
+		dialog phrase "неограниченный диалог по выплате дани"
+	source
+		attributes "unfettered"
+	stopover
+		distance 3 4
+		attributes "hai"
+		attributes "spaceport"
+	on visit
+		dialog phrase "общая недостающая остановка или груз"
+	on stopover
+		dialog phrase "неограниченный диалог по сбору дани"
+
+mission "Unfettered Tribute 2"
+	name "Hai Tribute от <planet stopovers>"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the tribute from the other Hai."
+	description "Соберите дань <tons> еды из <stopovers> и принесите ее в Unfettered на <destination>. Ваша доля дани будет <payment>."
+	to offer
+		has "Unfettered Jump Drive 2: offered"
+		random < 60
+	cargo "food (tribute)" 35 2 .05
+	on complete
+		payment 7000 2000
+		dialog phrase "неограниченный диалог по выплате дани"
+	source
+		attributes "unfettered"
+	stopover
+		distance 4 5
+		attributes "hai"
+		attributes "spaceport"
+	on visit
+		dialog phrase "общая недостающая остановка или груз"
+	on stopover
+		dialog phrase "неограниченный диалог по сбору дани"
+
+mission "Unfettered Tribute 3"
+	name "Hai Tribute от <planet stopovers>"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the tribute from the other Hai."
+	description "Соберите дань <tons> еды из <stopovers> и принесите ее в Unfettered на <destination>. Ваша доля дани будет <payment>."
+	to offer
+		has "Unfettered Jump Drive 2: offered"
+		random < 40
+	cargo "food (tribute)" 45 2 .05
+	on complete
+		payment 9000 2400
+		dialog phrase "неограниченный диалог по выплате дани"
+	source
+		attributes "unfettered"
+	stopover
+		distance 5 6
+		attributes "hai"
+		attributes "spaceport"
+	on visit
+		dialog phrase "общая недостающая остановка или груз"
+	on stopover
+		dialog phrase "неограниченный диалог по сбору дани"
+
+
+mission "Unfettered Jump Drive 4"
+	job
+	repeat
+	name "Продажа Jump Drive"
+	description "Обменяйте прыжок на своем флагмане или в грузе на деньги, или на оружие, если есть экипировщик."
+	source
+		attributes "unfettered"
+	to offer
+		has "Unfettered Jump Drive 3: offered"
+		not "event: wanderers: unfettered invasion starts"
+	to fail
+		has "Unfettered Jump Drive 4: active"
+	to accept
+		or
+			has "outfit (flagship installed): Jump Drive"
+			has "outfit (cargo): Jump Drive"
+	on accept
+		conversation
+			branch "want outfits"
+				not "unfettered: money for drives"
+				has "Unfettered Jump Drive Trading: offered"
+				has "flagship planet: Darkcloak"
+			label money
+			action
+				payment 1000000
+			`Как обычно, Unfettered готовы заплатить вам миллион кредитов за ваш прыжок, но вы не получаете никакой дополнительной информации, разговаривая с ними.`
+				goto trade
+
+			label "want outfits"
+			`Обычная сделка Unfettered по торговле прыжком для оружия все еще стоит.`
+			choice
+				`(Возьмите два трипульсовых шреддера.)`
+				`(Вместо этого возьмите деньги.)`
+					goto money
+			action
+				outfit "Tripulse Shredder" 2
+			`Два шреддера загружаются на ваш корабль в обмен на ваш прыжок.`
+
+			label trade
+			branch spareJD
+				"outfit (cargo): Jump Drive" + "outfit (flagship installed): Hyperdrive" + "outfit (flagship installed): Scram Drive" + "outfit (flagship installed): Jump Drive" > 1
+			action
+				outfit "Hyperdrive" 1
+			label spareJD
+			action
+				outfit "Jump Drive" -1
+				"reputation: Hai (Unfettered)" >?= 40
+
+
+phrase "unfettered mining payment dialog"
+	word
+		"Группа"
+		"The"
+	word
+		" Неограниченная разгрузка материалов"
+	word
+		" ты добывал"
+		" вы собрали"
+		" вы принесли"
+	word
+		" казаться "
+		" появляться "
+	word
+		"удовлетворен."
+		"в восторге."
+		"содержание."
+		"счастлив."
+	word
+		` "Сохраняйте это, и мы построим новые корабли в кратчайшие сроки!`
+		` Это позволит нам отремонтировать наши корабли!`
+	word
+		` Некоторые капитаны используют астероиды в качестве мишени, но считают, что слишком скучно и легко бороться с врагом, который не реагирует`
+		` Слишком мало капитанов достаточно терпеливы, чтобы собирать астероиды, как вы. Большинство из них пытаются получить ресурсы от вражеских кораблей, но это более безопасный способ сделать это`
+	word
+		" один говорит тебе "
+	word
+		"при передаче"
+		"перед тем, как выпустить"
+	word
+		" ваш платеж <payment>."
+
+phrase "unfettered mining payment dialog"
+	word
+		`Местные Неограниченные разгружают ваш груз минералов, и один приходит, чтобы дать вам платеж <payment>. «Некоторые неограниченные используют эти астероиды в качестве мишени, но слишком немногие возвращают драгоценные материалы», — говорит он.`
+		`Группа Неограниченных разгружает материалы, которые вы добыли, ничего не говоря вам. Когда они закончатся, вы получите <payment>.`
+		`Местные жители собирают минералы и с радостью вручают вам <payment>.`
+
+phrase "unfettered mining payment dialog"
+	word
+		"Лидер Неограниченной разгрузки материалов приходит к вам."
+		"Как только минералы разгружаются, к вам приходит Неограниченный, выглядящий скромным и искренним."
+	word
+		` "`
+	word
+		`Это позволит нам отремонтировать наши дома, больницы, даже школы. За это вам моя глубочайшая благодарность.`
+		`Спасибо, капитан. Нам нужны эти материалы и любая другая помощь больше, чем мы хотели бы признать.`
+	word
+		`" `
+	word
+		"Затем они дают вам <payment>."
+
+mission "Unfettered Silicon Asteroid Mining"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
+	name "Сбор кремния с астероидов"
+	description "Добывать и собирать 50 тонн кремния, затем доставлять минералы в <destination> для <payment>. Кремний доступен в астероидном поле Wah Yoot."
+	source "Darkcloak"
+	to offer
+		random < 40
+		"cargo space" > 35
+	on complete
+		payment 60000
+		dialog phrase "неограниченный платежный диалог"
+		outfit "Silicon" -50
+
+mission "Unfettered Silicon Asteroid Mining 2"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
+	name "Сбор кремния с астероидов"
+	description "Добывать и собирать 100 тонн кремния, затем доставлять минералы в <destination> для <payment>. Кремний доступен в астероидном поле в Wah Yoot."
+	source "Darkcloak"
+	to offer
+		random < 10
+		"cargo space" > 80
+	on complete
+		payment 150000
+		dialog phrase "неограниченный платежный диалог"
+		outfit "Silicon" -100
+
+
+mission "Unfettered Silver Asteroid Mining"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
+	name "Сбор серебра с астероидов"
+	description "Добывайте и собирайте 15 тонн серебра, а затем возвращайте минералы в <destination> для <payment>. Серебро доступно в астероидном поле в Ehma Ti."
+	source
+		attributes "unfettered"
+		not planet "Warfeed"
+	destination "Darkcloak"
+	to offer
+		random < 40
+	on complete
+		payment 225000
+		dialog phrase "неограниченный платежный диалог"
+		outfit "Silver" -15
+
+mission "Unfettered Silver Asteroid Mining 2"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
+	name "Сбор серебра с астероидов"
+	description "Добывать и собирать 30 тонн серебра, затем доставлять минералы в <destination> для <payment>. Серебро доступно в астероидном поле в Ehma Ti."
+	source
+		attributes "unfettered"
+		not planet "Warfeed"
+	destination "Darkcloak"
+	to offer
+		random < 10
+		"cargo space" > 25
+	on complete
+		payment 500000
+		dialog phrase "неограниченный платежный диалог"
+		outfit "Silver" -30
+
+
+mission "Unfettered Lead Asteroid Mining"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
+	name "Сбор свинца с астероидов"
+	description "Добывать и собирать 35 тонн свинца, затем доставлять минералы в <destination> для <payment>. Свинец доступен в астероидном поле в Wah Yoot."
+	source
+		attributes "unfettered"
+		not planet "Warfeed"
+	destination "Darkcloak"
+	to offer
+		random < 40
+		"cargo space" > 30
+	on complete
+		payment 95000
+		dialog phrase "неограниченный платежный диалог"
+		outfit "Lead" -35
+
+mission "Unfettered Lead Asteroid Mining 2"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
+	name "Сбор свинца с астероидов"
+	description "Добывать и собирать 70 тонн свинца, затем доставлять минералы в <destination> для <payment>. Свинец доступен в астероидном поле в Wah Yoot."
+	source
+		attributes "unfettered"
+		not planet "Warfeed"
+	destination "Darkcloak"
+	to offer
+		random < 10
+		"cargo space" > 55
+	on complete
+		payment 210000
+		dialog phrase "неограниченный платежный диалог"
+		outfit "Lead" -70
+
+
+phrase "unfettered medicals pickup dialog"
+	word
+		`Как обычно, Хай более чем счастлив предоставить вам необходимые медикаменты. «Скажите нашим братьям и сестрам оставаться сильными», — говорит один из них, загружая припасы на ваш корабль.`
+		`Хай понимает неотложность ситуации и не тратит время на разговоры. Они загружают припасы на ваш корабль и желают вам безопасной поездки.`
+		`Нет никакой сдержки, чтобы дать вам медицинские принадлежности. «Мы предпочитаем следить за тем, чтобы наши братья и сестры не нуждались; наши собственные потребности приходят позже», — говорит один из них.`
+
+phrase "unfettered medicals payment dialog"
+	word
+		"Местные специалисты по здравоохранению рады, что вам удалось вовремя вернуть необходимые медикаменты и дать вам <payment> для этого."
+		"Все Неограниченные здесь кажутся занятыми, и вы должны подождать, прежде чем сможете разгрузить медицинские принадлежности в местную больницу. Через некоторое время местный работник дает вам <payment> и говорит вам сбросить груз в определенном месте."
+		`Как только вы приедете с медикаментами, вас приветствует местный специалист в области здравоохранения, который, кажется, отчаянно нуждается в них. "Не слишком рано. Если бы это было позже, последствия могли бы быть ужасными, - говорит он, передавая вам <payment>.`
+
+mission "Unfettered Small Medicals Rush"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the much-needed medical supplies."
+	name "Экспресс медицинский запас <planet stopovers>"
+	description "Неограниченные больницы на <destination> срочно нуждаются в пополнении запасов. Соберите <tons> медицинских расходных материалов от <stopovers> и быстро доставьте его в Unfettered до <date> для <payment>."
+	deadline 4 1
+	cargo "medical supplies" 10 2 .05
+	source
+		attributes "unfettered"
+	stopover
+		distance 5 7
+		government "Hai"
+		attributes "spaceport"
+	destination "Darkcloak"
+	to offer
+		random < 20 + "Unfettered Jump Drive 2: offered" * 10
+		"reputation: Hai (Unfettered)" >= 0
+	on visit
+		dialog phrase "общая недостающая остановка или груз"
+	on stopover
+		dialog phrase "неограниченный медицинский диалог"
+	on complete
+		payment 8000 2000
+		dialog phrase "неограниченный диалог медицинских платежей"
+
+
+mission "Unfettered Big Medicals Rush"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the much-needed medical supplies."
+	name "Медицинские материалы <planet stopovers>"
+	description "Неограниченные больницы на <destination> нуждаются в значительном пополнении запасов. Соберите <tons> медицинских принадлежностей из <stopovers> и доставьте его в Unfettered перед <date> для <payment>."
+	deadline 10 1
+	cargo "medicals" 35 2 .05
+	source
+		attributes "unfettered"
+	stopover
+		distance 5 7
+		government "Hai"
+		attributes "spaceport"
+	to offer
+		"reputation: Hai (Unfettered)" >= 0
+		has "Unfettered Jump Drive 3: offered"
+		random < 20
+	on visit
+		dialog phrase "общая недостающая остановка или груз"
+	on stopover
+		dialog phrase "неограниченный медицинский диалог"
+	on complete
+		payment 8000 2800
+		dialog phrase "неограниченный диалог медицинских платежей"

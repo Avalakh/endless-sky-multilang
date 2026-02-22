@@ -1,0 +1,362 @@
+# Copyright (c) 2023 by tibetiroka
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+news "artist on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		word
+			"Писатель"
+			"Художник"
+			"Художник"
+			"Скульптор"
+			"Дизайнер"
+			"Фотограф"
+			"Композитор"
+	message
+		word
+			"Это "
+		word
+			"планета"
+			"город"
+			"здание"
+		word
+			" "
+		word
+			"инопланетянин"
+			"внеземной"
+			"уникальный"
+			"Мопс"
+		word
+			" происхождение такое "
+		word
+			"вдохновляющий"
+			"интригующий"
+			"захватывающий"
+			"захватывающий"
+		word
+			"! Я "
+		word
+			"полный"
+			"ощетинившийся"
+		word
+			"  "
+		word
+			"идеи"
+			"творчество"
+			"энергия"
+		word
+			"!"
+
+news "tourist on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		word
+			"Турист"
+			"Зритель"
+			"Путешественник"
+	message
+		word
+			"Можешь себе представить"
+			"Ты знал"
+		word
+			" это "
+		word
+			"все это"
+			"все это"
+			"каждая часть этого"
+		word
+			"  "
+		word
+			"город"
+			"здание"
+		word
+			" был "
+		word
+			"построенный"
+			"созданный"
+			"построенный"
+			"сделанный"
+		word
+			" через "
+		word
+			"инопланетный вид"
+			"инопланетяне"
+			"инсектоиды инопланетяне"
+			"еще одна гонка"
+		word
+			"? "
+		word
+			"Это"
+			"Я нахожу это"
+		word
+			"  "
+			" так "
+		word
+			"вдохновляющий"
+			"невероятный"
+			"захватывающий"
+			"увлекательный"
+		word
+			"!"
+
+news "conspiracy theorist on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		word
+			"Теоретик заговора"
+			"Критический мыслитель"
+			"Искатель истины"
+	message
+		word
+			"Ты действительно"
+			"Как ты можешь"
+		word
+			"  "
+		word
+			"верить"
+			"все еще думаю"
+			"принимать"
+			"доверие"
+		word
+			" что это "
+		word
+			"город"
+			"космопорт"
+			"здание"
+			"место"
+		word
+			" был "
+		word
+			"созданный"
+			"сделанный"
+			"населенный"
+		word
+			" через "
+		word
+			"другой вид"
+			"инопланетяне"
+			"другая раса"
+		word
+			"? "
+		word
+			"Это было "
+		word
+			"ясно"
+			"очевидно"
+			"без сомнения"
+		word
+			" создано для людей, людьми. "
+		word
+			"В конце концов вы поймете, что"
+			"Вы придете посмотреть, что"
+			"Я собираю доказательства для публичного суда"
+			"Я могу предоставить вам все необходимые доказательства"
+			"Это всего лишь трюк Республики и Свободных Миров"
+		word
+			"."
+
+news "reporter on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		word
+			"Репортер"
+			"Журналист"
+			"Корреспондент"
+	message
+		word
+			"Я не думаю, что есть что-то"
+			"Я не нахожу ничего, чтобы быть"
+			"Там ничего нет"
+		word
+			"  "
+		word
+			"специальный"
+			"уникальный"
+			"различный"
+		word
+			" об этом "
+		word
+			"планета"
+			"место"
+		word
+			"но "
+		word
+			"народ"
+			"мои зрители"
+		word
+			"  "
+		word
+			"верьте в обратное"
+			"всегда люблю, когда я отчитываюсь здесь"
+			"мне все еще нравится видеть меня здесь"
+			"я хочу быть здесь, поэтому я здесь"
+			"найти его увлекательным"
+		word
+			". В любом случае, я"
+		word
+			" нужно идти сейчас"
+			"я ухожу в студию"
+			" должен идти"
+			" оставайтесь слишком долго"
+			" не стоит с тобой болтать"
+		word
+			", "
+		word
+			"шоу"
+			"мой сегмент"
+		word
+			"  "
+		word
+			"вот-вот начнется"
+			"начинается через три минуты"
+			"живет через минуту"
+		word
+			"."
+
+news "merchant on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		phrase
+			"merchant names"
+	message
+		word
+			"Ты не поверишь"
+			"Я не представляла"
+		word
+			" тот "
+		word
+			"добрый"
+			"сумма"
+			"сортировать"
+			"объемный"
+		word
+			" из "
+		word
+			"корабли"
+			"трафик"
+			"торговцы"
+		word
+			" проходя через"
+		word
+			" здесь"
+			" эта система"
+			""
+		word
+			". Это короткий путь между "
+		word
+			"свободные миры"
+			"грязный пояс"
+			"южный"
+			"Раздраженный"
+		word
+			" и Синдикат. "
+		word
+			"Только вчера"
+			"Пару дней назад"
+			"Когда я приехал"
+		word
+			"  "
+		word
+			"Мне пришлось ждать"
+			"Я задержался"
+			"они отложили меня"
+			"они продолжали говорить мне, что не было бесплатной посадочной площадки"
+		word
+			" для "
+		word
+			""
+			"как "
+			"что казалось "
+			"о "
+			"почти "
+		word
+			"четыре часа"
+			"полдня"
+			"девяносто минут"
+		word
+			"!"
+
+news "worker on pug-occupied planet after fw"
+	location
+		neighbor system "Deneb"
+		not government "Pug"
+	name
+		word
+			"Работник дока"
+			"Рабочий"
+	message
+		word
+			"Я "
+		word
+			"был"
+			"работал"
+			"случилось быть"
+			"имел контракт"
+		word
+			" здесь "
+		word
+			"во время оккупации"
+			"во время войны Pug"
+			"когда мопс напал на нас"
+		word
+			". "
+		word
+			"Для странных пришельцев они"
+			"Даже если спровоцировать"
+			"По большей части"
+		word
+			"они "
+		word
+			"действительно не доставляло проблем"
+			"не причинил большого ущерба"
+			"просто оставила нас одних"
+		word
+			". "
+		word
+			"В отличие от некоторых "
+		word
+			"политики"
+			"толкатели карандашей"
+			"люди"
+			"бюрократы"
+		word
+			"  "
+		word
+			"домой"
+			"на Земле"
+			"Я знаю"
+			"здесь"
+			"мы получили эти дни"
+		word
+			"."
+
+news "pug on pug planets during fw"
+	location
+		government "Pug"
+		not attributes "uninhabited"
+	name
+		word
+			"Мопс"
+	message
+		phrase
+			"friendly pug"

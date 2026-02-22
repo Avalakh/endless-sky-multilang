@@ -1,0 +1,1807 @@
+# Copyright (c) 2016 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+phrase "coalition ringworld workers"
+	word
+		`Вы бросаете рабочих на <planet>. Через несколько минут вы получаете передачу <payment>.`
+
+mission "Coalition: Ringworld Workers 1"
+	job
+	repeat
+	name "Производитель: <planet>"
+	description "Перевозите эту команду работников <bunks> в Heliarch <planet>, где они помогут в усилиях по поддержанию и расширению кольцевого мира. Платеж будет <payment>."
+	passengers 5 8 .2
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "коалиционные кольцевые рабочие"
+
+mission "Coalition: Ringworld Workers 2"
+	job
+	repeat
+	name "Производитель: <planet>"
+	description "Перевозите эту команду работников <bunks> в Heliarch <planet>, где они помогут в усилиях по поддержанию и расширению кольцевого мира. Платеж будет <payment>."
+	passengers 5 5 .1
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "коалиционные кольцевые рабочие"
+
+mission "Coalition: Ringworld Workers 3"
+	job
+	repeat
+	name "Производитель: <planet>"
+	description "Перевозите эту команду работников <bunks> в Heliarch <planet>, где они помогут в усилиях по поддержанию и расширению кольцевого мира. Платеж будет <payment>."
+	passengers 5 3 .04
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 20000
+		dialog phrase "коалиционные кольцевые рабочие"
+
+
+phrase "coalition ringworld volunteers"
+	word
+		`Вы отправляете добровольцев на <planet>, где их встречает агент Гелиарха. Через несколько минут вы получаете передачу <payment>.`
+
+mission "Coalition: Ringworld Volunteers 1"
+	job
+	repeat
+	name "Добровольцы на <planet>"
+	description "Правительство заплатит вам <payment>, чтобы доставить этих добровольцев <bunks> на <planet>, где они будут помогать в строительстве в обмен на комнату и плату."
+	passengers 5 3 .3
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 4000
+		dialog phrase "волонтёры коалиционного мира"
+
+mission "Coalition: Ringworld Volunteers 2"
+	job
+	repeat
+	name "Добровольцы на <planet>"
+	description "Правительство заплатит вам <payment>, чтобы доставить этих добровольцев <bunks> на <planet>, где они будут помогать в строительстве в обмен на комнату и плату."
+	passengers 5 10 .5
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 8000
+		dialog phrase "волонтёры коалиционного мира"
+
+mission "Coalition: Ringworld Volunteers 3"
+	job
+	repeat
+	name "Добровольцы на <planet>"
+	description "Правительство заплатит вам <payment>, чтобы доставить этих добровольцев <bunks> на <planet>, где они будут помогать в строительстве в обмен на комнату и плату."
+	passengers 5 4 .2
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 12000
+		dialog phrase "волонтёры коалиционного мира"
+
+
+phrase "coalition ringworld materials"
+	word
+		`Вы сбрасываете строительные материалы и получаете <payment> в оплату.`
+
+mission "Coalition: Ringworld Materials 1"
+	job
+	repeat
+	name "Материалы для <planet>"
+	description "Доставить эти <tons> строительных материалов в Heliarch <planet> по <date>. Платеж будет <payment>."
+	deadline
+	cargo "Construction" 10 3 .02
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 30000
+		dialog phrase "коалиционный кольцевой мир"
+
+mission "Coalition: Ringworld Materials 2"
+	job
+	repeat
+	name "Материалы для <planet>"
+	description "Доставить эти <tons> строительных материалов в Heliarch <planet> по <date>. Платеж будет <payment>."
+	deadline
+	cargo "Construction" 10 4 .02
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 40000
+		dialog phrase "коалиционный кольцевой мир"
+
+mission "Coalition: Ringworld Materials 3"
+	job
+	repeat
+	name "Материалы для <planet>"
+	description "Доставить эти <tons> строительных материалов в Heliarch <planet> по <date>. Платеж будет <payment>."
+	deadline
+	cargo "Construction" 10 5 .02
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog phrase "коалиционный кольцевой мир"
+
+
+phrase "coalition ringworld supplies"
+	word
+		`Вы оставляете пожертвование <commodity> и получаете <payment> в качестве оплаты.`
+
+mission "Coalition: Ringworld Supplies 1"
+	job
+	repeat
+	name "Поставка <planet>"
+	description "Эта партия поставок <tons> является пожертвованием от правительства <origin> для поддержки Heliarch <planet>. Вам будет оплачен <payment> при доставке."
+	cargo random 5 10 .2
+	to offer
+		has "known to the heliarchs"
+		random < 50
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 2000
+		dialog phrase "коалиционный кольцевой мир"
+
+mission "Coalition: Ringworld Supplies 2"
+	job
+	repeat
+	name "Поставка <planet>"
+	description "Эта партия поставок <tons> является пожертвованием от правительства <origin> для поддержки Heliarch <planet>. Вам будет оплачен <payment> при доставке."
+	cargo random 5 10 .15
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 4000
+		dialog phrase "коалиционный кольцевой мир"
+
+mission "Coalition: Ringworld Supplies 3"
+	job
+	repeat
+	name "Поставка <planet>"
+	description "Эта партия поставок <tons> является пожертвованием от правительства <origin> для поддержки Heliarch <planet>. Вам будет оплачен <payment> при доставке."
+	cargo random 5 10 .1
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 6000
+		dialog phrase "коалиционный кольцевой мир"
+
+
+mission "Coalition: Heliarch Candidate"
+	job
+	repeat
+	name "Кандидат в <planet>"
+	description "Вам будет выплачена <payment> за транспортировку этого кандидата в ранг Heliarch в <planet> по <date>."
+	passengers 1
+	deadline 5 1
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog `Агенты Гелиарха встречаются с вашим кораблем, как только он причалит, и принимают кандидата, которого вы перевозили, на небольшой церемонии. Через несколько минут вы получаете передачу <payment>.`
+
+
+phrase "coalition interpreters dialog"
+	word
+		`Вы оставляете переводчиков на <planet>. Через несколько минут вы получаете передачу <payment>.`
+
+mission "Coalition: Interpreters 1"
+	job
+	repeat
+	name "Переводчики для <planet>"
+	description "Принесите эти <bunks> Агенты Гелиарха, обученные в качестве переводчиков и посредников, для <destination>. Платеж <payment>."
+	passengers 2 3 .5
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 5000
+		dialog phrase "диалог переводчиков коалиции"
+
+mission "Coalition: Interpreters 2"
+	job
+	repeat
+	name "Переводчики для <planet>"
+	description "Принесите эти <bunks> Агенты Гелиарха, обученные в качестве переводчиков и посредников, для <destination>. Платеж <payment>."
+	passengers 2 5 .5
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "диалог переводчиков коалиции"
+
+mission "Coalition: Interpreters 3"
+	job
+	repeat
+	name "Переводчики для <planet>"
+	description "Принесите эти <bunks> Агенты Гелиарха, обученные в качестве переводчиков и посредников, для <destination>. Платеж <payment>."
+	passengers 2 10 .5
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "диалог переводчиков коалиции"
+
+
+phrase "coalition peacekeepers dialog"
+	word
+		`Вы высадите миротворцев на <planet>. Через несколько минут вы получаете передачу <payment>.`
+
+mission "Coalition: Peacekeepers 1"
+	job
+	repeat
+	name "Миротворцы в <planet>"
+	description "Переправьте этот корпус миротворцев <bunks> в <destination> для расследования сообщений о деятельности Lunarium. Платеж <payment>."
+	passengers 10 10 .2
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 20000
+		dialog phrase "диалог миротворцев коалиции"
+
+mission "Coalition: Peacekeepers 2"
+	job
+	repeat
+	name "Миротворцы в <planet>"
+	description "Переправьте этот корпус миротворцев <bunks> в <destination> для расследования сообщений о деятельности Lunarium. Платеж <payment>."
+	passengers 10 5 .1
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 30000
+		dialog phrase "диалог миротворцев коалиции"
+
+
+phrase "coalition interspecies settlers"
+	word
+		`Вы высадите поселенцев на <planet>. Через несколько минут вы получаете передачу <payment>.`
+
+mission "Coalition: Saryd Interspecies 1"
+	job
+	repeat
+	name "Обсуждение <planet>"
+	description "В рамках программы межвидового обмена эти поселенцы-добровольцы <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 4 2 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+	source
+		attributes "saryd"
+	destination
+		attributes "kimek" "arach"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "коалиция межвидовых поселенцев"
+
+mission "Coalition: Saryd Interspecies 2"
+	job
+	repeat
+	name "Обсуждение <planet>"
+	description "В рамках программы межвидового обмена эти поселенцы-добровольцы <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		attributes "saryd"
+	destination
+		attributes "kimek" "arach"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "коалиция межвидовых поселенцев"
+
+mission "Coalition: Kimek Interspecies 1"
+	job
+	repeat
+	name "Кимек для <planet>"
+	description "В рамках программы межвидового обмена эти поселенцы-добровольцы <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 4 2 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+	source
+		attributes "kimek"
+	destination
+		attributes "saryd" "arach"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "коалиция межвидовых поселенцев"
+
+mission "Coalition: Kimek Interspecies 2"
+	job
+	repeat
+	name "Кимек для <planet>"
+	description "В рамках программы межвидового обмена эти поселенцы-добровольцы <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		attributes "kimek"
+	destination
+		attributes "saryd" "arach"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "коалиция межвидовых поселенцев"
+
+mission "Coalition: Arach Interspecies 1"
+	job
+	repeat
+	name "Arachi для <planet>"
+	description "В рамках программы межвидового обмена эти поселенцы-добровольцы <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 4 2 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+	source
+		attributes "arach"
+	destination
+		attributes "saryd" "kimek"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "коалиция межвидовых поселенцев"
+
+mission "Coalition: Arach Interspecies 2"
+	job
+	repeat
+	name "Arachi для <planet>"
+	description "В рамках программы межвидового обмена эти поселенцы-добровольцы <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		attributes "arach"
+	destination
+		attributes "saryd" "kimek"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "коалиция межвидовых поселенцев"
+
+
+phrase "coalition transfer dialog"
+	word
+		`Вы бросаете рабочих на <planet>. Через несколько минут вы получаете передачу <payment>.`
+
+mission "Coalition: Transfer 1"
+	job
+	repeat
+	name "Трансфер в <planet>"
+	description "В рамках Программы полной занятости эти работники <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 2 10 .3
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "mining" "farming" "factory" "oil"
+		distance 2 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 5000
+		dialog phrase "коалиционный трансферный диалог"
+
+mission "Coalition: Transfer 2"
+	job
+	repeat
+	name "Трансфер в <planet>"
+	description "В рамках Программы полной занятости эти работники <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 2 10 .2
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "mining" "farming" "factory" "oil"
+		distance 2 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "коалиционный трансферный диалог"
+
+mission "Coalition: Transfer 3"
+	job
+	repeat
+	name "Трансфер в <planet>"
+	description "В рамках Программы полной занятости эти работники <bunks> нуждаются в транспортировке в <destination>. Правительство оплатит транспортный сбор <payment>."
+	passengers 2 10 .1
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "mining" "farming" "factory" "oil"
+		distance 2 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "коалиционный трансферный диалог"
+
+
+phrase "coalition tourists outbound"
+	word
+		`Туристы благодарят вас за то, что вы привезли их на <planet> и заплатили вам <payment>.`
+
+mission "Coalition: Tourists Out 1"
+	job
+	repeat
+	name "Отпуск в <planet>"
+	description "Эти туристы <bunks> будут платить вам <payment>, чтобы доставить их в <destination> и желание путешествовать на очень удобном корабле. Платежи недействительны, если они не поступают по <date>."
+	deadline
+	passengers 2 5 .5
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "tourism"
+		distance 5 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 22000 200
+		dialog phrase "коалиционные туристы уходят"
+
+mission "Coalition: Tourists Out 2"
+	job
+	repeat
+	name "Отпуск в <planet>"
+	description "Эти туристы <bunks> будут платить вам <payment>, чтобы доставить их в <destination> и желание путешествовать на очень удобном корабле. Платежи недействительны, если они не поступают по <date>."
+	deadline
+	passengers 2 5 .4
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "tourism"
+		distance 5 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 32000 200
+		dialog phrase "коалиционные туристы уходят"
+
+mission "Coalition: Tourists Out 3"
+	job
+	repeat
+	name "Отпуск в <planet>"
+	description "Эти туристы <bunks> будут платить вам <payment>, чтобы доставить их в <destination> и желание путешествовать на очень удобном корабле. Платежи недействительны, если они не поступают по <date>."
+	deadline
+	passengers 2 5 .3
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "tourism"
+		distance 5 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 42000 200
+		dialog phrase "коалиционные туристы уходят"
+
+
+phrase "coalition tourists homebound"
+	word
+		`Туристы благодарят вас за то, что вы привезли их домой и заплатили вам <payment>.`
+
+mission "Coalition: Tourists Home 1"
+	job
+	repeat
+	name "Отпуск в <planet>"
+	description "Эти туристы <bunks> заплатят вам <payment>, чтобы вернуть их домой в <destination> и желание путешествовать на очень удобном корабле. Платежи недействительны, если они не поступают по <date>."
+	deadline
+	passengers 2 5 .5
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+		attributes "tourism"
+	destination
+		government "Coalition"
+		distance 5 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 22000 200
+		dialog phrase "коалиция туристов home"
+
+mission "Coalition: Tourists Home 2"
+	job
+	repeat
+	name "Отпуск в <planet>"
+	description "Эти туристы <bunks> заплатят вам <payment>, чтобы вернуть их домой в <destination> и желание путешествовать на очень удобном корабле. Платежи недействительны, если они не поступают по <date>."
+	deadline
+	passengers 2 5 .4
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+		attributes "tourism"
+	destination
+		government "Coalition"
+		distance 5 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 32000 200
+		dialog phrase "коалиция туристов home"
+
+mission "Coalition: Tourists Home 3"
+	job
+	repeat
+	name "Отпуск в <planet>"
+	description "Эти туристы <bunks> заплатят вам <payment>, чтобы вернуть их домой в <destination> и желание путешествовать на очень удобном корабле. Платежи недействительны, если они не поступают по <date>."
+	deadline
+	passengers 2 5 .3
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+		attributes "tourism"
+	destination
+		government "Coalition"
+		distance 5 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 42000 200
+		dialog phrase "коалиция туристов home"
+
+
+phrase "coalition fast courier"
+	word
+		`Получатель благодарит вас за то, что вы так быстро принесли <commodity>, и платит вам <payment>.`
+
+mission "Coalition: Fast Courier 1"
+	job
+	repeat
+	name "Быстрый курьер на <planet>"
+	description "Доставить <cargo> в <destination> по <date>. Оплата производится <payment>."
+	deadline 5 1
+	cargo random 2 20 .6
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 6 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 30000
+		dialog phrase "быстрый курьер коалиции"
+
+mission "Coalition: Fast Courier 2"
+	job
+	repeat
+	name "Быстрый курьер на <planet>"
+	description "Доставить <cargo> в <destination> по <date>. Оплата производится <payment>."
+	deadline 5 1
+	cargo random 2 30 .6
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 6 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 40000
+		dialog phrase "быстрый курьер коалиции"
+
+mission "Coalition: Fast Courier 3"
+	job
+	repeat
+	name "Быстрый курьер на <planet>"
+	description "Доставить <cargo> в <destination> по <date>. Оплата производится <payment>."
+	deadline 5 1
+	cargo random 2 40 .6
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 6 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog phrase "быстрый курьер коалиции"
+
+
+phrase "coalition commodity delivery"
+	word
+		`Вы оставляете <commodity> на <planet> и получаете <payment> в качестве оплаты.`
+
+mission "Coalition: Cargo 1"
+	job
+	repeat
+	name "Груз в <planet>"
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo "coalition cargo" 4 6 .3
+	to offer
+		has "known to the heliarchs"
+		random < 80
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 2000
+		dialog phrase "коалиция по поставкам товаров"
+
+mission "Coalition: Cargo 2"
+	job
+	repeat
+	name "Груз в <planet>"
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo "coalition cargo" 4 8 .3
+	to offer
+		has "known to the heliarchs"
+		random < 70
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 4000
+		dialog phrase "коалиция по поставкам товаров"
+
+mission "Coalition: Cargo 3"
+	job
+	repeat
+	name "Груз в <planet>"
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo "coalition cargo" 4 11 .3
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 6000
+		dialog phrase "коалиция по поставкам товаров"
+
+mission "Coalition: Cargo 4"
+	job
+	repeat
+	name "Груз в <planet>"
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo "coalition cargo" 4 15 .3
+	to offer
+		has "known to the heliarchs"
+		random < 50
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 8000
+		dialog phrase "коалиция по поставкам товаров"
+
+
+mission "Coalition: Bulk 1"
+	job
+	repeat
+	name "Грузовой контейнер <planet>"
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 20 6 .1
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 3 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "коалиция по поставкам товаров"
+
+mission "Coalition: Bulk 2"
+	job
+	repeat
+	name "Грузовой контейнер <planet>"
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 30 9 .1
+	to offer
+		has "known to the heliarchs"
+		random < 50
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 3 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 14000
+		dialog phrase "коалиция по поставкам товаров"
+
+mission "Coalition: Bulk 3"
+	job
+	repeat
+	name "Грузовой контейнер <planet>"
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 40 15 .1
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 3 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 20000
+		dialog phrase "коалиция по поставкам товаров"
+
+mission "Coalition: Bulk 4"
+	job
+	repeat
+	name "Грузовой контейнер <planet>"
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 50 25 .1
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 3 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 30000
+		dialog phrase "коалиция по поставкам товаров"
+
+
+mission "Coalition: Rush 1"
+	job
+	repeat
+	name "Rush Delivery для <planet>"
+	description "<destination> нуждается в отгрузке <cargo> <date>. Платеж будет <payment>."
+	deadline
+	cargo random 10 8 .2
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 4 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 32000
+		dialog phrase "коалиция по поставкам товаров"
+
+mission "Coalition: Rush 2"
+	job
+	repeat
+	name "Rush Delivery для <planet>"
+	description "<destination> нуждается в отгрузке <cargo> <date>. Платеж будет <payment>."
+	deadline
+	cargo random 10 12 .2
+	to offer
+		has "known to the heliarchs"
+		random < 50
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 4 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 40000
+		dialog phrase "коалиция по поставкам товаров"
+
+mission "Coalition: Rush 3"
+	job
+	repeat
+	name "Rush Delivery для <planet>"
+	description "<destination> нуждается в отгрузке <cargo> <date>. Платеж будет <payment>."
+	deadline
+	cargo random 10 18 .2
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 4 20
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog phrase "коалиция по поставкам товаров"
+
+
+mission "Coalition: Doctors"
+	job
+	repeat
+	name "Врачи в <planet>"
+	description "Правительство заплатит вам <payment>, чтобы доставить эту команду врачей <bunks> в <destination> для борьбы с вирусной вспышкой. Они должны быть доставлены <date>."
+	deadline 8 1
+	passengers 4 10 .4
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 4 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog `Врачи методично собирают оборудование и покидают ваш корабль. Из-за отсутствия срочности, кажется, что это рутинное событие, а не кризис. Через несколько минут вы получаете передачу <payment>.`
+
+
+phrase "coalition cadets dialog"
+	word
+		`Вы бросаете курсантов на <planet>. Через несколько минут вы получаете передачу <payment>.`
+
+mission "Coalition: Cadets 1"
+	job
+	repeat
+	name "Кадеты для <planet>"
+	description "Эти новобранцы <bunks> нуждаются в транспортировке в Академию на <destination>. Платеж <payment>."
+	passengers 10 10 .5
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		near "Belug" 1 20
+		government "Coalition"
+	destination "Belug's Plunge"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "коалиционный кадетский диалог"
+
+mission "Coalition: Cadets 2"
+	job
+	repeat
+	name "Кадеты для <planet>"
+	description "Эти новобранцы <bunks> нуждаются в транспортировке в Академию на <destination>. Платеж <payment>."
+	passengers 10 10 .4
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		near "Belug" 2 20
+		government "Coalition"
+	destination "Belug's Plunge"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 12000
+		dialog phrase "коалиционный кадетский диалог"
+
+
+phrase "coalition games dialog"
+	word
+		`Пассажиры благодарят вас за то, что вы привезли их на <planet> и заплатили вам <payment>.`
+
+mission "Coalition: To Games 1"
+	job
+	repeat
+	name "Скриншоты из игры <planet>"
+	description "Пассажиры <bunks> будут платить <payment> за транспортировку до <planet> во время Коалиционных игр (по <date>)."
+	deadline 0 2
+	passengers 4 4 .2
+	to offer
+		has "known to the heliarchs"
+		random < 90
+		month == 7
+		"days until year end" - 2 * "hyperjumps to system: Homeward" > 153
+	source
+		near "Homeward" 2 20
+		government "Coalition"
+	destination "Far Home"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 10000 200
+		dialog phrase "диалог игр коалиции"
+
+mission "Coalition: To Games 2"
+	job
+	repeat
+	name "Скриншоты из игры <planet>"
+	description "Пассажиры <bunks> будут платить <payment> за транспортировку до <planet> во время Коалиционных игр (по <date>)."
+	deadline 0 2
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+		month == 7
+		"days until year end" - 2 * "hyperjumps to system: Homeward" > 153
+	source
+		near "Homeward" 2 20
+		government "Coalition"
+	destination "Far Home"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 15000 200
+		dialog phrase "диалог игр коалиции"
+
+mission "Coalition: To Games 3"
+	job
+	repeat
+	name "Скриншоты из игры <planet>"
+	description "Пассажиры <bunks> будут платить <payment> за транспортировку до <planet> во время Коалиционных игр (по <date>)."
+	deadline 0 2
+	passengers 4 4 .05
+	to offer
+		has "known to the heliarchs"
+		random < 50
+		month == 7
+		"days until year end" - 2 * "hyperjumps to system: Homeward" > 153
+	source
+		near "Homeward" 2 20
+		government "Coalition"
+	destination "Far Home"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment 25000 200
+		dialog phrase "диалог игр коалиции"
+
+
+mission "Coalition: From Games 1"
+	job
+	repeat
+	name "Пассажиры <planet>"
+	description "Пассажиры <bunks>, которые были на <origin> для Коалиционных игр, вернулись в свой родной мир <destination>. Платеж <payment>."
+	passengers 4 4 .2
+	to offer
+		has "known to the heliarchs"
+		random < 90
+		month > 7
+		month < 10
+	source "Far Home"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "диалог игр коалиции"
+
+mission "Coalition: From Games 2"
+	job
+	repeat
+	name "Пассажиры <planet>"
+	description "Пассажиры <bunks>, которые были на <origin> для Коалиционных игр, вернулись в свой родной мир <destination>. Платеж <payment>."
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+		month > 7
+		month < 10
+	source "Far Home"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "диалог игр коалиции"
+
+mission "Coalition: From Games 3"
+	job
+	repeat
+	name "Пассажиры <planet>"
+	description "Пассажиры <bunks>, которые были на <origin> для Коалиционных игр, вернулись в свой родной мир <destination>. Платеж <payment>."
+	passengers 4 4 .05
+	to offer
+		has "known to the heliarchs"
+		random < 50
+		month > 7
+		month < 10
+	source "Far Home"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 25000
+		dialog phrase "диалог игр коалиции"
+
+
+mission "Heliarchs Buy Jump Drive Job 1"
+	job
+	name "Продажа Jump Drive"
+	"apparent payment" 5000000
+	description "Продайте прыжок на Heliarchs для <payment>."
+	source
+		government "Heliarch"
+	to offer
+		not "Coalition: Lost: Offer: active"
+		has "Heliarchs Buy Jump Drive Mission: declined"
+		has "outfit (cargo): Jump Drive"
+	on accept
+		conversation
+			`Гелиархи благодарят вас, когда видят, что вы приняли их предложение, и вскоре несколько их кораблей приземлились рядом с вашими. Судя по всему, они узнали о вашей перемене и рады видеть обмен, оставив свои корабли и окружив ваши. Вскоре они освобождают место для армии инженеров, чтобы прийти и снять запасной прыжок с корабля. Все еще наблюдая за сценой, только сейчас в образованиях агенты Гелиарха шепчутся между собой, редко смещая глаза, словно глядя на зрелище.`
+			`Как только диск выходит из вашего корабля, он закрепляется в чрезмерно усиленном контейнере и перевозится на ограниченный участок кольца под охраной сотен вооруженных солдат. Один из Гелиархов, который, кажется, отвечает за процедуру, Арах, лично приходит к вам, снова благодарит вас и вручает вам <payment>. "Честь, что вы делаете с такой щедростью, капитан. Хотя мы добились больших успехов в изучении прыжковых приводов и их механизмов, мы все еще неспособны создавать свои собственные, мы есть, и средств приобретения новых копий у нас нет. Огромная ценность, каждый привод, который вы можете нам принести. Если вы заинтересованы в продаже еще каких-либо прыжковых дисков, вы, продолжайте предлагать вам такие рабочие места, мы это сделаем`
+			branch license
+				"coalition jobs" < 30
+			`Она еще раз благодарит вас, приветствует и уходит, чтобы следовать за окружением, охраняющим недавно купленный прыжок.`
+				accept
+			label license
+			action
+				"reputation: Coalition" += 10
+				"reputation: Heliarch" += 10
+				set "license: Coalition"
+				log "Продал прыжковый привод Гелиархам и получил разрешение на приобретение Коалицией гражданских технологий и кораблей."
+				log "Фракции" "Сарыды" `Сары — инопланетный вид, который подозрительно похож на кентавров, найденных в ранней человеческой мифологии. Они предпочитают жить в мирах с как можно большим количеством зеленых насаждений, и даже их крупные города полны парков и садов. Большинство сарыдов живут в небольших коммунах с несколькими десятками из них на дом.`
+				log "Фракции" "Кимек" `Кимек — большие насекомоподобные пришельцы, члены Коалиции. Они открыли космический полет после Сарыдов, но до Арачи. Они чрезвычайно социальные существа, предпочитающие жить вместе в массивных зданиях с тысячами жителей, и многие из их миров имеют население в десятки миллиардов, намного больше, чем любой человеческий мир.`
+				log "Фракции" "Арачи" `Паукообразные арачи были последними из трех коалиционных видов, обнаружившими межзвездные путешествия. Большинство членов их общества обязаны верности одному из великих «домов» Араха, организаций, которые несколько похожи на гильдии и которые каждый специализируется на одной конкретной форме промышленности или технологии.`
+			`Она еще раз благодарит вас, приветствует и уходит, чтобы следовать за окружением, охраняющим недавно купленный прыжок. Через минуту после того, как она ушла, на ваш корабль прибывают еще три Гелиарха, делегация, состоящая из члена каждого из трех видов Коалиции, все одетые в золотые кружки, обозначающие их ранг и авторитет. «Самый неожиданный, но очень ценный вклад в это, — говорит Сарыд, — думать, что наш посетитель будет так стремиться доказать свое усердие и приверженность»`
+			`Кимек говорит: «Как только вы поможете нашему обществу освободиться от клеток кварга, с помощью технологий нашего общества вам можно будет доверять»`
+			`«Но, — говорит Арах, — как и все гражданские лица, даже граждане, вам наше оружие и военные корабли мы до сих пор не можем продать»`
+			choice
+				`"Спасибо"`
+					goto end
+				`Почему вы не разрешаете гражданским лицам покупать оружие или военные корабли`
+			`«Ради мира это так», — говорит Сарыд. "Военные Гелиархи, хорошо подготовленные к использованию оружия только для обороны и только для правосудия, таковы. И чтобы поставить потребности Коалиции выше амбиций их собственного родного вида, каждый стремится к этому. Нет такой дисциплины у гражданских, даже у вас. Но, как уважаемый гость, мы позволим вам сохранить оружие»`
+			label end
+			`Очевидно, здесь ничего не продается, но они уверяют вас, что многие коалиционные миры теперь предоставят вам доступ к их верфям и экипировщикам. Все три Гелиарха выражают свою глубокую благодарность за вашу щедрость, обеспечивая им свежий прыжок, и желают вам всего наилучшего.`
+				accept
+		"coalition jobs" >?= 30
+		outfit "Jump Drive" -1
+		payment 5000000
+		fail
+
+mission "Heliarchs Buy Jump Drive Job 2"
+	job
+	repeat
+	name "Продажа Jump Drive"
+	"apparent payment" 5000000
+	description "Продайте прыжок на Heliarchs для <payment>."
+	source
+		government "Heliarch"
+	to offer
+		not "Coalition: Lost: Offer: active"
+		has "outfit (cargo): Jump Drive"
+		has "Heliarchs Buy Jump Drive Mission: offered"
+		or
+			not "Heliarchs Buy Jump Drive Mission: declined"
+			has "Heliarchs Buy Jump Drive Job 1: offered"
+	on accept
+		dialog "Команда инженеров Heliarch тщательно удаляет запасной прыжок с вашего корабля и доставляет его в ограниченный участок кольца. К вам обращается Гелиарх, который руководил процедурой, который благодарит вас за то, что вы принесли другой диск, и передает вам оплату <payment>."
+		"coalition jobs" += 2
+		outfit "Jump Drive" -1
+		payment 5000000
+		fail
+
+
+mission "Heliarch Contain True"
+	job
+	repeat
+	name `Содержит преступников`
+	description `Летите на <destination> по <date>, чтобы вы и другие агенты <bunks> могли бороться с преступниками на месте. Платеж <payment>.`
+	deadline
+	passengers 16 58
+	to offer
+		random < 3
+		has "license: Heliarch"
+	source
+		government "Heliarch"
+	destination
+		distance 2 10
+		not attributes "coalition station"
+	on offer
+		require "Enforcer Confrontation Gear"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 70000
+		dialog `Вы и другие агенты сходитесь на обозначенной площади и быстро перемещаетесь, чтобы отрезать любые выходы. После короткой перестрелки преступники сдаются, и корабль Гелиарха забирается, чтобы забрать их. Вы прощаетесь со своими коллегами по Heliarch и возвращаетесь на свой корабль, где рады видеть, что <payment> уже переведен на ваш счет.`
+
+mission "Heliarch Contain Fail"
+	job
+	repeat
+	name `Содержит преступников`
+	description `Летите на <destination> по <date>, чтобы вы и другие агенты <bunks> могли бороться с преступниками на месте. Платеж <payment>.`
+	deadline
+	passengers 16 58
+	"apparent payment" 70000
+	to offer
+		random < 15
+		has "license: Heliarch"
+	source
+		government "Heliarch"
+	destination
+		distance 2 10
+		not attributes "coalition station"
+	on offer
+		require "Enforcer Confrontation Gear"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog `Вы и другие агенты направляетесь в отмеченную зону, но когда вы прибываете, становится очевидно, что тот, кто занял это место, сумел сбежать. Вы приводите других агентов на космодром, когда они жалуются на неудачную работу.`
+
+mission "Heliarch Contain Fake"
+	job
+	repeat
+	name `Содержит преступников`
+	description `Летите на <destination> по <date>, чтобы вы и другие агенты <bunks> могли бороться с преступниками на сайте. Платеж <payment>.`
+	deadline
+	passengers 16 58
+	to offer
+		random < 45
+		has "license: Heliarch"
+	source
+		government "Heliarch"
+	destination
+		distance 2 10
+		not attributes "coalition station"
+	on offer
+		require "Enforcer Confrontation Gear"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 55000
+		dialog `Ваша команда набрасывается и застает цели врасплох. Они не оказывают никакого сопротивления, немедленно сдавая оружие. Вы вызываете корабль Гелиарха, чтобы забрать их, а затем прощаетесь с другими агентами. Дополнительный <payment> уже ждет вас в вашем аккаунте, когда вы вернетесь на корабль.`
+
+
+mission "Heliarch Prisoner Transport"
+	job
+	repeat
+	name `Транспортные заключенные`
+	description `Приведите преступников <bunks>, которые были арестованы на <origin>, в <destination>. Платеж <payment>.`
+	passengers 3 11
+	to offer
+		random < 15
+		has "license: Heliarch"
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on offer
+		require "Enforcer Riot Staff"
+		require "Brig"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 45000
+		dialog `Когда вы приземляетесь на <destination>, агенты Гелиарха помогут вам вытащить заключенных с вашего корабля. После того, как последний заключенный уйдет, вам вручат <payment>.`
+
+
+mission "Heliarch Investigate"
+	job
+	repeat
+	name `Расследование признаков преступной деятельности`
+	description `Нажмите на <stopovers>, где вы и другие агенты Heliarch <bunks> исследуете область, где была зарегистрирована подозрительная активность. Когда вы закончите, вернитесь в <origin>, чтобы получить <payment>.`
+	passengers 6 11
+	to offer
+		random < 60
+		has "license: Heliarch"
+	source
+		government "Heliarch"
+	stopover
+		distance 5 10
+		not attributes "coalition station"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on stopover
+		dialog `Вы и другие агенты направляетесь в район, где поступили сообщения, в поисках чего-то неуместного. Вы не найдете ничего выдающегося, но есть явные признаки того, что это место было недавно использовано. Вы проводите несколько часов, собирая улики, прежде чем отправиться обратно на корабль.`
+	on complete
+		payment
+		payment 40000
+		dialog `Агенты благодарят вас за транспортировку их на вашем корабле, пожелают вам безопасных путешествий и отправятся доставлять находки своим начальникам. Через несколько мгновений вам переведут <payment>.`
+
+
+mission "Evacuate Lunarium True"
+	job
+	repeat
+	name "Спасатели Лунария"
+	description "Скачать <bunks> Участники Lunarium на <stopovers>, затем доставьте их в <destination> по <date>."
+	deadline
+	to offer
+		random < 10
+		has "Lunarium: Evacuation 6: done"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	passengers 24 65
+	source
+		government "Coalition"
+	stopover
+		government "Coalition"
+		distance 2 4
+	destination
+		government "Coalition"
+		distance 5 6
+	on stopover
+		dialog `Члены Lunarium спешат к вашему кораблю, как только он коснется ангаров, и вы быстро открываете свой люк, чтобы они вошли. Один из более спокойных участников просит вас как можно скорее перейти на <destination>.`
+	on visit
+		dialog phrase "универсальная недостающая остановка или пассажиры"
+	on complete
+		payment
+		payment 33000
+		dialog `Каждый из членов Лунария приходит поблагодарить вас, прежде чем покинуть ваш корабль, выражая свою благодарность. Последний вручает вам <payment> и отправляется вместе с остальными.`
+
+mission "Evacuate Lunarium Fail"
+	job
+	repeat
+	name "Спасатели Лунария"
+	description "Возьмите элементы <bunks> Lunarium на <stopovers>, а затем доставьте их в <destination> по <date>."
+	deadline
+	to offer
+		random < 5
+		has "Lunarium: Evacuation 6: done"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	passengers 24 65
+	source
+		government "Coalition"
+	stopover
+		government "Coalition"
+		distance 2 4
+	destination
+		government "Coalition"
+		distance 5 6
+	on stopover
+		dialog `Вы прикасаетесь к ангарам и ждете несколько минут для членов Лунария. Однако проходит много минут, и никто не приходит. Вместо этого доки все больше заполняются агентами Гелиарха. На вашем мониторе появляется сообщение, в котором говорится, что Гелиархи добрались сюда первыми, но все равно благодарят вас за ваши усилия.`
+		fail
+
+
+mission "Lunarium: Armageddon Core Delivery"
+	job
+	repeat
+	name "Армагеддон Core Delivery"
+	description "Lunarium предлагает <payment> для доставки ядра Armageddon в <destination>."
+	to offer
+		random < 4
+		has "Lunarium: Smuggling: Reactors: done"
+		not "Lunarium: Armageddon Core Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 5 12
+		not government "Heliarch"
+		not attributes "coalition station"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		outfit "Armageddon Core" -1
+		payment 13500000
+		dialog `Некоторые члены Lunarium разгружают ядро Армагеддона после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно транспортировать реактор.`
+
+mission "Lunarium: Fusion Reactor Delivery"
+	job
+	repeat
+	name "Доставка термоядерного реактора"
+	description "Lunarium предлагает <payment> для доставки ядерного реактора в <destination>."
+	to offer
+		random < 7
+		has "Lunarium: Smuggling: Reactors: done"
+		not "Lunarium: Fusion Reactor Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 3 8
+		not government "Heliarch"
+		not attributes "coalition station"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		outfit "Fusion Reactor" -1
+		payment 7500000
+		dialog `Некоторые члены Lunarium выгружают Fusion Reactor после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно транспортировать реактор.`
+
+mission "Lunarium: Breeder Reactor Delivery"
+	job
+	repeat
+	name "Доставка реактора"
+	description "Lunarium предлагает <payment> для доставки реактора-размножителя в <destination>."
+	to offer
+		random < 10
+		has "Lunarium: Smuggling: Reactors: done"
+		not "Lunarium: Breeder Reactor Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 3 6
+		not government "Heliarch"
+		not attributes "coalition station"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		outfit "Breeder Reactor" -1
+		payment 3250000
+		dialog `Некоторые члены Lunarium разгружают реактор после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно транспортировать реактор.`
+
+mission "Lunarium: Torpedo Delivery"
+	job
+	repeat
+	name "Доставка торпеды"
+	description "Lunarium предлагает <payment> для доставки торпедного аппарата с 30 торпедами в <destination>."
+	to offer
+		random < 12
+		has "Lunarium: Smuggling: Torpedoes: done"
+		not "Lunarium: Torpedo Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 6 12
+		not government "Heliarch"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		outfit "Torpedo Launcher" -1
+		outfit "Torpedo" -30
+		payment 183000
+		dialog `Некоторые члены Lunarium разгружают торпедный аппарат и его боеприпасы после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно транспортировать груз.`
+
+mission "Lunarium: Typhoon Delivery"
+	job
+	repeat
+	name "Доставка тайфуна"
+	description "Lunarium предлагает <payment> для доставки Typhoon Launcher с 30 торпедами Typhoon в <destination>."
+	to offer
+		random < 7
+		has "Lunarium: Smuggling: Torpedoes: done"
+		not "Lunarium: Typhoon Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 6 12
+		not government "Heliarch"
+	on complete
+		outfit "Typhoon Launcher" -1
+		outfit "Typhoon Torpedo" -30
+		payment 511500
+		dialog `Некоторые члены Lunarium разгружают Typhoon Launcher и его боеприпасы после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно транспортировать груз.`
+
+mission "Lunarium: Plasma Delivery"
+	job
+	repeat
+	name "Доставка плазменной башни"
+	description "Lunarium предлагает <payment> для доставки плазменной башни в <destination>."
+	to offer
+		random < 6
+		has "Lunarium: Smuggling: Heat: done"
+		not "Lunarium: Plasma Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 4 9
+		not government "Heliarch"
+	on complete
+		outfit "Plasma Turret" -1
+		payment 780000
+		dialog `Некоторые члены Lunarium разгружают плазменную башню после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно унести башню.`
+
+mission "Lunarium: Flamethrower Delivery"
+	job
+	repeat
+	name "Доставка огнеметов"
+	description "Lunarium предлагает <payment> для доставки пары огнеметов в <destination>."
+	to offer
+		random < 8
+		has "Lunarium: Smuggling: Heat: done"
+		not "Lunarium: Flamethrower Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 2 6
+		not government "Heliarch"
+	on complete
+		outfit "Flamethrower" -2
+		payment 570000
+		dialog `Некоторые члены Lunarium разгружают огнеметы после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно транспортировать огнеметы.`
+
+mission "Lunarium: Grenade Delivery"
+	job
+	repeat
+	name "Доставка гранат"
+	description "Lunarium предлагает <payment> для доставки дюжины гранат для <destination>."
+	to offer
+		random < 11
+		has "Lunarium: Smuggling: Grenades: done"
+		not "Lunarium: Grenade Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 7 13
+		not government "Heliarch"
+	on complete
+		outfit "Fragmentation Grenades" -12
+		payment 306000
+		dialog `Некоторые члены Lunarium разгружают гранаты после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно унести гранаты.`
+
+mission "Lunarium: Anti-Missile Delivery"
+	job
+	repeat
+	name "Противоракетная доставка"
+	description "Lunarium предлагает <payment> для доставки тяжелой противоракетной башни в <destination>."
+	to offer
+		random < 10
+		has "Lunarium: Smuggling: AM: done"
+		not "Lunarium: Anti-Missile Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 9 14
+		not government "Heliarch"
+	on complete
+		outfit "Heavy Anti-Missile Turret" -1
+		payment 225000
+		dialog `Некоторые члены Lunarium разгружают тяжелую противоракетную башню после приземления на изолированную часть <planet>. Они передают вам <payment>, прежде чем спокойно унести башню.`

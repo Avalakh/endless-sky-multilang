@@ -1,0 +1,301 @@
+# Copyright (c) 2021 by Amazinite
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+outfit "Locust Blaster"
+	category "Guns"
+	series "Guns"
+	index 10010
+	cost 284000
+	thumbnail "outfit/locust blaster"
+	"mass" 7
+	"outfit space" -7
+	"weapon capacity" -7
+	"gun ports" -1
+	weapon
+		sprite "projectile/locust blaster"
+		sound "locust blaster"
+		"hit effect" "bullet impact"
+		"hardpoint offset" 20
+		"inaccuracy" 5
+		"velocity" 10
+		"random velocity" 2
+		"lifetime" 40
+		"reload" 3
+		"firing energy" 4
+		"firing heat" 3
+		"shield damage" 5
+		"hull damage" 4
+	description "Бластер саранчи может показаться маленьким, но его разрушительный потенциал для его размера не вызывает насмешек. Один бластер способен выдержать 1200 выстрелов в минуту. В то время как каждый отдельный снаряд от бластера наносит довольно незначительные повреждения, сам по себе потоп снарядов может вовремя разорвать даже самый большой из кораблей в клочья."
+
+outfit "Locust Turret"
+	category "Turrets"
+	series "Turrets"
+	index 10010
+	cost 1265000
+	thumbnail "outfit/locust turret"
+	"mass" 28
+	"outfit space" -28
+	"weapon capacity" -28
+	"turret mounts" -1
+	weapon
+		sprite "projectile/locust blaster"
+		"hardpoint sprite" "hardpoint/locust turret"
+		"hardpoint offset" 40
+		sound "locust blaster"
+		"hit effect" "bullet impact"
+		"inaccuracy" 5
+		"turret turn" 3.7
+		"velocity" 10
+		"random velocity" 2
+		"lifetime" 40
+		"reload" 1
+		"firing energy" 4
+		"firing heat" 3
+		"shield damage" 5
+		"hull damage" 4
+	description "Хотя бунродские корабли, как правило, полагаются на мощь своих передних орудий и заполняют любые башни противоракетными системами, они разработали башенную установку для саранчи. В этой башне находятся три саранчи, которые стреляют одновременно, в результате чего в цель выбрасывается 3600 снарядов в минуту."
+
+
+
+outfit "Mandible Cannon"
+	category "Guns"
+	series "Guns"
+	index 10020
+	cost 1170000
+	thumbnail "outfit/mandible cannon"
+	"mass" 29
+	"outfit space" -29
+	"weapon capacity" -29
+	"gun ports" -1
+	weapon
+		sprite "projectile/mandible cannon"
+			"frame rate" 10
+			"random start frame"
+		sound "mandible cannon"
+		"hit effect" "proton impact"
+		"inaccuracy" .1
+		"velocity" 34
+		"lifetime" 25
+		"reload" 30
+		"burst reload" 5
+		"burst count" 2
+		"firing energy" 111
+		"firing force" 30
+		"firing heat" 60
+		"hit force" 210
+		"shield damage" 152
+		"hull damage" 98
+	description "Мандибл Кэннон является значительной частью бунродского арсенала благодаря своей универсальности. Его дальность превосходит дальность меньшего оружия, а его размер позволяет использовать его в количестве на большинстве бунродских кораблей. Тем не менее, энергия, необходимая для ведения огня, довольно значительна, особенно для бунродских судов, которые полагаются на солнечные батареи."
+
+
+
+outfit "Thorax Cannon"
+	category "Guns"
+	series "Guns"
+	index 10030
+	cost 3484000
+	thumbnail "outfit/thorax cannon"
+	"mass" 105
+	"outfit space" -105
+	"weapon capacity" -105
+	"gun ports" -1
+	"energy capacity" 7000
+	weapon
+		sprite "projectile/thorax cannon"
+			"frame rate" 15
+			"rewind"
+		sound "thorax cannon"
+		"fire effect" "torpedo fire"
+		"live effect" "yellow spark" 140
+		"live effect" "yellow spark trail" 840
+		"live effect" "yellow spark twinkle" 400
+		"hit effect" "finisher impact" 2
+		"hit effect" "yellow spark" 10
+		"hit effect" "yellow spark fragment" 150
+		"inaccuracy" 0
+		"velocity" 15
+		"lifetime" 120
+		"reload" 240
+		"firing energy" 3150
+		"firing force" 1875
+		"firing heat" 1905
+		"hit force" 3750
+		"shield damage" 2870
+		"hull damage" 3430
+	description "Пушка Торакса — это массивное, медленно стреляющее оружие, которое могут поддерживать даже немногие корабли, не только из-за его размера, но и из-за энергии, необходимой для его стрельбы. Он поставляется со своими собственными энергетическими конденсаторами, чтобы облегчить высокую стоимость энергии."
+
+effect "yellow spark"
+	sprite "effect/yellow spark"
+		"no repeat"
+		"frame rate" 8
+	"lifetime" 30
+	"random angle" 360
+	"random spin" 3
+	"random velocity" 0.1
+	"velocity scale" -0.5
+
+effect "yellow spark trail"
+	sprite "effect/yellow spark"
+		"no repeat"
+		"frame rate" 2
+	"lifetime" 20
+	"random angle" 360
+	"random frame rate" 6
+	"random velocity" 5
+	"random spin" 10
+	"velocity scale" 0.2
+	
+effect "yellow spark twinkle"
+	sprite "effect/yellow spark"
+		"no repeat"
+		"frame rate" 6
+	"lifetime" 20
+	"random angle" 360
+	"random velocity" 3
+	"random spin" 10
+	"velocity scale" 0.1
+
+effect "yellow spark fragment"
+	sprite "effect/yellow spark"
+		"no repeat"
+		"frame rate" 4
+	"lifetime" 5
+	"random angle" 360
+	"random velocity" 6
+	"random spin" 10
+	"velocity scale" -0.1
+
+
+
+outfit "Swarm Clip"
+	category "Ammunition"
+	series "Ammunition"
+	index 10011
+	cost 24000
+	thumbnail "outfit/swarm storage"
+	"mass" 2
+	"outfit space" -10
+	"swarm capacity" 200
+	ammo "Swarm Missile"
+	description "Swarm Clips обеспечивает значительное увеличение боекомплекта для Swarm Pods, держа респектабельные 200 ракет, которые могут быть быстро загружены в пусковую установку после того, как ее текущая зажима пуста."
+
+outfit "Swarm Missile"
+	category "Ammunition"
+	series "Ammunition"
+	index 10010
+	cost 250
+	thumbnail "outfit/swarm missile"
+	"mass" 0.04
+	"swarm capacity" -1
+	description "Ракеты Swarm — это небольшие, быстро движущиеся боеприпасы для Swarm Pod."
+
+outfit "Swarm Pod"
+	category "Secondary Weapons"
+	series "Secondary Weapons"
+	index 10010
+	cost 363000
+	thumbnail "outfit/swarm pod"
+	"mass" 5
+	"outfit space" -21
+	"weapon capacity" -21
+	"gun ports" -1
+	"swarm capacity" 400
+	weapon
+		sprite "effect/swarm"
+			"frame rate" .01
+		sound "swarm missile"
+		ammo "Swarm Missile"
+		icon "icon/swarm"
+		"die effect" "missile death"
+		"hit effect" "particle impact"
+		"live effect" "swarm flare" 1000000
+		"inaccuracy" 90
+		"velocity" 13
+		"lifetime" 460
+		"reload" 10
+		"firing energy" 2
+		"firing heat" 1
+		"acceleration" 1.3
+		"drag" .1
+		"turn" 5.35
+		"homing"
+		"radar tracking" 0.5
+		"optical tracking" 0.5
+		"shield damage" 46
+		"hull damage" 24
+		"missile strength" 8
+		"stream"
+	description "Swarm Pod оказался эффективным оружием в ранних конфликтах с Коратхом, преодолевая раннюю противоракетную оборону Коратха. Но так же, как Бунродея разработала технологию борьбы с оружием Кората, Корат сделал то же самое, побудив их создать свою собственную противоракетную башню быстрого огня, которая ограничила полезность Swarm Pod против некоторых целей Кората."
+	description "Боеприпасы для этого оружия можно пополнить в любом снаряжении."
+		to display
+			has "gamerule: universal ammo restocking"
+
+effect "swarm flare"
+	sprite "effect/swarm"
+		"no repeat"
+		"frame rate" 5
+	"lifetime" 40
+	"velocity scale" 0.1
+
+effect "swarm impact"
+	sprite "effect/particle impact"
+		"no repeat"
+		"frame rate" 30
+	sound "explosion tiny"
+	"lifetime" 20
+	"random angle" 2
+	"random spin" 10
+	"velocity scale" -.05
+
+outfitter "Swarm Missile Restock"
+	to sell
+		has "gamerule: universal ammo restocking"
+		or
+			has "outfit: Swarm Pod"
+			has "outfit: Swarm Clip"
+	location
+		attributes "outfitter"
+	stock
+		"Swarm Missile"
+
+
+outfit "Buzzer Anti-Missile"
+	category "Turrets"
+	series "Anti-Missile"
+	index 10010
+	cost 1195000
+	thumbnail "outfit/buzzer"
+	"mass" 19
+	"outfit space" -19
+	"weapon capacity" -19
+	"turret mounts" -1
+	weapon
+		"hardpoint sprite" "hardpoint/buzzer am"
+		"hardpoint offset" 5
+		"hit effect" "buzzer"
+		"anti-missile" 4
+		"velocity" 300
+		"lifetime" 1
+		"reload" 2.5
+		"firing energy" 16
+		"firing heat" 1
+	description "По мере того, как Корат начал насыщать системы минами, эффективность бунродских истребителей существенно снизилась. В ответ «Бунродея» разработала эту противоракетную башню быстрого огня, способную очищать участки системы мин «Коратх» с ослепительной скоростью."
+
+effect "buzzer"
+	sprite "effect/buzzer am"
+		"no repeat"
+		"frame rate" 10
+	sound "buzzer am"
+	"sound category" "anti-missile"
+	"lifetime" 11
+	"velocity scale" 1

@@ -1,0 +1,362 @@
+# Copyright (c) 2017 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+mission "Pirate Occupation [0]"
+	name `Пираты, занимающие <system>`
+	minor
+	repeat
+	description `Небольшая группа пиратов оккупировала <system>, и местное правительство обратилось за помощью. Победите пиратов в системе и приземлитесь на <planet> до <date>, чтобы получить оплату <payment>.`
+	deadline
+	to offer
+		random < 5
+		"combat rating" > 100
+	source
+		not government "Pirate"
+		attributes "south" "rim"
+	destination
+		not government "Pirate" "Quarg"
+		distance 2 3
+		attributes "south"
+	npc
+		government "Militia"
+		personality heroic
+		fleet "Small Militia"
+	npc
+		government "Militia"
+		personality heroic staying
+		system destination
+		fleet "Small Militia"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		system destination
+		fleet "Small Southern Pirates" 3
+	on offer
+		conversation "pirate occupation"
+	on visit
+		dialog phrase "сражение пиратского флота в гостях"
+	on complete
+		payment 100000
+		dialog phrase "общий диалог пиратских атак"
+
+mission "Pirate Occupation [1]"
+	name `Пираты, занимающие <system>`
+	minor
+	repeat
+	description `Банда пиратов оккупировала <system>, и местное правительство обратилось за помощью. Победите пиратов в системе и приземлитесь на <planet> до <date>, чтобы получить оплату <payment>.`
+	deadline
+	to offer
+		random < 5
+		"combat rating" > 200
+	source
+		not government "Pirate"
+		attributes "south" "rim"
+	destination
+		not government "Pirate" "Quarg"
+		distance 2 3
+		attributes "south"
+	npc
+		government "Militia"
+		personality heroic
+		fleet "Small Militia" 2
+	npc
+		government "Militia"
+		personality heroic staying
+		system destination
+		fleet "Small Militia"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		system destination
+		fleet "Small Southern Pirates" 2
+		fleet "Large Southern Pirates"
+	on offer
+		conversation "pirate occupation"
+	on visit
+		dialog phrase "сражение пиратского флота в гостях"
+	on complete
+		payment 150000
+		dialog phrase "общий диалог пиратских атак"
+
+mission "Pirate Occupation [2]"
+	name `Пираты, занимающие <system>`
+	minor
+	repeat
+	description `Большая банда пиратов оккупировала <system>, и местное правительство обратилось за помощью. Победите пиратов в системе и приземлитесь на <planet> до <date>, чтобы получить оплату <payment>.`
+	deadline
+	to offer
+		random < 5
+		"combat rating" > 300
+	source
+		not government "Pirate"
+		attributes "south" "rim"
+	destination
+		not government "Pirate" "Quarg"
+		distance 2 3
+		attributes "south"
+	npc
+		government "Militia"
+		personality heroic
+		fleet "Large Militia"
+		fleet "Small Militia"
+	npc
+		government "Militia"
+		personality heroic staying
+		system destination
+		fleet "Small Militia"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		system destination
+		fleet "Large Southern Pirates" 3
+	on offer
+		conversation "pirate occupation"
+	on visit
+		dialog phrase "сражение пиратского флота в гостях"
+	on complete
+		payment 200000
+		dialog phrase "общий диалог пиратских атак"
+
+conversation "pirate occupation"
+	`Внезапно вы слышите поднятые голоса и крики снаружи, когда пилоты бегут за своими кораблями: «<destination> занят пиратским флотом! Они просят помощи у любого боевого корабля, который может попасть туда на <date>, чтобы присоединиться к обороне! Власти <planet>, вероятно, хорошо заплатят вам, если вы им поможете, но это также может быть простым способом убить себя.`
+	choice
+		`(Не присоединяйтесь к борьбе.)`
+			decline
+		`(Присоединяйтесь к флоту.)`
+	`Несколько пилотов ополчения собрались, чтобы помочь отразить нападение пиратов. Вы присоединяетесь к ним и готовите свой корабль к предстоящей битве...`
+		accept
+
+
+
+mission "Sketchy Cargo [0]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <tons> груза в <destination>. Платеж <payment>."
+	cargo "unlabeled cargo" 5 2 .1
+	to offer
+		random < 15
+	source
+		attributes "south"
+	destination
+		distance 2 10
+		attributes "south"
+	on accept
+		dialog `Вы следуете указаниям, указанным в работе, на заброшенный склад и находите свой груз в немаркированных ящиках. Когда вы загружаете его на свой корабль, вы чувствуете, что за вами наблюдают.`
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog "Вы сбрасываете немаркированный груз на склад, не слишком отличающийся от того, в котором вы его взяли. Человек, одетый в плащ, передает вам <payment> после того, как последний ящик будет удален с вашего корабля."
+
+mission "Sketchy Cargo [1]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <tons> груза в <destination>. Платеж <payment>."
+	cargo "unlabeled cargo" 25 2 .05
+	to offer
+		random < 10
+	source
+		attributes "south"
+	destination
+		distance 2 10
+		attributes "south"
+	on accept
+		dialog `Вы следуете указаниям, указанным в работе, на заброшенный склад и находите свой груз в немаркированных ящиках. Когда вы загружаете его на свой корабль, вы чувствуете, что за вами наблюдают.`
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog "Вы сбрасываете немаркированный груз на склад, не слишком отличающийся от того, в котором вы его взяли. Человек, одетый в плащ, передает вам <payment> после того, как последний ящик будет удален с вашего корабля."
+
+
+
+mission "Sketchy Passenger [0]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 15
+	source
+		attributes "south"
+	destination
+		distance 2 10
+		attributes "south"
+		not attributes "station"
+	on accept
+		dialog `Вам трудно найти своих пассажиров, но после почти часа поисков вы, наконец, находите их. Когда они следуют за вами на корабль, вы слышите, как они шепчутся друг другу, но вы не можете понять, что они говорят.`
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 2000 160
+		dialog "Пассажиры просят приземлиться вдали от оживленного центра космодрома. Они передают вам <payment> и устремляются с корабля в сторону от космодрома со значительной скоростью."
+
+mission "Sketchy Passenger [1]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 2 10 .7
+	to offer
+		random < 10
+	source
+		attributes "south"
+	destination
+		distance 2 10
+		attributes "south"
+		not attributes "station"
+	on accept
+		dialog `Вам трудно найти своих пассажиров, но после почти часа поисков вы, наконец, находите их. Когда они следуют за вами на корабль, вы слышите, как они шепчутся друг другу, но вы не можете понять, что они говорят.`
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 2000 160
+		dialog "Пассажиры просят приземлиться вдали от оживленного центра космодрома. Они передают вам <payment> и устремляются с корабля в сторону от космодрома со значительной скоростью."
+
+mission "Delta V Shipment [0]"
+	name "Отгрузка <planet>"
+	description "Поставка <cargo> в <destination>, дом корпорации Delta V, крупной фирмы по производству ракет и двигателей в Южном Риме. Платеж <payment>."
+	cargo "alloys" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Solace"
+	source
+		near Pherkad 2 15
+		attributes factory
+		not government "Pirate"
+	destination Solace
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog phrase "родовая доставка груза"
+
+mission "Delta V Shipment [1]"
+	name "Отгрузка <planet>"
+	description "Поставка <cargo> в <destination>, дом корпорации Delta V, крупной фирмы по производству ракет и двигателей в Южном Риме. Платеж <payment>."
+	cargo Electronics 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Solace"
+	source
+		near Pherkad 2 15
+		attributes factory
+		not government "Pirate"
+	destination Solace
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog phrase "родовая доставка груза"
+
+mission "Tarazed Shipyards Shipment [0]"
+	name "Отгрузка <planet>"
+	description "Поставка <cargo> в <planet>, дом Tarazed Shipyards, одной из крупнейших судостроительных фирм на юге. Платеж <payment>."
+	cargo "weapons" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory
+	destination Wayfarer
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog phrase "родовая доставка груза"
+
+mission "Tarazed Shipyards Shipment [1]"
+	name "Отгрузка <planet>"
+	description "Поставка <cargo> в <planet>, дом Tarazed Shipyards, одной из крупнейших судостроительных фирм на юге. Платеж <payment>."
+	cargo "Ship Alloys" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory mining
+	destination Wayfarer
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog phrase "родовая доставка груза"
+
+mission "Tarazed Shipyards Shipment [2]"
+	name "Отгрузка <planet>"
+	description "Поставка <cargo> в <planet>, дом Tarazed Shipyards, одной из крупнейших судостроительных фирм на юге. Платеж <payment>."
+	cargo "Ship Systems" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory mining
+	destination Wayfarer
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog phrase "родовая доставка груза"
+
+mission "Tarazed Systems Shipment [0]"
+	name "Отгрузка <planet>"
+	description "Поставьте <cargo> в <planet>, дом Tarazed Systems, уважаемого производителя одежды и дизайнера в южном человеческом пространстве. Платеж <payment>."
+	cargo "alloys" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory mining
+	destination Wayfarer
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog phrase "родовая доставка груза"
+
+mission "Tarazed Systems Shipment [1]"
+	name "Отгрузка <planet>"
+	description "Поставьте <cargo> в <planet>, дом Tarazed Systems, уважаемого производителя одежды и дизайнера в южном человеческом пространстве. Платеж <payment>."
+	cargo Electronics 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory
+	destination Wayfarer
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 0 160
+		dialog phrase "родовая доставка груза"

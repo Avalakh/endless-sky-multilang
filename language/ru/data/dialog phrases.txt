@@ -1,0 +1,161 @@
+# Copyright (c) 2019 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+phrase "generic arrived-without-npc dialog"
+	word
+		`Вы достигли <planet>, но оставили <npc> позади! Лучше уйти и ждать, пока они прибудут в эту звездную систему.`
+phrase "generic safe escort completion dialog"
+	word
+		`Капитан <npc> благодарит вас за сопровождение и платит вам <payment>.`
+
+phrase "generic pirate attack payment dialog"
+	word
+		`Разработчик: <planet>`
+	word
+		`  `
+		` с благодарностью `
+	word
+		`платит вам <payment> за помощь`
+	word
+		` уходить `
+		` поражение `
+	word
+		`тот `
+	word
+		`пираты.`
+		`рейдеры.`
+		`нападающие.`
+
+phrase "generic cargo delivery payment"
+	word
+		`Вы сбрасываете свой груз <commodity> и получаете оплату <payment>.`
+phrase "generic cargo on visit"
+	word
+		`Вы достигли <planet>, но не весь груз находится в системе! Лучше отойдите и подождите, пока ваши сопровождающие прибудут в эту звездную систему.`
+
+phrase "generic passenger dropoff payment"
+	word
+		`Вы желаете своему <passengers> удачи на <planet> и получаете оплату <payment>.`
+		`Вы прощаетесь со своим <passengers> на <planet> и получаете оплату <payment>.`
+phrase "generic passenger on visit"
+	word
+		`Вы достигли <planet>, но не все пассажиры в системе! Лучше отойдите и подождите, пока ваши сопровождающие прибудут в эту звездную систему.`
+
+phrase "generic cargo and passenger on visit"
+	word
+		`Вы достигли <planet>, но не все грузы и пассажиры находятся в системе! Лучше отойдите и подождите, пока ваши сопровождающие прибудут в эту звездную систему.`
+
+phrase "generic mineral delivery payment"
+	word
+		`Вы сбрасываете <amount> тонны <mineral> и получаете оплату <payment>.`
+
+phrase "generic mineral on visit"
+	word
+		`Вы вернулись в <origin>, но вы не несете <amount> тонны <mineral> в своем грузовом отсеке.`
+
+phrase "generic missing stopover or cargo and passengers"
+	word
+		`Вы достигли <planet>, но вам чего-то не хватает! Либо вы не посетили <stopovers>, либо не все грузы и пассажиры находятся в системе.`
+phrase "generic missing stopover or passengers"
+	word
+		`Вы достигли <planet>, но вам чего-то не хватает! Либо вы не посетили <stopovers>, либо не все пассажиры в системе.`
+phrase "generic missing stopover or cargo"
+	word
+		`Вы достигли <planet>, но вам чего-то не хватает! Либо вы не посетили <stopovers>, либо не весь груз находится в системе.`
+phrase "generic missing stopover or escort"
+	word
+		`Вы достигли <planet>, но вам чего-то не хватает! Либо вы не посетили <stopovers>, либо оставили <npc> позади.`
+phrase "generic missing waypoint or cargo and passengers"
+	word
+		`Вы достигли <planet>, но вам чего-то не хватает! Либо вы не прошли через <waypoints>, либо не все грузы и пассажиры находятся в системе.`
+phrase "generic missing waypoint or passengers"
+	word
+		`Вы достигли <planet>, но вам чего-то не хватает! Либо вы не прошли через <waypoints>, либо не все пассажиры в системе.`
+phrase "generic missing waypoint or cargo"
+	word
+		`Вы достигли <planet>, но вам чего-то не хватает! Либо вы не прошли через <waypoints>, либо не весь груз находится в системе.`
+
+phrase "generic stopover on visit"
+	word
+		`Вы достигли <planet>, но вы еще не посетили все планеты! Лучше отойдите и обязательно посетите <stopovers>.`
+phrase "generic waypoint on visit"
+	word
+		`Вы достигли <planet>, но вы еще не посетили все системы! Лучше отойдите и обязательно посетите <waypoints>.`
+
+
+phrase "generic hunted bounty eliminated and payment dialog"
+	word
+		`<npc> был ликвидирован. Вскоре после этого правительство <planet> отправляет вам сообщение с благодарностью.`
+
+phrase "generic hunted bounty eliminated dialog"
+	word
+		`<npc> был ликвидирован. Вы можете получить вознаграждение, вернувшись в <destination>.`
+phrase "generic bounty hunting payment dialog"
+	word
+		`Правительство <planet> с благодарностью платит вам <payment> за устранение <npc>.`
+phrase "generic bounty hunting on visit"
+	word
+		`Вы приземлились на <planet>, но <npc> еще не был устранен. Выследите его и уничтожьте, прежде чем вернуться.`
+phrase "generic bounty hunting boarding on visit"
+	word
+		`Вы приземлились на <planet>, но вы еще не сели на <npc>. Охотитесь на него и садитесь на него, прежде чем вернуться.`
+
+phrase "generic hunted bounty fleet eliminated and payment dialog"
+	word
+		`<npc> и их флот были ликвидированы. Вскоре после этого правительство <planet> отправляет вам сообщение с благодарностью.`
+
+phrase "generic hunted bounty fleet eliminated dialog"
+	word
+		`<npc> и их флот были ликвидированы. Вы можете получить вознаграждение, вернувшись в <destination>.`
+phrase "generic fleet bounty hunting payment dialog"
+	word
+		`Правительство <planet> с благодарностью платит вам <payment> за устранение <npc> и их парка.`
+phrase "generic fleet bounty hunting on visit"
+	word
+		`Вы приземлились на <planet>, но <npc> и его парк еще не ликвидированы. Выследите его и уничтожьте, прежде чем вернуться.`
+
+phrase "generic pirate fleet battle on visit"
+	word
+		`Вы приземлились на <planet>, но все еще есть пираты, кружащие над головой. Вы должны взлететь и помочь закончить их.`
+
+phrase "generic completed pirate cargo mission"
+	word
+		`Вы найдете контакт на краю космодрома. Ваш груз <commodity> удаляется с вашего судна, и вы получаете оплату <payment>.`
+
+phrase "generic completed highly illegal pirate cargo mission"
+	word
+		`Вы найдете контакт за пределами главного города. Ваш груз <commodity> удаляется с вашего судна, и вы получаете оплату <payment>.`
+
+phrase "generic aborted pirate passenger mission"
+	word
+		`Ваш пассажир так и не прибыл на <destination>. Это не помогает установить вашу репутацию надежного, беспроблемного транспортера.`
+
+phrase "generic aborted pirate cargo mission"
+	word
+		`Ваш груз <commodity> так и не прибыл в пункт назначения. Пираты не будут рады услышать об этом.`
+
+phrase "generic completed pirate slave mission"
+	word
+		`После приземления на <planet> пираты перемещают рабов <bunks> с вашего корабля и платят вам <payment>.`
+
+phrase "generic aborted pirate slave mission"
+	word
+		`Ваши рабы так и не прибыли на <destination>. Это не помогает установить вашу репутацию надежного, беспроблемного транспортера.`
+
+phrase "free worlds failed"
+	word
+		`Вы провалили или прервали важную миссию Свободных Миров. Если вы хотите продолжить сюжетную линию, вернитесь к автосохранению или другому более раннему снимку вашего пилота.`
+
+phrase "free worlds declined"
+	word
+		`Вы отказались от важной миссии Свободных Миров. Если вы хотите продолжить сюжетную линию, вернитесь к автосохранению или другому более раннему снимку вашего пилота.`

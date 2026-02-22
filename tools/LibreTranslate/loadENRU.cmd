@@ -1,0 +1,1 @@
+.\run.bat --load-only en,ru --update-models

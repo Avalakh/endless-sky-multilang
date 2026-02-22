@@ -1,0 +1,20 @@
+{
+  "trade.free": "free:",
+  "trade.of": " of ",
+  "trade.cargo_mission_and_items": "mission cargo and other items.",
+  "trade.cargo_outfits_and_mission": "outfits and mission cargo.",
+  "trade.cargo_outfits_and_commodities": "outfits and special commodities.",
+  "trade.cargo_outfits": "outfits.",
+  "trade.cargo_special_commodities": "special commodities.",
+  "trade.cargo_mission": "mission cargo.",
+  "trade.very_low": "(very low)",
+  "trade.low": "(low)",
+  "trade.medium": "(medium)",
+  "trade.high": "(high)",
+  "trade.very_high": "(very high)",
+  "trade.not_for_sale": "(not for sale)",
+  "trade.sold": "You sold",
+  "trade.cargo_unit": "cargo",
+  "trade.loss": "at a loss of {{amount}}.",
+  "trade.profit_msg": "for a total profit of {{amount}}."
+}

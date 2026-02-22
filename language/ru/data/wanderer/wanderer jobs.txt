@@ -1,0 +1,891 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+mission "Wanderer Workers [0]"
+	name "Рабочие-передвижники для <planet>"
+	job
+	repeat
+	description `Это <bunks> Рабочие-передвижники нуждаются в транспортировке в <destination>. Они заплатят вам <payment>, чтобы забрать их туда.`
+	passengers 5 5 .1
+	to offer
+		has "language: Wanderer"
+		random < 70
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		attributes "factory" "urban"
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog phrase "общий платеж пассажира"
+
+mission "Wanderer Workers [1]"
+	name "Рабочие-передвижники для <planet>"
+	job
+	repeat
+	description `Это <bunks> Рабочие-передвижники нуждаются в транспортировке в <destination>. Они заплатят вам <payment>, чтобы забрать их туда.`
+	passengers 5 3 .08
+	to offer
+		has "language: Wanderer"
+		random < 60
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		attributes "factory" "urban"
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 15000
+		dialog phrase "общий платеж пассажира"
+
+mission "Wanderer Farmers [0]"
+	name "Фермеры-передвижники <planet>"
+	job
+	repeat
+	description `Это <bunks> Фермерам-передвижникам требуется транспортировка в <destination>. Они заплатят вам <payment>, чтобы забрать их туда.`
+	passengers 5 5 .1
+	to offer
+		has "language: Wanderer"
+		random < 70
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		attributes "farming"
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog phrase "общий платеж пассажира"
+
+mission "Wanderer Farmers [1]"
+	name "Фермеры-передвижники <planet>"
+	job
+	repeat
+	description `Это <bunks> Фермерам-передвижникам требуется транспортировка в <destination>. Они заплатят вам <payment>, чтобы забрать их туда.`
+	passengers 5 3 .05
+	to offer
+		has "language: Wanderer"
+		random < 60
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		attributes "farming"
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 15000
+		dialog phrase "общий платеж пассажира"
+
+mission "Wanderer Younglings [0]"
+	name "Молодые странники в <planet>"
+	job
+	repeat
+	description `Это <bunks> Молодые передвижники ищут транспорт в <destination>, чтобы узнать больше о процессе терраформирования передвижников. Взрослый с ними будет платить вам <payment>.`
+	passengers 5 8 .2
+	to offer
+		has "language: Wanderer"
+		random < 60
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog `Молодые люди покидают ваш корабль и встречаются с другой группой Странников через космопорт. Перед тем, как следовать за подростком, взрослый Странник благодарит вас и вручает вам <payment>.`
+
+mission "Wanderer Younglings [1]"
+	name "Молодые странники в <planet>"
+	job
+	repeat
+	description `Это <bunks> Молодые передвижники ищут транспорт в <destination>, чтобы узнать больше о процессе терраформирования передвижников. Взрослый с ними будет платить вам <payment>.`
+	passengers 5 5 .1
+	to offer
+		has "language: Wanderer"
+		random < 50
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog `Молодые люди покидают ваш корабль и встречаются с другой группой Странников через космопорт. Перед тем, как следовать за подростком, взрослый Странник благодарит вас и вручает вам <payment>.`
+
+mission "Wanderer Scientists (Pollution) [0]"
+	name "Скачок загрязнения на <planet>"
+	job
+	repeat
+	description `Это <bunks> Ученые-странники хотят добраться до <destination> с помощью <cargo> от <date>, чтобы исследовать странный всплеск атмосферных загрязнителей. Платеж будет <payment>.`
+	passengers 4 4 .1
+	cargo "scientific equipment" 5 2 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 30
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		attributes "mining" "oil" "factory"
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 15000 180
+		dialog "Вы желаете ученым удачи на <planet>, поскольку они уносят свое научное оборудование с вашего корабля и передают вам оплату <payment>."
+
+mission "Wanderer Scientists (Pollution) [1]"
+	name "Скачок загрязнения на <planet>"
+	job
+	repeat
+	description `Это <bunks> Ученые-странники хотят добраться до <destination> с помощью <cargo> от <date>, чтобы исследовать странный всплеск атмосферных загрязнителей. Платеж будет <payment>.`
+	passengers 4 4 .05
+	cargo "scientific equipment" 5 2 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 20
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		attributes "mining" "oil" "factory"
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 20000 180
+		dialog "Вы желаете ученым удачи на <planet>, поскольку они уносят свое научное оборудование с вашего корабля и передают вам оплату <payment>."
+
+mission "Wanderer Scientists (Phenomenon) [0]"
+	name "Природное явление <planet>"
+	job
+	repeat
+	description `Это <bunks> Ученые-странники хотят добраться до <destination> с помощью <cargo> от <date>, чтобы наблюдать редкое природное явление. Платеж будет <payment>.`
+	passengers 4 4 .1
+	cargo "scientific equipment" 5 2 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 30
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 15000 180
+		dialog "Вы желаете ученым удачи на <planet>, поскольку они уносят свое научное оборудование с вашего корабля и передают вам оплату <payment>."
+
+mission "Wanderer Scientists (Phenomenon) [1]"
+	name "Природное явление <planet>"
+	job
+	repeat
+	description `Это <bunks> Ученые-странники хотят добраться до <destination> с помощью <cargo> от <date>, чтобы наблюдать редкое природное явление. Платеж будет <payment>.`
+	passengers 4 4 .05
+	cargo "scientific equipment" 5 2 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 20
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 20000 180
+		dialog "Вы желаете ученым удачи на <planet>, поскольку они уносят свое научное оборудование с вашего корабля и передают вам оплату <payment>."
+
+mission "Wanderer Biologists [0]"
+	name "Новое животное найдено в <planet>"
+	job
+	repeat
+	description `Это <bunks> Биологи-странники хотят добраться до <destination> с помощью своего <cargo> для изучения недавно обнаруженных видов животных. Платеж будет <payment>.`
+	passengers 4 4 .1
+	cargo "scientific equipment" 5 2 .1
+	to offer
+		has "language: Wanderer"
+		random < 60
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+		near "Ka'ch'chrai" 100
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment
+		payment 15000
+		dialog "Вы желаете биологам удачи на <planet>, поскольку они уносят свое научное оборудование с вашего корабля и передают вам оплату <payment>."
+
+mission "Wanderer Biologists [1]"
+	name "Новое животное найдено в <planet>"
+	job
+	repeat
+	description `Это <bunks> Биологи-странники хотят добраться до <destination> с помощью своего <cargo> для изучения недавно обнаруженных видов животных. Платеж будет <payment>.`
+	passengers 4 4 .05
+	cargo "scientific equipment" 5 2 .1
+	to offer
+		has "language: Wanderer"
+		random < 50
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment
+		payment 20000
+		dialog "Вы желаете биологам удачи на <planet>, поскольку они уносят свое научное оборудование с вашего корабля и передают вам оплату <payment>."
+
+mission "Wanderer Botanists [0]"
+	name "Новый завод найден на <planet>"
+	job
+	repeat
+	description `Это <bunks> Ботаники-странники хотят добраться до <destination> с помощью своего <cargo> для изучения недавно обнаруженных видов растений. Платеж будет <payment>.`
+	passengers 4 4 .1
+	cargo "scientific equipment" 5 2 .1
+	to offer
+		has "language: Wanderer"
+		random < 60
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+		near "Ka'ch'chrai" 100
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment
+		payment 15000
+		dialog "Вы желаете ботаникам удачи на <planet>, поскольку они уносят свое научное оборудование с вашего корабля и передают вам оплату <payment>."
+
+mission "Wanderer Botanists [1]"
+	name "Новый завод найден на <planet>"
+	job
+	repeat
+	description `Это <bunks> Ботаники-странники хотят добраться до <destination> с помощью своего <cargo> для изучения недавно обнаруженных видов растений. Платеж будет <payment>.`
+	passengers 4 4 .05
+	cargo "scientific equipment" 5 2 .1
+	to offer
+		has "language: Wanderer"
+		random < 50
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment
+		payment 20000
+		dialog "Вы желаете ботаникам удачи на <planet>, поскольку они уносят свое научное оборудование с вашего корабля и передают вам оплату <payment>."
+
+mission "Wanderer Harvest [0]"
+	name "Урожай продуктов питания <planet>"
+	job
+	repeat
+	description `Принесите эти <bunks> Передвижники к <destination>, чтобы помочь в сборе пищи. Платеж <payment>.`
+	passengers 5 3 .02
+	to offer
+		has "language: Wanderer"
+		random < 50
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+		near "Ka'ch'chrai" 100
+	destination
+		distance 2 8
+		attributes "farming"
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 15000
+		dialog "Вы желаете Странникам удачи на <planet> и получаете оплату <payment>."
+
+mission "Wanderer Harvest [1]"
+	name "Урожай продуктов питания <planet>"
+	job
+	repeat
+	description `Принесите эти <bunks> Передвижники к <destination>, чтобы помочь в сборе пищи. Платеж <payment>.`
+	passengers 5 3 .01
+	to offer
+		has "language: Wanderer"
+		random < 40
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+		near "Ka'ch'chrai" 100
+	destination
+		distance 2 8
+		attributes "farming"
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 20000
+		dialog "Вы желаете Странникам удачи на <planet> и получаете оплату <payment>."
+
+mission "Wanderer Invasive Species [0]"
+	name "Карантин инвазивных видов"
+	job
+	repeat
+	description `Это <bunks> Странники должны добраться до <stopovers> с их <cargo>, чтобы содержать инвазивные виды животных. Верните передвижников в <origin> с животными по <date> за оплату <payment>.`
+	passengers 4 4 .1
+	cargo "containers" 5 2 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 30
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	stopover
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on stopover
+		dialog `Странники быстро выходят из вашего корабля со своим оборудованием, чтобы сдержать агрессивных животных. Примерно через час они возвращаются на ваш корабль с клетками, которые они помещают в ваш грузовой отсек. Теперь вернитесь в <origin> для оплаты.`
+	on visit
+		dialog phrase "общая недостающая остановка или груз и пассажиры"
+	on complete
+		payment 25000 200
+		dialog `После освобождения животных, передвижники <bunks> каждый благодарит вас за помощь в возвращении животных в <planet> и вручает вам <payment>.`
+
+mission "Wanderer Invasive Species [1]"
+	name "Карантин инвазивных видов"
+	job
+	repeat
+	description `Это <bunks> Странники должны добраться до <stopovers> с их <cargo>, чтобы содержать инвазивные виды растений. Верните Wanderers в <origin> с заводами <date> за оплату <payment>.`
+	passengers 4 4 .1
+	cargo "containers" 5 2 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 30
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+		near "Ka'ch'chrai" 100
+	stopover
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on stopover
+		dialog `Странники быстро выходят из вашего корабля со своим оборудованием, чтобы сдержать инвазивный завод. Примерно через час они возвращаются на ваш корабль с растениями в контейнерах, которые они помещают в ваш грузовой отсек. Теперь вернитесь в <origin> для оплаты.`
+	on visit
+		dialog phrase "общая недостающая остановка или груз и пассажиры"
+	on complete
+		payment 30000 200
+		dialog `После передачи растений другим передвижникам для посадки в другом месте, передвижники <bunks> каждый благодарит вас за помощь в сохранении растений на <planet> и вручает вам <payment>.`
+
+
+
+phrase "wanderer cargo delivery payment"
+	word
+		`Вы сбрасываете свой груз <commodity>. Странники благодарят вас и вы получите оплату <payment>.`
+
+mission "Wanderer Cargo [0]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination>. Платеж <payment>.`
+	cargo random 4 4 .2
+	to offer
+		has "language: Wanderer"
+		random < 70
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Cargo [1]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination>. Платеж <payment>.`
+	cargo random 4 4 .17
+	to offer
+		has "language: Wanderer"
+		random < 60
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+		near "Ka'ch'chrai" 100
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 4000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Cargo [2]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination>. Платеж <payment>.`
+	cargo random 4 4 .15
+	to offer
+		has "language: Wanderer"
+		random < 50
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 6000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Cargo [3]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination>. Платеж <payment>.`
+	cargo random 4 4 .12
+	to offer
+		has "language: Wanderer"
+		random < 40
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 8000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Cargo [4]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination>. Платеж <payment>.`
+	cargo random 4 4 .1
+	to offer
+		has "language: Wanderer"
+		random < 30
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog phrase "странник доставка груза оплата"
+
+
+mission "Wanderer Rush Delivery [0]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination> по <date>. Платеж <payment>.`
+	cargo random 10 8 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 50
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 32000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Rush Delivery [1]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination> по <date>. Платеж <payment>.`
+	cargo random 10 12 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 40
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+		near "Ka'ch'chrai" 100
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 40000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Rush Delivery [2]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination> по <date>. Платеж <payment>.`
+	cargo random 10 15 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 30
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 44000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Rush Delivery [3]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination> по <date>. Платеж <payment>.`
+	cargo random 10 18 .1
+	deadline
+	to offer
+		has "language: Wanderer"
+		random < 20
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 50000
+		dialog phrase "странник доставка груза оплата"
+
+
+mission "Wanderer Bulk Delivery [0]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination>. Платеж <payment>.`
+	cargo random 30 4 .1
+	to offer
+		has "language: Wanderer"
+		random < 50
+		not "event: eastern evacuation"
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Bulk Delivery [1]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination>. Платеж <payment>.`
+	cargo random 40 6 .1
+	to offer
+		has "language: Wanderer"
+		random < 40
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+		near "Ka'ch'chrai" 100
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 14000
+		dialog phrase "странник доставка груза оплата"
+
+mission "Wanderer Bulk Delivery [2]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в <destination>. Платеж <payment>.`
+	cargo random 50 10 .1
+	to offer
+		has "language: Wanderer"
+		random < 30
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 20000
+		dialog phrase "странник доставка груза оплата"
+
+
+mission "Wanderer Captured Unfettered"
+	name "Захваченный без ограничений <planet>"
+	job
+	repeat
+	description "Транспорт <bunks> захватил неограниченных солдат в <planet>. Чтобы они не создавали никаких проблем, вам понадобятся подходящие средства для их транспортировки. Платеж <payment>."
+	passengers 3
+	source
+		not attributes "evacuation"
+		government "Wanderer"
+	destination
+		distance 2 8
+		not attributes "evacuation"
+		government "Wanderer"
+	to offer
+		has "language: Wanderer"
+		not "event: wanderers: the eye opens"
+		random < 20
+	to accept
+		has "outfit (installed): Brig"
+	on complete
+		payment 50000 180
+		dialog "Как только вы приземлитесь на <planet>, несколько передвижников в униформе сгонят заключенных с вашего корабля. Вы получаете оплату <payment>."
+
+mission "Wanderer Governor Transport"
+	name "Разработчик: <planet>"
+	job
+	repeat
+	description "Транспортировка местного губернатора в столицу <planet> по <date>. Они ожидают комфортного путешествия и подходящих удобств. Платеж <payment>."
+	passengers 1
+	deadline
+	source
+		government "Wanderer"
+		not attributes "evacuation"
+		near "Ka'ch'chrai" 1 10
+	destination "Vara K'chrai"
+	to offer
+		has "language: Wanderer"
+		has "Wanderers Solifuge Recon 2: done"
+		random < 10
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	on complete
+		payment 75000 220
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Wanderer Kor Efreti: Equipment"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в Kor Efreti на <destination>. Платеж <payment>."
+	cargo "Equipment" 5 3 .15
+	to offer
+		has "wanderers sestor done"
+		random < 70
+	source
+		government "Wanderer"
+	destination
+		distance 2 8
+		government "Kor Efret"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 8000
+		dialog phrase "родовая доставка груза"
+
+mission "Wanderer Kor Efreti: Cargo [0]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в Kor Efreti на <destination>. Платеж <payment>."
+	cargo random 5 4 .12
+	to offer
+		has "wanderers sestor done"
+		random < 40
+	source
+		government "Wanderer"
+	destination
+		distance 2 8
+		government "Kor Efret"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 6000
+		dialog phrase "родовая доставка груза"
+
+mission "Wanderer Kor Efreti: Cargo [1]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в Kor Efreti на <destination>. Платеж <payment>."
+	cargo random 5 4 .10
+	to offer
+		has "wanderers sestor done"
+		random < 15
+	source
+		government "Wanderer"
+	destination
+		distance 2 8
+		government "Kor Efret"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 9000
+		dialog phrase "родовая доставка груза"
+
+mission "Wanderers to Kor Efreti"
+	name "Обсуждение Kor Efreti Worlds"
+	job
+	repeat
+	description "Возьмите эту смесь ученых <bunks> Wanderer, ботаников и терраформирующих экспертов в мир Kor Efret <stopovers> и обратно. Платеж <payment>."
+	passengers 5 1 .2
+	to offer
+		has "Wanderers: Tour 7: done"
+		random < 70
+	source
+		government "Wanderer"
+	stopover
+		distance 2 8
+		government "Kor Efret"
+		not attributes "station"
+	on visit
+		dialog phrase "универсальная недостающая остановка или пассажиры"
+	on stopover
+		dialog `Странники путешествуют по планете, чтобы исследовать экологические проблемы, с которыми сталкивается мир Кор-Эфрет. Они пытаются указать на конкретные вещи, сопровождающие их, но это не очень эффективно. Через несколько часов они собрали достаточно данных и готовы вернуться домой.`
+	on complete
+		payment 35000 300
+		dialog `Когда вы вернетесь, Странники благодарят вас за то, что вы отвезли их в Кор-Эфрети и перед высадкой вручили вам <payment>.`

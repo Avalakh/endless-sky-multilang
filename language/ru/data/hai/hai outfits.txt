@@ -1,0 +1,983 @@
+# Copyright (c) 2014-2016 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+outfit "Phantom Pallet"
+	category "Systems"
+	series "Special Systems"
+	index 02020
+	cost 12000
+	thumbnail "outfit/phantom pallet"
+	"mass" 0.2
+	"unplunderable" 1
+	"energy consumption" 0.015
+	"heat generation" 0.03
+	# Replacing 30% of your cargo bay with these triples your cargo scan time.
+	"cargo space" -1
+	"cargo scan opacity" 15
+	description `Хай голографические наряды состоят из набора отдельных «холопад», которые работают вместе, чтобы создать большую сцену. Призрачный паллет является неограниченной вариацией этих голопадов, достаточно прочной, чтобы выжить в перестрелке и легко скрытой под полом, в стенах или в потолках, оставаясь незамеченной. Предприимчивый капер мог бы проложить свой грузовой отсек с этими и спроектировать поддельный груз в качестве сенсорных призраков, запутав сканеры в сканировании пустого пространства вместо контрабанды; это дополнительное время, как известно, делает разницу между захваченным грузом и доставкой необходимых припасов.`
+
+outfit "Holovid Zone"
+	category "Systems"
+	series "Special Systems"
+	index 02030
+	cost 320000
+	thumbnail "outfit/holovid zone"
+	"mass" 20
+	"outfit space" -20
+	"unplunderable" 1
+	"holographic entertainment" 1
+	"energy consumption" 0.5
+	"heat generation" 1.0
+	"cargo scan opacity" 150
+	"outfit scan opacity" 150
+	description "Хай голографическая технология намного превосходит сопоставимые человеческие эквиваленты, и нигде это не иллюстрируется лучше, чем в Зоне Головидов. Его голографические проекторы и текстурированные силовые поля представляют реалистичные визуальные эффекты, в то время как динамики фазового массива издают звуки из любой точки комнаты."
+	description "Для Хай такая технология является обычным явлением, используется для создания 3D конференц-залов, холовидных театров, игровых аркад и многого другого. В прошлом хайские капитаны устанавливали зоны Головида на командной палубе, что позволяло им генерировать тактические оценки сражений в режиме реального времени."
+	description "Возможности бесконечны... особенно для хитрого капитана, который злоупотребляет устройством. Если власти ищут контрабанду или незаконные наряды, Головидная зона может обмануть их достаточно долго, чтобы контрабандист мог сбежать. Смертельные палки трудно найти на корабле с пятьюдесятью тоннами голографической соломы."
+
+outfit "Pulse Cannon"
+	category "Guns"
+	series "Guns"
+	index 02010
+	cost 130000
+	thumbnail "outfit/pulse cannon"
+	"mass" 13
+	"outfit space" -13
+	"weapon capacity" -13
+	"gun ports" -1
+	weapon
+		sprite "projectile/pulse"
+		sound "pulse"
+		"hit effect" "pulse impact"
+		"inaccuracy" 1
+		"velocity" 15
+		"lifetime" 30
+		"reload" 20
+		"firing energy" 24
+		"firing heat" 70
+		"shield damage" 45
+		"hull damage" 34
+	description "Как и большинство примеров техники Hai, пушка Pulse не выделяется как особенно передовая или элегантная технология, но она имеет репутацию эффективной, надежной и сбалансированной."
+
+outfit "Pulse Turret"
+	category "Turrets"
+	series "Turrets"
+	index 02010
+	cost 590000
+	thumbnail "outfit/pulse turret"
+	"mass" 34
+	"outfit space" -34
+	"weapon capacity" -34
+	"turret mounts" -1
+	"required crew" 1
+	weapon
+		sprite "projectile/pulse"
+		"hardpoint sprite" "hardpoint/pulse turret"
+		"hardpoint offset" 7.
+		sound "pulse"
+		"hit effect" "pulse impact"
+		"inaccuracy" 1
+		"turret turn" 2.6
+		"velocity" 15
+		"lifetime" 30
+		"reload" 10
+		"firing energy" 24
+		"firing heat" 70
+		"shield damage" 45
+		"hull damage" 34
+	description "Пульсовые пушки являются основным наступательным оружием, используемым кораблями Хай. Эта башня монтирует две Пульсовые пушки бок о бок и позволяет им отслеживать даже самые быстро движущиеся цели."
+
+outfit "Tripulse Shredder"
+	category "Guns"
+	series "Guns"
+	index 02020
+	cost 520000
+	thumbnail "outfit/tripulse shredder"
+	"mass" 42
+	"outfit space" -42
+	"weapon capacity" -42
+	"gun ports" -1
+	weapon
+		sprite "projectile/pulse"
+		sound "pulse"
+		"hit effect" "pulse impact"
+		"inaccuracy" 5
+		"velocity" 15
+		"lifetime" 30
+		"reload" 6
+		"burst count" 36
+		"burst reload" 4
+		"cluster"
+		"firing energy" 25
+		"firing heat" 60
+		"shield damage" 45
+		"hull damage" 34
+	description "На ранней стадии разработки лучшего и более быстрого оружия, конкурирующего с оружием Странников, Трипульс Шреддер состоит из трех Пульсовых пушек в одном корпусе. Улучшения в возможностях охлаждения уменьшили тепло, генерируемое каждым выстрелом, за счет увеличения мощности. Кроме того, единый общий корпус приводит к менее последовательной схеме стрельбы, ограничивая ее разрывами. Эти факторы сделали Tripulse Shredder популярным ударным оружием среди Unfettered."
+
+effect "pulse impact"
+	sprite "effect/pulse impact"
+		"no repeat"
+		"frame rate" 10
+	"lifetime" 20
+	"random angle" 360
+	"random spin" 4
+	"random velocity" .6
+	"velocity scale" -.1
+
+
+outfit "Ion Cannon"
+	category "Guns"
+	series "Guns"
+	index 02030
+	cost 490000
+	thumbnail "outfit/ion cannon"
+	"mass" 47
+	"outfit space" -47
+	"weapon capacity" -47
+	"gun ports" -1
+	weapon
+		sprite "projectile/ion bolt"
+			"frame rate" 5
+		sound "ion"
+		"hit effect" "ion impact" 2
+		"inaccuracy" 1
+		"velocity" 16
+		"lifetime" 50
+		"reload" 60
+		"firing energy" 120
+		"firing force" 15
+		"firing heat" 150
+		"hit force" 180
+		"shield damage" 168
+		"hull damage" 60
+		"ion damage" 6
+		"scrambling damage" 6
+	description "Ионные пушки не наносят такого большого ущерба, как некоторые другие виды оружия, но они разрушают электрические системы на любом корабле, который они поражают, истощая его энергию и заставляя его оружие заклинивать. Если у корабля есть значительные запасы батареи, это может иметь небольшой эффект, но для корабля, работающего вблизи его энергоемкости, ионный удар может вывести его из боя в течение нескольких секунд, пока он восстанавливается, или иным образом вызвать у него трудности с стрельбой из своего оружия."
+
+effect "ion impact"
+	sprite "effect/ion impact"
+		"no repeat"
+		"frame rate" 30
+	sound "ion impact"
+	"lifetime" 9
+	"random angle" 360
+	"random spin" 30
+	"random velocity" 2
+	"velocity scale" -.05
+
+
+outfit "Ionic Blaster Prototype"
+	category "Guns"
+	series "Guns"
+	index 02040
+	cost 530000
+	thumbnail "outfit/hai ionic blaster"
+	"mass" 19
+	"outfit space" -19
+	"weapon capacity" -19
+	"gun ports" -1
+	weapon
+		sprite "projectile/ionic blast"
+			"frame rate" 5
+		sound "ionic blast"
+		"hit effect" "ion impact"
+		"inaccuracy" 4
+		"velocity" 18
+		"lifetime" 30
+		"reload" 30
+		"firing energy" 72
+		"firing force" 18
+		"firing heat" 108
+		"hit force" 108
+		"shield damage" 70
+		"hull damage" 30
+		"ion damage" .5
+		"scrambling damage" 1.45
+	description "Неограниченный конфликт с остальными хайцами оказал на них давление, чтобы получить технологическое преимущество, несмотря на их ограниченные ресурсы. Ионический Бластер является результатом этого давления. Он намного меньше, чем почтенная ионная пушка, а также наносит больший ущерб своим размерам. Он также все еще способен применять некоторые из тех же эффектов, но ученые подтолкнули его к более высокому относительному фокусу на подавление вражеского оружия."
+
+outfit "Ionic Turret Prototype"
+	category "Turrets"
+	series "Turrets"
+	index 02020
+	cost 1260000
+	thumbnail "outfit/hai ionic turret"
+	"mass" 58
+	"outfit space" -58
+	"weapon capacity" -58
+	"turret mounts" -1
+	"required crew" 1
+	weapon
+		sprite "projectile/ionic turret"
+			"frame rate" 20
+		"fade out" 10
+		"hardpoint sprite" "hardpoint/hai ionic turret"
+		"hardpoint offset" 16.
+		sound "ion"
+		"hit effect" "ionic impact" 5
+		"inaccuracy" 2
+		"turret turn" 1.4
+		"velocity" 12
+		"lifetime" 70
+		"reload" 70
+		"firing energy" 371
+		"firing force" 12
+		"firing heat" 259
+		"hit force" 90
+		"shield damage" 100
+		"hull damage" 50
+		"ion damage" 17.5
+		"scrambling damage" 10
+	description "Это оружие значительно улучшает возможности ионизации ионной пушки, при этом нанося меньше необработанных повреждений и не имея почти глушения оружия. Однако он также установлен на башне, что позволяет ему стрелять по врагам в любом направлении, а не только по тем, кто непосредственно впереди."
+	description "Этот дизайн еще не может быть серийным, но те, которые были произведены, ценятся теми немногими, кому посчастливилось владеть ими."
+
+effect "ionic impact"
+	sprite "effect/ionic impact"
+		"no repeat"
+		"frame rate" 30
+	sound "ion impact"
+	"lifetime" 9
+	"random angle" 360
+	"random spin" 30
+	"random velocity" 2
+	"velocity scale" -.05
+
+outfit "Railgun Slug"
+	"display name" "Skipper Railgun Slug"
+	category "Ammunition"
+	series "Ammunition"
+	index 02020
+	cost 13
+	thumbnail "outfit/railslug"
+	"mass" 0.003
+	"railgun slug capacity" -1
+	description "Шкипер Рэйлгун Слизни включают в себя разряжающие энергию конденсаторы, которые наносят небольшое количество ионных повреждений своей цели. Хотя и не очень повреждает, это повреждение ионов в сочетании со значительной отдачей, что каждый выстрел имеет повороты. Блошиные беспилотники в эффективные корабли поддержки на большие расстояния."
+
+outfit "Railgun Slug Rack"
+	"display name" "Skipper Slug Rack"
+	category "Ammunition"
+	series "Ammunition"
+	index 02021
+	cost 15000
+	thumbnail "outfit/railslug rack"
+	"mass" 1
+	"outfit space" -3
+	"railgun slug capacity" 500
+	ammo "Railgun Slug"
+	description "Эта рельсотронная стойка используется для хранения и загрузки дополнительных боеприпасов Skipper Railgun."
+
+outfit "Railgun"
+	"display name" "Skipper Railgun"
+	category "Secondary Weapons"
+	series "Secondary Weapons"
+	index 02020
+	cost 20000
+	thumbnail "outfit/railgun"
+	"mass" 1
+	"outfit space" -4
+	"weapon capacity" -4
+	"gun ports" -1
+	"railgun slug capacity" 1000
+	weapon
+		sprite "projectile/rail slug"
+			"frame rate" 30
+		ammo "Railgun Slug"
+		icon "icon/rail gun"
+		sound "ion impact"
+		"fire effect" "rail sparks"
+		"hit effect" "bullet impact"
+		"inaccuracy" 3
+		"velocity" 44
+		"lifetime" 1
+		"range override" 2100
+		"reload" 12
+		"firing energy" 3.5
+		"firing heat" 7.2
+		"firing force" 105
+		"stream"
+		"submunition" "rslug" 1
+	description "Хай разработал это оружие, чтобы наилучшим образом дополнить свои дроны. Каждый Шкипер Railgun обеспечивает значительное количество силы при стрельбе, толкая дрон Flea назад и, следовательно, заставляя его держаться на расстоянии от цели."
+	description "Пилоты блошиных беспилотников шутят, что они обеспечивают большую тягу, чем двигатели аналогичного размера, поэтому Unfettered должен использовать их на задней части своих кораблей. В шутке, которую многие пропускают, вероятно, есть культурная составляющая, потому что она рассказывается довольно часто, и Хай истерически смеется над ней - каждый раз."
+	description "Боеприпасы для этого оружия можно пополнить в любом снаряжении."
+		to display
+			has "gamerule: universal ammo restocking"
+
+outfit "rslug"
+	weapon
+		sprite "projectile/rail slug"
+			"frame rate" 30
+		"hit effect" "bullet impact"
+		"lifetime" 49
+		"acceleration" 2.2
+		"drag" .05
+		"turn" .6
+		"homing"
+			"blindspot"
+		"optical tracking" .4
+		"shield damage" 4.2
+		"hull damage" 8.4
+		"ion damage" .3
+		"scrambling damage" .3
+		"hit force" 22.5
+
+effect "rail sparks"
+	sprite "effect/railspark"
+		"random start frame"
+		"frame rate" 30
+		"rewind"
+	"lifetime" 6
+	"random angle" 360
+	"random spin" 30
+	"velocity scale" 1.2
+
+outfitter "Railgun Slug Restock"
+	to sell
+		has "gamerule: universal ammo restocking"
+		or
+			has "outfit: Railgun"
+			has "outfit: Railgun Slug Rack"
+	location
+		attributes "outfitter"
+	stock
+		"Railgun Slug"
+
+
+outfit "Hai Tracker"
+	category "Ammunition"
+	series "Ammunition"
+	index 02010
+	cost 1000
+	thumbnail "outfit/hai tracker"
+	"mass" .2
+	"tracker capacity" -1
+	description "Это боеприпас для следопыта."
+
+outfit "Tracker Storage Pod"
+	category "Ammunition"
+	series "Ammunition"
+	index 02011
+	cost 28000
+	thumbnail "outfit/hai tracker storage"
+	"mass" 4.4
+	"outfit space" -10
+	"tracker capacity" 28
+	ammo "Hai Tracker"
+	description "Подушка хранения Tracker используется для хранения дополнительных боеприпасов для стручков Tracker."
+
+outfit "Hai Tracker Pod"
+	category "Secondary Weapons"
+	series "Secondary Weapons"
+	index 02010
+	cost 150000
+	thumbnail "outfit/hai tracker pod"
+	"mass" 8
+	"outfit space" -19
+	"weapon capacity" -19
+	"gun ports" -1
+	"tracker capacity" 56
+	weapon
+		sprite "projectile/tracker"
+			"frame rate" 10
+			"random start frame"
+		sound "tracker"
+		ammo "Hai Tracker"
+		icon "icon/tracker"
+		"fire effect" "tracker fire"
+		"hit effect" "tracker impact"
+		"hit effect" "tracker cloud" 3
+		"die effect" "tracker impact"
+		"inaccuracy" 20
+		"velocity" 14
+		"lifetime" 475
+		"reload" 60
+		"firing energy" 45
+		"firing heat" 5
+		"acceleration" .7
+		"drag" .05
+		"turn" 1.2
+		"homing"
+			"leading"
+			"throttle control"
+		"optical tracking" .8
+		"infrared tracking" .4
+		"shield damage" 200
+		"hull damage" 160
+		"hit force" 525
+		"missile strength" 16
+	description "Трекеры - это быстрое и точное оружие самонаведения. Несмотря на то, что «Следователи» не так мощны, как большинство человеческих ракет, они могут похвастаться значительной ударной силой, помогая предотвратить побег того, кому не повезло оказаться на приемной стороне. Их единственная слабость — большой радиус поворота: если следопыт промахивается мимо цели, ему требуется много времени, чтобы развернуться."
+	description "Боеприпасы для этого оружия можно пополнить в любом снаряжении."
+		to display
+			has "gamerule: universal ammo restocking"
+
+effect "tracker fire"
+	sprite "effect/tracker fire"
+		"no repeat"
+		"frame rate" 8
+	"lifetime" 45
+	"random angle" 5
+	"random spin" 4
+	"random velocity" 10
+
+effect "tracker impact"
+	sprite "effect/tracker impact"
+		"no repeat"
+		"frame rate" 20
+	sound "explosion medium"
+	"lifetime" 16
+	"random angle" 360
+	"random spin" 10
+	"random velocity" .2
+	"velocity scale" -.05
+
+effect "tracker cloud"
+	sprite "effect/tracker cloud"
+		"no repeat"
+		"frame rate" 5
+	"lifetime" 72
+	"random angle" 360
+	"random spin" 8
+	"random velocity" 1
+	"random frame rate" 2
+	"velocity scale" -.1
+
+outfitter "Hai Tracker Restock"
+	to sell
+		has "gamerule: universal ammo restocking"
+		or
+			has "outfit: Hai Tracker Pod"
+			has "outfit: Tracker Storage Pod"
+	location
+		attributes "outfitter"
+	stock
+		"Hai Tracker"
+
+
+outfit "Bullfrog Anti-Missile"
+	category "Turrets"
+	series "Anti-Missile"
+	index 02010
+	cost 55000
+	thumbnail "outfit/anti-missile hai"
+	"mass" 10
+	"outfit space" -10
+	"weapon capacity" -10
+	"turret mounts" -1
+	weapon
+		"hardpoint sprite" "hardpoint/anti-missile hai"
+		"hardpoint offset" 3.
+		"hit effect" "small anti-missile"
+		"anti-missile" 12
+		"velocity" 150
+		"lifetime" 1
+		"reload" 20
+		"firing energy" 12
+		"firing heat" 5
+		"stream"
+	description "Столетия назад Хай сражался с более примитивными версиями Трекера, и это было основной защитой против них. Несмотря на устаревшую конструкцию, он по-прежнему эффективен против небольшого количества новейших ракетных вооружений."
+
+
+outfit "Chameleon Anti-Missile"
+	category "Turrets"
+	series "Anti-Missile"
+	index 02020
+	cost 140000
+	thumbnail "outfit/heavy anti-missile hai"
+	"mass" 22
+	"outfit space" -22
+	"weapon capacity" -22
+	"turret mounts" -1
+	weapon
+		"hardpoint sprite" "hardpoint/heavy anti-missile hai"
+		"hardpoint offset" 4.
+		"hit effect" "large anti-missile"
+		"anti-missile" 16
+		"velocity" 200
+		"lifetime" 1
+		"reload" 15
+		"firing energy" 23
+		"firing heat" 6
+		"stream"
+	description "Противоракетный Хамелеон Башня имеет более длинный диапазон, более высокую мощность и более короткое время перезарядки, чем у Bullfrog."
+
+
+
+outfit "Hai Cuttlefish Jammer"
+	category "Systems"
+	series "Jammers"
+	index 02010
+	cost 260000
+	thumbnail "outfit/hai jammer"
+	"mass" 10
+	"outfit space" -7
+	"optical jamming" 1.5
+	"energy consumption" .8
+	description "Когда Хай впервые начал сражаться друг с другом, необходимость в противостоянии с Трекерами быстро стала очевидной. Куттлфиш Джаммер может заметно нарушить замок Следопыта на корабле, представив ему, казалось бы, лучшую, хотя и иллюзорную цель. Этот глушитель наиболее эффективен на больших кораблях, которые не могут выставить достаточно противоракет для эффективного противодействия ракетам со всех направлений."
+
+outfit "Hai Octopus Jammer"
+	category "Systems"
+	series "Jammers"
+	index 02020
+	cost 350000
+	thumbnail "outfit/hai jammer overclocked"
+	"mass" 10
+	"outfit space" -7
+	"optical jamming" 2
+	"energy consumption" 1.2
+	description "Octopus Jammer — более агрессивная адаптация Cuttlefish Jammer, предназначенная для коротких набегов Неограниченных. Благодаря нескольким обходным схемам безопасности он способен более эффективно обманывать входящие трекеры, но гораздо более высокая стоимость энергии делает любой корабль, несущий это, еще более уязвимым для ионного оружия."
+
+
+outfit "Hai Corundum Regenerator"
+	category "Systems"
+	series "Shields"
+	index 02010
+	cost 300000
+	thumbnail "outfit/small regenerator hai"
+	"mass" 16
+	"outfit space" -16
+	"shield generation" .7
+	"shield energy" .7
+	"energy consumption" .3
+	"shield heat" 3
+	description "Регенераторы щитов Hai работают путем тонкой модификации геометрии и гармоник вашей матрицы щитов, чтобы сделать ваши щиты более податливыми и, следовательно, намного легче подзаряжаться. К сожалению, эта система требует постоянного источника питания и генерирует достаточное количество тепла при регенерации."
+
+outfit "Hai Diamond Regenerator"
+	category "Systems"
+	series "Shields"
+	index 02020
+	cost 1150000
+	thumbnail "outfit/large regenerator hai"
+	"mass" 49
+	"outfit space" -49
+	"shield generation" 2.5
+	"shield energy" 2.5
+	"shield heat" 9
+	"energy consumption" .9
+	description "Hai Diamond Shield Regenerator - это передовая технология подзарядки щитов. К сожалению, его потребности в мощности довольно высоки, и сдвиги, которые он делает в матрице щита, вызывают интенсивное тепло в регенераторе, когда ваши щиты заряжаются. Хай обычно использует охлаждение Williwaw, когда они используют этот регенератор."
+
+outfit "Hai Williwaw Cooling"
+	category "Systems"
+	series "Cooling"
+	index 02010
+	cost 15000
+	thumbnail "outfit/hai williwaw"
+	"mass" 8
+	"outfit space" -8
+	"cooling" 11
+	description "Несмотря на то, что технология Hai довольно эффективна, иногда они снабжают свои корабли таким образом, что они время от времени перегреваются и отключаются. Когда это происходит, они устанавливают их."
+
+outfit "Quantum Keystone"
+	series "Drives"
+	index 50
+	category "Systems"
+	cost 12000
+	thumbnail "outfit/keystone"
+	"mass" 0.1
+	"outfit space" -1
+	"quantum keystone" 1
+	description "Этот кусок скалы с гор на родине Хай, по-видимому, не что иное, как очарование удачи, но хай украшали свои корабли с высоты своей империи. Более суеверный Хай утверждает, что камни каким-то образом уменьшают тошноту, вызванную гиперпространственными прыжками, облегчая путешествие между звездными системами, и многие богатые хай отказываются бронировать проход на корабле без него."
+	description "Этот краеугольный камень поставляется с пакетом, включающим сертификат подлинности холофильма, удостоверяющий его происхождение на Hai-home, декоративную, но прочную раму и крошечную табличку с логотипом и номером продажи на ней. Упаковка предполагает установку рамного сертификата в видном месте рядом с основным воздушным шлюзом или общественной общей зоной."
+
+outfit "Value Detector"
+	category "Systems"
+	series "Scanners"
+	index 02010
+	cost 260000
+	thumbnail "outfit/value detector"
+	"mass" 5
+	"outfit space" -5
+	"cargo scan power" 75
+	"cargo scan efficiency" 10
+	"tactical scan power" 35
+	"heat generation" 2
+	description "Unfettered разработал этот сканер, чтобы определить, какие корабли стоит грабить, а какие нет. Некоторые хайцы считают его довольно рудиментарным, но достаточно идентифицировать груз на корабле издалека и предоставить более подробную информацию о тактическом состоянии судов противника. Эта двойная функция полезна при развертывании экспериментального оружия."
+
+outfit "Hai Chasm Batteries"
+	plural "Hai Chasm Batteries"
+	category "Power"
+	series "Batteries"
+	index 02010
+	cost 7000
+	thumbnail "outfit/tiny battery hai"
+	"mass" 5
+	"outfit space" -5
+	"energy capacity" 2164
+	description "Технология хранения энергии Hai существует тысячи лет, но удивительно проста и надежна. Это самая маленькая батарея Hai."
+
+outfit "Hai Fissure Batteries"
+	plural "Hai Fissure Batteries"
+	category "Power"
+	series "Batteries"
+	index 02020
+	cost 11000
+	thumbnail "outfit/small battery hai"
+	"mass" 15
+	"outfit space" -15
+	"energy capacity" 6836
+	description "Эта батарея имеет более чем в три раза больше энергии, чем батареи Hai Chasm, что позволяет их кораблям вступать в бой в течение более длительных периодов времени."
+
+outfit "Hai Gorge Batteries"
+	plural "Hai Gorge Batteries"
+	category "Power"
+	series "Batteries"
+	index 02030
+	cost 25000
+	thumbnail "outfit/medium battery hai"
+	"mass" 30
+	"outfit space" -30
+	"energy capacity" 15044
+	description "Этот аккумулятор среднего размера идеально подходит для большинства потребностей в мощности Hai, что позволяет вести боевые действия средней длины, но также может использоваться для поддержания низкого теплового следа корабля с небольшим генератором мощности и негабаритными двигателями."
+
+outfit "Hai Ravine Batteries"
+	plural "Hai Ravine Batteries"
+	category "Power"
+	series "Batteries"
+	index 02040
+	cost 47000
+	thumbnail "outfit/large battery hai"
+	"mass" 50
+	"outfit space" -50
+	"energy capacity" 27350
+	description "Этот большой аккумулятор может похвастаться более высокой плотностью энергии, чем небольшие модели, и помогает держать корабли в боевых действиях, несмотря на несколько ударов Ионной пушки."
+
+outfit "Hai Valley Batteries"
+	plural "Hai Valley Batteries"
+	category "Power"
+	series "Batteries"
+	index 02050
+	cost 74000
+	thumbnail "outfit/huge battery hai"
+	"mass" 70
+	"outfit space" -70
+	"energy capacity" 42222
+	description "Хотя большинство Корабли Hai не используют свою самую большую модель батареи, несколько очень мощных военных кораблей иногда оснащены одним, что позволяет им дольше выживать в борьбе с противниками, несущими ионные пушки."
+
+
+outfit "Boulder Reactor"
+	category "Power"
+	series "Generators"
+	index 02040
+	cost 5750000
+	thumbnail "outfit/hai boulder"
+	"mass" 90
+	"outfit space" -90
+	"energy generation" 17.3
+	"heat generation" 34
+	description "Хай спроектировал эти миниатюрные термоядерные генераторы, когда их территория была захвачена Коратхом. В эти относительно мирные времена они не видели необходимости обновлять дизайн."
+
+outfit "Geode Reactor"
+	category "Power"
+	series "Generators"
+	index 02030
+	cost 1750000
+	thumbnail "outfit/hai geode"
+	"mass" 58
+	"outfit space" -58
+	"energy generation" 8.9
+	"heat generation" 21.2
+	description "Реакторы деления считаются рудиментарной технологией среди межзвездных видов. Тем не менее, это проверенная и безопасная технология, которую даже хай используют довольно регулярно."
+
+outfit "Pebble Core"
+	category "Power"
+	series "Generators"
+	index 02020
+	cost 1050000
+	thumbnail "outfit/hai pebble core"
+	"mass" 32
+	"outfit space" -32
+	"energy generation" 4.5
+	"heat generation" 11.9
+	description "Pebble Core - это миниатюрный ядерный реактор, достаточно маленький, чтобы его можно было установить на любом корабле, большем, чем истребитель. Хаи разработали эту модель для своих небольших кораблей."
+
+outfit "Sand Cell"
+	category "Power"
+	series "Generators"
+	index 02010
+	cost 45000
+	thumbnail "outfit/fuel cell hai"
+	"mass" 24
+	"outfit space" -24
+	"energy generation" 1.65
+	"heat generation" 2.45
+	description "Песчаная ячейка — самый маленький генератор Хай. Он был разработан для кораблей, которые не нуждаются или не могут нести ядерный реактор, и он явно напоминает человеческие топливные элементы."
+
+
+outfit `"Baellie" Atomic Engines`
+	plural `"Baellie" Atomic Engines`
+	category "Engines"
+	series "Engines"
+	index 02010
+	"cost" 230000
+	thumbnail "outfit/tiny atomic engines hai"
+	"mass" 22
+	"outfit space" -22
+	"engine capacity" -22
+	"thrust" 14.7
+	"thrusting energy" .87
+	"thrusting heat" 1.7
+	"turn" 366
+	"turning energy" .64
+	"turning heat" 1.28
+	"flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 14
+		"scale" 0.8
+	"flare sound" "atomic tiny"
+	"steering flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 14
+		"scale" 0.8
+	"steering flare sound" "atomic tiny"
+	description `В то время как Хай разрабатывал блоху, быстро стало очевидно, что даже двигатель «Басрем» был слишком большим для этой цели. В результате был создан комбинированный набор рулевого управления двигателем: «Баэлли»`
+
+outfit `"Basrem" Atomic Thruster`
+	category "Engines"
+	series "Engines"
+	index 02021
+	"cost" 150000
+	thumbnail "outfit/tiny atomic thruster hai"
+	"mass" 18
+	"outfit space" -18
+	"engine capacity" -18
+	"thrust" 22.83
+	"thrusting energy" 1.4
+	"thrusting heat" 2.8
+	"flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 14
+		"scale" 0.8
+	"flare sound" "atomic tiny"
+	description "Без ведома ученых Глубины, Хаи использовали технологию атомного двигателя в течение многих тысячелетий. Атомные двигатели Hai по-прежнему гораздо более энергоемкие, чем другие двигатели, но демонстрируют большую эффективность, чем их человеческие аналоги."
+
+outfit `"Benga" Atomic Thruster`
+	category "Engines"
+	series "Engines"
+	index 02031
+	"cost" 300000
+	thumbnail "outfit/small atomic thruster hai"
+	"mass" 28
+	"outfit space" -28
+	"engine capacity" -28
+	"thrust" 37.725
+	"thrusting energy" 2.5
+	"thrusting heat" 4.8
+	"flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 14
+	"flare sound" "atomic tiny"
+	description "В отличие от человеческого пространства, где атомные двигатели являются редким зрелищем и роскошью, многие годы пребывания в относительно небольшом кармане Галактики позволили всем кораблям Hai быть оснащенными атомными двигателями."
+
+outfit `"Biroo" Atomic Thruster`
+	category "Engines"
+	series "Engines"
+	index 02041
+	"cost" 610000
+	thumbnail "outfit/medium atomic thruster hai"
+	"mass" 44
+	"outfit space" -44
+	"engine capacity" -44
+	"thrust" 62.475
+	"thrusting energy" 4
+	"thrusting heat" 8.2
+	"flare sprite" "effect/atomic flare/small"
+		"frame rate" 13
+	"flare sound" "atomic small"
+	description "Этот двигатель является стандартным на большинстве Hai легкие военные корабли, обеспечивая достаточную тягу, чтобы сделать их пригодными для использования в бою, но он не достаточно большой, чтобы достаточно для чего-то такого большого, как Hai Shield Beetle."
+
+outfit `"Bondir" Atomic Thruster`
+	category "Engines"
+	series "Engines"
+	index 02051
+	"cost" 1100000
+	thumbnail "outfit/large atomic thruster hai"
+	"mass" 63
+	"outfit space" -63
+	"engine capacity" -63
+	"thrust" 94.2
+	"thrusting energy" 6.1
+	"thrusting heat" 12.7
+	"flare sprite" "effect/atomic flare/medium"
+		"frame rate" 12
+	"flare sound" "atomic medium"
+	description "В то время как Deep Sky занималась разработкой боевых атомных двигателей, Hai работали над тем, чтобы сделать их еще лучше. Из-за этого атомные двигатели Hai очень эффективны по сравнению с их человеческими вариантами, требуя меньше энергии для огня и производства меньше тепла в процессе."
+
+outfit `"Bufaer" Atomic Thruster`
+	category "Engines"
+	series "Engines"
+	index 02061
+	"cost" 2400000
+	thumbnail "outfit/huge atomic thruster hai"
+	"mass" 104
+	"outfit space" -104
+	"engine capacity" -104
+	"thrust" 163.275
+	"thrusting energy" 10.4
+	"thrusting heat" 22.6
+	"flare sprite" "effect/atomic flare/large"
+		"frame rate" 11
+	"flare sound" "atomic large"
+	description "Эти двигатели являются крупнейшими из атомных двигателей Hai и одними из самых мощных в известном космосе. Избитые только самыми большими человеческими атомными двигателями, эти массивные двигатели обеспечивают достаточную тягу, чтобы толкать даже самые большие корабли, как если бы они были истребителями."
+
+outfit `"Basrem" Reverse Thruster`
+	category "Engines"
+	series "Engines"
+	index 02022
+	"cost" 150000
+	thumbnail "outfit/tiny atomic reverse hai"
+	"mass" 18
+	"outfit space" -18
+	"weapon capacity" -18
+	"reverse thrust" 22.83
+	"reverse thrusting energy" 1.4
+	"reverse thrusting heat" 2.8
+	"reverse flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 14
+		"scale" 0.8
+	"reverse flare sound" "atomic tiny"
+	description `Крошечные обратные штурвалы «Басрем» обеспечивают даже самым маленьким кораблям «Хай» дополнительную маневренность за пределами обычного рулевого управления. Многие молодые хай находят это бесценным вложением, когда впервые отправляются в путь самостоятельно.`
+
+outfit `"Benga" Reverse Thruster`
+	category "Engines"
+	series "Engines"
+	index 02032
+	"cost" 300000
+	thumbnail "outfit/small atomic reverse hai"
+	"mass" 28
+	"outfit space" -28
+	"weapon capacity" -28
+	"reverse thrust" 37.725
+	"reverse thrusting energy" 2.5
+	"reverse thrusting heat" 4.8
+	"reverse flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 14
+	"reverse flare sound" "atomic tiny"
+	description "Учитывая, что они стоят больших затрат, многие пилоты грузовых судов Hai устанавливают реверсивные двигатели, такие как эти, чтобы дополнить часто плохое рулевое управление на более крупных судах Hai."
+
+outfit `"Biroo" Reverse Thruster`
+	category "Engines"
+	series "Engines"
+	index 02042
+	"cost" 610000
+	thumbnail "outfit/medium atomic reverse hai"
+	"mass" 44
+	"outfit space" -44
+	"weapon capacity" -44
+	"reverse thrust" 62.475
+	"reverse thrusting energy" 4
+	"reverse thrusting heat" 8.2
+	"reverse flare sprite" "effect/atomic flare/small"
+		"frame rate" 13
+	"reverse flare sound" "atomic small"
+	description "Поскольку пилоты обычно предпочитают фокусироваться на рулевом управлении, когда требуется фактическая маневренность, это самые большие реверсивные двигатели, которые предлагает Hai. Они по-прежнему могут похвастаться внушительным количеством мощности для своих размеров, что позволяет даже самым большим. Корабли Hai быстро останавливаются, когда это необходимо."
+
+outfit `"Basrem" Atomic Steering`
+	category "Engines"
+	series "Engines"
+	index 02020
+	"cost" 120000
+	thumbnail "outfit/tiny atomic steering hai"
+	"mass" 12
+	"outfit space" -12
+	"engine capacity" -12
+	"turn" 451.5
+	"turning energy" .7
+	"turning heat" 1.5
+	"steering flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 14
+		"scale" 0.8
+	"steering flare sound" "atomic tiny"
+	description "Атомные двигатели Hai слишком дороги для большинства людей. Все, кроме самых маленьких двигателей, стоят больше, чем многие из самых распространенных кораблей, летающих в человеческом пространстве."
+
+outfit `"Benga" Atomic Steering`
+	category "Engines"
+	series "Engines"
+	index 02030
+	"cost" 250000
+	thumbnail "outfit/small atomic steering hai"
+	"mass" 20
+	"outfit space" -20
+	"engine capacity" -20
+	"turn" 844.5
+	"turning energy" 1.1
+	"turning heat" 2.85
+	"steering flare sprite" "effect/atomic flare/tiny"
+		"frame rate" 14
+	"steering flare sound" "atomic tiny"
+	description "Атомные двигатели Hai позволяют создавать одни из самых настраиваемых кораблей в известном пространстве из-за их размера и эффективности. Немногие люди, способные накопить достаточно денег, чтобы купить комплект двигателей Hai, обычно поражают других в человеческом пространстве эффективностью своего корабля."
+
+outfit `"Biroo" Atomic Steering`
+	category "Engines"
+	series "Engines"
+	index 02040
+	"cost" 530000
+	thumbnail "outfit/medium atomic steering hai"
+	"mass" 32
+	"outfit space" -32
+	"engine capacity" -32
+	"turn" 1542
+	"turning energy" 2.0
+	"turning heat" 5.1
+	"steering flare sprite" "effect/atomic flare/small"
+		"frame rate" 13
+	"steering flare sound" "atomic small"
+	description "Наличие таких мощных двигателей является обоюдоострым мечом для хай, поскольку неограниченный хай тоже владеет этими мощными чудесами. Эти двигатели позволяют большинству кораблей Hai вращаться с удивительной скоростью, что делает их чрезвычайно смертоносными в бою."
+
+outfit `"Bondir" Atomic Steering`
+	category "Engines"
+	series "Engines"
+	index 02050
+	"cost" 950000
+	thumbnail "outfit/large atomic steering hai"
+	"mass" 49
+	"outfit space" -49
+	"engine capacity" -49
+	"turn" 2571
+	"turning energy" 3.2
+	"turning heat" 8.2
+	"steering flare sprite" "effect/atomic flare/medium"
+		"frame rate" 12
+	"steering flare sound" "atomic medium"
+	description "Зарезервированные для специального использования на небольшом количестве кораблей Hai, эти двигатели являются одними из самых дорогих нарядов, которые можно купить. Значительно более эффективный, чем любой другой двигатель такого же размера, атомные двигатели Hai являются выбором для тех, кто нуждается в высокой скорости поворота."
+
+outfit `"Bufaer" Atomic Steering`
+	category "Engines"
+	series "Engines"
+	index 02060
+	"cost" 2100000
+	thumbnail "outfit/huge atomic steering hai"
+	"mass" 76
+	"outfit space" -76
+	"engine capacity" -76
+	"turn" 4450.5
+	"turning energy" 5.2
+	"turning heat" 13.8
+	"steering flare sprite" "effect/atomic flare/large"
+		"frame rate" 11
+	"steering flare sound" "atomic large"
+	description "Девять из десяти капитанов-людей, опрошенных в космосе, говорят, что в любой день они выберут атомные двигатели Хай, а не Deep Sky."
+
+
+outfit "Pulse Rifle"
+	category "Hand to Hand"
+	series "H2H"
+	index 02010
+	cost 11000
+	thumbnail "outfit/hai rifle"
+	"capture attack" .7
+	"capture defense" 1.0
+	"unplunderable" 1
+	description "Пульсовая винтовка была впервые разработана Хай, чтобы помочь защитить свои корабли от посадок во время рейдов Кората. Хотя с тех пор он был адаптирован для более эффективной выведения из строя своей цели, если несколько болтов приземляются быстро, накопленный заряд оказывает летальное воздействие на нервную систему большинства видов."
+
+
+outfit "Shield Beetle Pendant"
+	category "Unique"
+	series "Functional Unique"
+	index 30
+	thumbnail "outfit/crystal pendant"
+	"quantum keystone" 1
+	"unique" 1
+	description "Подвеска, сделанная из тех же кристаллических камней, найденных на родине Хай, изготовленная в честь Щитового Жука. Подарок от Наначи."
+	description "Он поставляется с тонко обработанным освещенным теневым ящиком, чтобы его можно было устанавливать и отображать с гордостью. Трио монтажных кронштейнов - миниатюры тех, которые используются на Quantum Keystones - обеспечивают надежный якорь для обеспечения безопасности кулона."

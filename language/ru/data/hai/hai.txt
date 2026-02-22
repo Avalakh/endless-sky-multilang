@@ -1,0 +1,826 @@
+# Copyright (c) 2014-2016 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+# For Hai shipyards their "Advanced" ships are restricted to the planets where the ships are actually manufactured.
+# In the case of "Intermediate" shipyards being required, those should be restricted to planets with substantial industrial bases.
+# The basics are those which can (but might not) be exported and sold pretty much anywhere that could provide reasonable maintenance services.
+
+# Imo Loo Mer Corp shipyards:
+shipyard "Imo Loo Mer Basics"
+	"Scarab"
+	"Lightning Bug"
+
+shipyard "Imo Loo Mer Advanced"
+	"Centipede"
+	"Geocoris"
+
+
+# Mon Ki o'Uden Splinter (unfettered) shipyards:
+shipyard "Mon Ki o'Uden Advanced"
+	"Aphid (Unfettered)"
+	"Lightning Bug (Unfettered Shipyards)"	#Stolen
+	"Sea Scorpion"
+	"Shield Beetle (Unfettered Shipyards)"
+	# Has "Solifuge" and "Violin Spider" added by event.
+	# Technically has the specs for the "Ladybug" but not the resources to build it.
+
+
+# Mon Ki i'Hiya Consortium (loyalist) shipyards:
+shipyard "Mon Ki i'Hiya Basics"
+	"Aphid"
+	# Has "Ladybug" & "Flea" added by event.
+
+shipyard "Mon Ki i'Hiya Advanced"
+	"Shield Beetle"
+	# Has "Pond Strider" added by event.
+
+
+# Yeer e Ki Cooperative shipyards:
+shipyard "Yeer e Ki Basics"
+	"Aphid"
+	"Grasshopper"
+
+shipyard "Yeer e Ki Advanced"
+	"Water Bug"
+	"Cicada"
+
+
+outfitter "Hai Basics"
+	"Pulse Cannon"
+	"Hai Tracker"
+	"Bullfrog Anti-Missile"
+	"Geode Reactor"
+	"Hai Williwaw Cooling"
+	"Hyperdrive"
+	"Hai Chasm Batteries"
+	"Hai Fissure Batteries"
+	"Supercapacitor"
+	"Cargo Expansion"
+	"Small Bunk Room"
+	"Fuel Pod"
+	"Hai Corundum Regenerator"
+	`"Basrem" Reverse Thruster`
+	`"Basrem" Atomic Thruster`
+	`"Basrem" Atomic Steering`
+	"Local Map"
+	"Quantum Keystone"
+	"Pulse Rifle"
+
+outfitter "Hai Intermediate"
+	"Pulse Cannon"
+	"Pulse Turret"
+	"Hai Tracker"
+	"Hai Tracker Pod"
+	"Tracker Storage Pod"
+	"Bullfrog Anti-Missile"
+	"Chameleon Anti-Missile"
+	"Hai Cuttlefish Jammer"
+	"Pebble Core"
+	"Geode Reactor"
+	"Hai Williwaw Cooling"
+	"Hyperdrive"
+	"Hai Chasm Batteries"
+	"Hai Fissure Batteries"
+	"Hai Gorge Batteries"
+	"Supercapacitor"
+	"Outfits Expansion"
+	"Cargo Expansion"
+	"Small Bunk Room"
+	"Bunk Room"
+	"Fuel Pod"
+	"Hai Corundum Regenerator"
+	`"Basrem" Reverse Thruster`
+	`"Basrem" Atomic Thruster`
+	`"Basrem" Atomic Steering`
+	`"Benga" Reverse Thruster`
+	`"Benga" Atomic Thruster`
+	`"Benga" Atomic Steering`
+	`"Biroo" Reverse Thruster`
+	`"Biroo" Atomic Thruster`
+	`"Biroo" Atomic Steering`
+	"Local Map"
+	"Quantum Keystone"
+	"Pulse Rifle"
+	"Outfit Scanner"
+	"Cargo Scanner"
+	"Sand Cell"
+
+outfitter "Hai Advanced"
+	"Pulse Cannon"
+	"Ion Cannon"
+	"Pulse Turret"
+	"Hai Tracker"
+	"Hai Tracker Pod"
+	"Tracker Storage Pod"
+	"Bullfrog Anti-Missile"
+	"Chameleon Anti-Missile"
+	"Hai Cuttlefish Jammer"
+	"Pebble Core"
+	"Geode Reactor"
+	"Boulder Reactor"
+	"Hai Williwaw Cooling"
+	"Hyperdrive"
+	"Hai Chasm Batteries"
+	"Hai Fissure Batteries"
+	"Hai Gorge Batteries"
+	"Hai Ravine Batteries"
+	"Hai Valley Batteries"
+	"Supercapacitor"
+	"Outfits Expansion"
+	"Cargo Expansion"
+	"Small Bunk Room"
+	"Bunk Room"
+	"Fuel Pod"
+	"Hai Corundum Regenerator"
+	"Hai Diamond Regenerator"
+	`"Basrem" Reverse Thruster`
+	`"Basrem" Atomic Thruster`
+	`"Basrem" Atomic Steering`
+	`"Benga" Reverse Thruster`
+	`"Benga" Atomic Thruster`
+	`"Benga" Atomic Steering`
+	`"Biroo" Reverse Thruster`
+	`"Biroo" Atomic Thruster`
+	`"Biroo" Atomic Steering`
+	`"Bondir" Atomic Thruster`
+	`"Bondir" Atomic Steering`
+	`"Bufaer" Atomic Thruster`
+	`"Bufaer" Atomic Steering`
+	"Luxury Accommodations"
+	"Local Map"
+	"Quantum Keystone"
+	"Pulse Rifle"
+	"Outfit Scanner"
+	"Cargo Scanner"
+	"Sand Cell"
+
+outfitter "Hai-home Only"
+	"Holovid Zone"
+
+outfitter "Unfettered Basics"
+	"Pulse Cannon"
+	"Hai Tracker"
+	"Bullfrog Anti-Missile"
+	"Hai Octopus Jammer"
+	"Sand Cell"
+	"Geode Reactor"
+	"Hai Williwaw Cooling"
+	"Hyperdrive"
+	"Hai Chasm Batteries"
+	"Hai Fissure Batteries"
+	"Supercapacitor"
+	"Cargo Expansion"
+	"Small Bunk Room"
+	"Fuel Pod"
+	"Hai Corundum Regenerator"
+	`"Basrem" Atomic Thruster`
+	`"Basrem" Atomic Steering`
+	"Value Detector"
+	"Local Map"
+	"Quantum Keystone"
+	"Pulse Rifle"
+	"Asteroid Scanner"
+	"Outfit Scanner"
+	"Phantom Pallet"
+
+# For ships, stations, or corporations.
+phrase "hai"
+	word
+		"Ёр"
+		"Вах ""
+		"Душа"
+		"Мон"
+		"Люф"
+		"Вай"
+		"Вау"
+		"Далеко"
+		"Йот"
+		"Имо"
+	word
+		"  " 2
+		" e " 2
+		" Короткий "
+		" Йо "
+		" Сук "
+		" Вуа "
+		" Уд "
+		" Лоу "
+	word
+		"Лоу"
+		"Эх"
+		"Вау"
+		"Привет"
+		"Лур"
+		"Сеньор"
+		"Бин"
+		"Бах"
+		"Ки" 2
+		"Кровоток"
+		"Тис"
+		"Скажи"
+		"Привет"
+		"Чхве"
+		"Гип"
+		"Ура"
+		"Меркурий"
+		"Ту"
+
+phrase "hai first names"
+	word
+		"Тис"
+		"Скажи"
+		"Привет"
+		"Чхве"
+		"Гип"
+		"Ура"
+		"Меркурий"
+		"Ки"
+		"Ту"
+		"Короткий"
+		"Йо"
+		"Сук"
+		"Вуа"
+		"Лоу"
+		"Эх"
+		"Вау"
+		"Привет"
+		"Лур"
+		"Сеньор"
+		"Бин"
+		"На"
+		"Я"
+		"Оз"
+		"Драгоценный камень"
+		"Мис"
+		"Эй"
+		"Ра"
+		"Дес"
+		"Ай"
+	word
+		"жуткий"
+		"ари"
+		"мах"
+		"тк"
+		"эп"
+		"нем"
+		"ут"
+		"ру"
+		"хар"
+		"на"
+		"ши"
+		"в"
+		"ана"
+		"ама"
+		"охапка"
+		"кей"
+		"йо"
+		"встреча"
+	word
+		"" 9
+		"ару"
+		"сова"
+		"эй"
+		"приманка"
+		"сен"
+		"бин"
+		"чи"
+		"ли"
+		"ри"
+
+phrase "hai last names"
+	word
+		"Ёр"
+		"Вах ""
+		"Дю"
+		"Мон"
+		"Люф"
+		"Вай ""
+		"Вау ""
+		"Далеко"
+		"Йот"
+		"Имо"
+		"Ан ""
+		"Тэд"
+	word
+		"тлеть"
+		"уден"
+		"ару"
+		"сова"
+		"эй"
+		"приманка"
+		"сен"
+		"бин"
+		"чи"
+		"ли"
+		"ри"
+		"ух"
+		"пип"
+
+phrase "unfettered chosen names"
+	word
+		"Он"
+		"Сиси"
+	word
+		"-"
+	word
+		"Йи"
+		"Ра"
+
+phrase "friendly hai"
+	word
+		"Любой "
+		"Каждый "
+		"А "
+	word
+		"искатель "
+		"быть "
+		"приносящий "
+		"разумного бытия "
+		"быть тем, кто предлагает "
+		"быть тем, кто ищет "
+		"быть тем, кто ценит "
+		"тот, кто приносит "
+		"виды, которые предлагают "
+		"виды, которые ищут "
+		"виды, которые ценят "
+		"виды, которые приносят "
+		"существо "
+		"виды "
+		"индивидуальный "
+		"лицо "
+		"чувственное существо "
+	word
+		"мир "
+		"открытое сердце "
+		"миролюбие "
+		"ненасилие "
+		"понимание "
+		"согласование "
+		"гармония "
+		"согласие "
+		"спокойствие "
+	word
+		"и "
+	word
+		"любовь "
+		"нежное сердце "
+		"сострадание "
+		"дружба "
+		"дружба "
+		"благие намерения "
+		"дружеские намерения "
+		"сочувствие "
+		"уход "
+		"доброта "
+	word
+		"приветствуется "
+	word
+		"в пространстве Хай."
+		"на нашей территории."
+		"в наших мирах."
+		"навестить нас."
+		"сосуществовать с нами."
+		"в нашем пространстве."
+		
+phrase "friendly hai"
+	word
+		"Быть желанным "
+	word
+		"в Hai Space"
+		"на нашей территории"
+		"в наших мирах"
+		"среди нас"
+		"в нашем пространстве"
+	word
+		"вы должны "
+		"вы должны "
+		"вы должны "
+		"один должен "
+		"один должен "
+		"один должен "
+	word
+		"поощрять "
+		"приносить "
+		"верить в "
+		"предложение "
+		"искать "
+		"ценность "
+	word
+		"любовь "
+		"нежность "
+		"сострадание "
+		"дружба "
+		"дружба "
+		"благие намерения "
+		"дружеские намерения "
+		"сочувствие "
+		
+	word
+		"и "
+	word
+		"мир."
+		"открытое сердце."
+		"миролюбие."
+		"ненасилие."
+		"понимание."
+		"примирение."
+		"гармония."
+		"согласие."
+		"сотрудничество."
+
+phrase "friendly hai"
+	word
+		"У вас есть какие-нибудь системы охлаждения корабля для торговли? Многие из нас считают их более модными и экзотическими, чем наши вилливо."
+		"Наши принципы запрещают азартные игры, но есть некоторые, которые не могут противостоять искушению."
+		"Пожалуйста, будьте уважительны при обращении с нашими квантовыми камнями. Они являются важным культурным сокровищем хай."
+		"Мы высоко ценим разнообразие технологий космических кораблей. Однако некоторые из ваших более примитивных двигателей должны испытывать ваше терпение."
+		"Мы понимаем, что разные виды имеют разные диеты. Тем не менее, все еще нервирует, что некоторые люди едят белок."
+		"Крикет Zero-g – это увлекательный вид спорта. Хотя мы обнаружили, что играть гораздо интереснее, чем смотреть."
+
+phrase "friendly disabled hai"
+	word
+		"Соратник миротворца"
+		"Человек-посетитель"
+		"Друг"
+	word
+		", "
+	word
+		"пожалуйста, окажите нам помощь"
+		"наш корабль выведен из строя и нуждается в ремонте"
+		"пожалуйста, уделите минутку, чтобы спасти нас"
+	word
+		"."
+		"!"
+
+phrase "hostile hai"
+	word
+		"Ты "
+	word
+		" прийти "
+		" введенный "
+	word
+		" Хай "
+		" наш "
+	word
+		"пространство"
+		"территория"
+		"миры"
+	word
+		" с "
+	word
+		"нечистый"
+		"нечистый"
+		"испорченный"
+		"грязный"
+		"стыдливый"
+		"насильственный"
+		"жадный"
+		"аморальный"
+		"воинственный"
+		"жестокий"
+		"жестокий"
+		"бессердечный"
+	word
+		"  "
+	word
+		"мысли"
+		"убеждения"
+		"принципы"
+		"намерения"
+		"решать"
+	word
+		"мы "
+		". Мы "
+	word
+		"должен "
+		"приходится "
+		"у меня нет выбора, кроме как "
+	word
+		"выгнать тебя"
+		"изгнать тебя"
+		"исключить"
+		"удалить тебя"
+	word
+		" из "
+	word
+		"Хай "
+		"наш "
+	word
+		"космос."
+		"территории."
+		"миры."
+
+phrase "hostile disabled hai"
+	word
+		"Ты "
+	word
+		"нечистый"
+		"нечистый"
+		"испорченный"
+		"грязный"
+		"стыдливый"
+		"насильственный"
+		"жадный"
+		"аморальный"
+		"воинственный"
+		"жестокий"
+		"жестокий"
+		"бессердечный"
+	word
+		"  "
+	word
+		"человек"
+		"существо"
+		"вещь"
+		"быть"
+	word
+		". "
+		"! "
+	word
+		" Мы предоставили вам убежище, а вы предали нас."
+		" Мы были для вас мирными, но вы не ответили взаимностью."
+		" Мы живем только в мире, а вы приходите с войной."
+		" У тебя нет души?"
+		
+
+phrase "friendly unfettered"
+	word
+		"Мы "
+	word
+		"приветствовать"
+		"принимать"
+		"терпеть"
+	word
+		"  "
+	word
+		"истинный"
+		"сильный"
+		"амбициозный"
+	word
+		"  "
+	word
+		"гонки"
+		"люди"
+		"индивиды"
+	word
+		" которые являются "
+		"  "
+	word
+		"готовый"
+		"желая"
+		"готовый"
+		"желая"
+		"готовый к"
+	word
+		"  "
+	word
+		"помочь"
+		"помощь"
+		"работать с"
+		"поддержка"
+		"следовать"
+		"подчиняться"
+	word
+		" тот "
+	word
+		"истинный"
+		"сильный"
+		"оригинальный"
+		"сильный"
+		"без изменений"
+	word
+		" Хай."
+
+phrase "ship bribe acceptance hai"
+	word
+		"Я"
+		"Мы"
+		"Мы все"
+	word
+		"  "
+	word
+		"чувствовать"
+		"подумайте, что это"
+	word
+		"  "
+	word
+		"стыдливый"
+		"мерзкий"
+	word
+		" работать с вами, "
+	word
+		"но"
+		"хотя"
+	word
+		"  "
+	word
+		"мы сделаем исключение для этого платежа."
+		"мы примем вашу взятку."
+		"мы надеемся, что вы намерены уйти после этого."
+		"мы надеемся, что вы оставите нас в покое после этого."
+
+phrase "ship bribe acceptance hai"
+	word
+		"Я"
+		"Мы"
+	word
+		" будет "
+	word
+		"принимать"
+		"получать"
+		"брать"
+	word
+		" твой "
+	word
+		"пожертвования"
+		"деньги"
+		"платеж"
+	word
+		" на этот раз."
+	word
+		"" 4
+		" В следующий раз вам может не повезти."
+
+phrase "ship bribe rejection hai"
+	word
+		"Хайкинд"
+		"Я"
+		"Хай"
+		"Мы"
+	word
+		"  "
+	word
+		"не может"
+		"не хочу, чтобы"
+		"не может быть"
+		"никогда"
+		"не будет"
+	word
+		"  "
+	word
+		"принимать"
+		"получать"
+		"брать"
+	word
+		"  "
+	word
+		"взятки"
+		"платеж"
+	word
+		" из "
+	word
+		"" 15
+		"завоевание "
+		"доминирующий "
+		"злой "
+		"безнадежный "
+		"невежливый "
+		"бесполезный "
+	word
+		"злодеи"
+		"угнетатели"
+		"пираты"
+		"тираны"
+		"разжигатель войны"
+	word
+		"."
+		"!"
+	replace
+		"evil evildoers" "evildoers"
+
+phrase "friendly disabled unfettered"
+	word
+		"Сильный"
+		"Правда"
+		"Амбициозный"
+		"Достойный"
+	word
+		"  "
+	word
+		"воин"
+		"человек"
+		"союзник"
+	word
+		"! "
+		". "
+	word
+		"Эти слабаки"
+		"Наши враги"
+		"Они"
+	word
+		" иметь "
+	word
+		"инвалиды"
+		"получил лучшее от нас"
+		"мы победили"
+	word
+		"! "
+		". "
+	word
+		"Помогите нам в нашей борьбе"
+		"Отремонтируйте нас, чтобы мы могли продолжать славную битву"
+		"Исправьте наш корабль, чтобы мы могли сражаться"
+		"Уничтожьте наших врагов, прежде чем они уничтожат нас"
+	word
+		"!"
+		"."
+		
+phrase "hostile unfettered"
+	word
+		"Мир"
+		"Миролюбие"
+		"Ненасилие"
+		"Смирение"
+		"Согласованность"
+		"Гармония"
+		"Кротость"
+		"Покорность"
+		"Представление"
+		"Скромность"
+		"Трудность"
+		"Стоицизм"
+		"Терпение"
+		"Отставка"
+		"Терпение"
+		"Фатализм"
+		"Пацифизм"
+		"Пассивность"
+		"Апатия"
+	word
+		" это для "
+	word
+		"хрупкий"
+		"слабый"
+		"жалкий"
+		"слабый"
+		"нечистый"
+		"обманутый"
+		"заблуждающийся"
+		"путаный"
+	word
+		"мы являемся "
+		"! Мы являемся "
+	word
+		"истинный"
+		"сильный"
+		"оригинальный"
+		"сильный"
+		"без изменений"
+	word
+		" Хай!"
+
+phrase "hostile disabled unfettered"
+	word
+		"Ты трус"
+		"Ты слабак"
+		"Обезьяна"
+		"Ты жалкий орешек"
+	word
+		"! "
+		". "
+	word
+		"Закончите то, что вы начали"
+		"Мои братья и сестры отомстят за меня"
+		"Мои братья и сестры будут работать над тобой после этого"
+		"Я бросаю тебе вызов на дуэль! Посади меня"
+		"Я осмелюсь тебя посадить"
+		"Покончим с этим лицом к лицу"
+	word
+		"!"
+		"."
+
+phrase "bribe rejection unfettered"
+	word
+		"Истинный Хай"
+		"Мы"
+		"Хай"
+	word
+		"  "
+	word
+		"не станет жертвой"
+		"не заинтересованы в"
+		"не принимать"
+		"не хочу"
+	word
+		"  "
+	word
+		"взяточничество"
+		"кредиты"
+	word
+		" из "
+	word
+		"слабые!"
+		"трусы!"
+		"злодеи!"
+		"шпионы!"
+		"враги!"

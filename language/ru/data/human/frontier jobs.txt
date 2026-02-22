@@ -1,0 +1,340 @@
+# Copyright (c) 2017 by Michael Zahniser
+# Copyright (c) 2018 by Nate Graham
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+mission "Frontier delivery [0]"
+	name "Пограничная доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в пограничный мир <destination>. Пограничные системы имеют высокий уровень пиратства, поэтому будьте готовы защитить себя. Платеж <payment>.`
+	cargo random 5 2 .1
+	to offer
+		random < 30
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	destination
+		not government "Pirate"
+		distance 2 10
+		attributes "frontier"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Northern Pirates" 2
+	on complete
+		payment 4000 180
+		dialog phrase "родовая доставка груза"
+
+
+mission "Frontier delivery [1]"
+	name "Пограничная доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в пограничный мир <destination>. Пограничные системы имеют высокий уровень пиратства, поэтому будьте готовы защитить себя. Платеж <payment>.`
+	cargo random 25 2 .05
+	to offer
+		random < 25
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	destination
+		not government "Pirate"
+		distance 2 10
+		attributes "frontier"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates" 2
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates" 3
+	on complete
+		payment 4000 180
+		dialog phrase "родовая доставка груза"
+
+
+mission "Frontier delivery [2]"
+	name "Пограничная доставка <planet>"
+	job
+	repeat
+	description `Доставить <cargo> в пограничный мир <destination>. Пограничные системы имеют высокий уровень пиратства, поэтому будьте готовы защитить себя. Платеж <payment>.`
+	cargo random 40 2 .02
+	to offer
+		random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	destination
+		not government "Pirate"
+		distance 2 10
+		attributes "frontier"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+	on complete
+		payment 4000 180
+		dialog phrase "родовая доставка груза"
+
+
+mission "Frontier Emigration [0]"
+	name "Эмиграция в <planet>"
+	job
+	repeat
+	description "Пассажиры <bunks>, наконец, накопили достаточно денег, чтобы начать новую жизнь на <destination>, и готовы заплатить вам <payment>, чтобы транспортировать их."
+	passengers 2 10 .9
+	to offer
+		random < 30
+	source
+		not government "Pirate"
+		attributes "frontier"
+		not planet "Shangri-La"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	on complete
+		payment 3000 140
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Frontier Emigration [1]"
+	name "Эмиграция в <planet>"
+	job
+	repeat
+	description "Пассажиры <bunks>, наконец, накопили достаточно денег, чтобы начать новую жизнь на <destination>, и готовы заплатить вам <payment>, чтобы транспортировать их."
+	passengers 4 10 .8
+	to offer
+		random < 25
+	source
+		not government "Pirate"
+		attributes "frontier"
+		not planet "Shangri-La"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	on complete
+		payment 3000 140
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Frontier Emigration [2]"
+	name "Эмиграция в <planet>"
+	job
+	repeat
+	description "Пассажиры <bunks>, наконец, накопили достаточно денег, чтобы начать новую жизнь на <destination>, и готовы заплатить вам <payment>, чтобы транспортировать их."
+	passengers 6 10 .7
+	to offer
+		random < 20
+	source
+		not government "Pirate"
+		attributes "frontier"
+		not planet "Shangri-La"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	on complete
+		payment 3000 140
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Disaster Relief"
+	name "Облегчение последствий катастрофы для <planet>"
+	job
+	repeat
+	description "Катастрофа произошла в колонии на границе мира <destination>. Доставить <cargo> на планету <date> для <payment>."
+	cargo "disaster relief supplies" 25 2 .05
+	deadline
+	to offer
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	destination
+		not government "Pirate"
+		distance 2 10
+		attributes "frontier"
+		not planet "Shangri-La"
+	on complete
+		payment 10000 160
+		dialog "Вы сбрасываете свой груз <commodity> и получаете оплату <payment>. Группа граждан <planet> благодарит вас и прощается с вами."
+
+
+mission "Instruct Novice Pilot"
+	job
+	repeat
+	description "Начинающий пилот ищет инструкции у опытного капитана и просит сопровождение в <stopovers>. После этого вернитесь в <origin>, и вы получите оплату <payment>."
+	to offer
+		random < 5
+		"combat rating" > 100
+	source
+		government "Republic" "Free Worlds" "Neutral" "Independent"
+		attributes "frontier" "dirt belt" "rim" "north" "south" "mining" "farming"
+	stopover
+		not government "Pirate"
+		attributes "frontier"
+		attributes "outfitter"
+		attributes "spaceport"
+		distance 3 7
+	on stopover
+		dialog "После плавной посадки вы проведете своего ученика через особенно грубую часть космодрома, полную мусора, бездомных бродяг и плохо освещенных переулков. Вы объясняете все тонкости избегания карманников, избегания драки в баре и как обнаружить паршивую сделку в магазине экипировщика. Спустя несколько часов в одной из более засушливых частей галактики вы оба готовы вернуться в <origin>."
+	on visit
+		dialog "Вы вернулись в <planet>, но забыли сначала сопроводить <npc> в <stopovers>! Лучше сначала туда."
+	on complete
+		payment 75000
+		dialog "Ваш ученик благодарит вас за инструктаж и за предоставленный вид на некоторые из более грубых областей галактики. Вы получаете платеж <payment>."
+	npc
+		government "Pirate"
+		personality nemesis waiting
+		fleet "Small Northern Pirates"
+		system
+			distance 3 7
+	npc accompany save
+		government "Merchant"
+		personality escort heroic vindictive
+		fleet
+			names "civilian"
+			variant
+				"Sparrow"
+			variant
+				"Star Barge"
+			variant
+				"Shuttle"
+			variant
+				"Heavy Shuttle"
+
+
+mission "Small Pirate gambling"
+	invisible
+	minor
+	to offer
+		random < 3
+		"reputation: Pirate" < 0
+		"combat rating" < 200
+		credits > 14357
+	source
+		attributes "dirt belt" "south" "rim" "pirate" "frontier"
+	deadline 1
+	on offer
+		conversation
+			`Вы пьете в тускло освещенном баре космопорта, когда замечаете группу молодых людей в багровых кожаных нарядах, играющих в темном углу. Бармен смотрит на них настороженно. Один из них поднимает свой напиток и машет вам, маня присоединиться к их игре.`
+			choice
+				`(Присоединяйтесь к игре.)`
+					goto gamble
+				`(Игнорируйте их и уходите быстро.)`
+					defer
+
+			label gamble
+			`Ты идешь к столу. Более тщательное изучение указывает на высокую вероятность того, что они являются пиратами; ни один из них не выглядит старше 19 лет, и все они имеют страшные татуировки и опасное оружие. После нескольких раундов карт становится совершенно очевидно, что они обманывают и прилагают мало усилий, чтобы скрыть это от вас.`
+			branch "good luck" "bad luck"
+				random < 30
+
+			label "good luck"
+			action
+				payment 23974
+			`К счастью, вы можете перехитрить их в любом случае и выиграть игру, в конечном итоге с большой кучей кредитных фишек. Они не выглядят слишком счастливыми, но не беспокоят вас, когда вы быстро уходите. Вы благодарите своих счастливых звезд: вы почти на 25 000 кредитов богаче и все еще в одной части после личной встречи с пиратами.`
+				accept
+
+			label "bad luck"
+			`Вы начинаете истекать кровью, с более чем 10 000 кредитов в убытках.`
+			choice
+				`(Назовите их обманщиками.)`
+					goto call
+				`(Ничего не говори и продолжай играть.)`
+					goto lose
+
+			label lose
+			action
+				payment -14357
+			`Вы скрежещете зубами и теряете руку за рукой, прежде чем игра наконец закончится. Пираты злорадствуют из-за своих «побед» почти в 15 000 кредитов.`
+				decline
+
+			label call
+			`Ты сталкиваешься с ними из-за их откровенного обмана, когда самый подлый рычит на тебя: "Мы просто играем в эту игру, понимаешь? Тебе лучше заткнуть свой большой рот, если ты знаешь, что хорошо для тебя! Мы можем сделать это уродливое реально быстро`
+			`Бандиты угрожающе смотрят на вас и начинают тянуться за своим оружием.`
+			choice
+				`(Сначала стреляйте!)`
+					goto shoot
+				`(Возьми горшок и беги!)`
+					goto run
+				`(Пусть они меня оскорбляют.)`
+					goto lose
+
+			label shoot
+			branch "shoot and die" "shoot and run"
+				random < 30
+
+			label "shoot and die"
+			`К сожалению, они быстрее тебя. Твой изуродованный труп врезается в пол мокрым ударом.`
+				die
+
+			label "shoot and run"
+			action
+				payment 23974
+			`Благодарность за то, что ты никогда не оставляешь свой корабль без оружия, твоя рука летит к пистолету у твоего бедра. Ты вытаскиваешь оружие и стреляешь в пирата, который только что угрожал тебе. Слизняк пробивает отверстие в центре груди, и он падает на землю. Его шокированные товарищи в ужасе спотыкаются об их оружии, но вы застали их врасплох и быстро застрелили другого, прежде чем решить, что пора бежать. Вы берете некоторые кредиты на столе на выходе!`
+			`Вы бросаетесь к ангарной бухте и взрываетесь в спешке. Вы быстро подсчитываете свою добычу и видите, что вы почти на 25 000 кредитов богаче! На полпути из атмосферы оставшиеся два пирата швыряют непристойности по радиосвязи со своих кораблей, которые находятся в горячем преследовании.`
+				launch
+
+			label run
+			branch "grab and die" "grab and run"
+				random < 30
+
+			label "grab and die"
+			`Хватай горшок и делай перерыв! Глупцы воют и вытягивают оружие. Уклоняясь от выстрелов, вы бежите к двери и проходите полпути туда, прежде чем один из слизней найдет свой след. Вы падаете на пол с болью, наблюдая, как вокруг вас расширяется лужа собственной крови. Вы пытаетесь бороться, но самый жесткий пират бьет вас по земле и добивает другим выстрелом.`
+				die
+
+			label "grab and run"
+			action
+				payment 23974
+			`Хватай горшок и делай перерыв! Глупцы воют и вытягивают оружие. Вы бежите к двери зигзагом, когда пули пролетают мимо вас и вырывают чипы из стен. Вы оглядываетесь назад как раз вовремя, чтобы увидеть, как бармен превращает одного из бродяг в мясо гамбургера с огромным дробовиком. Остальные три гонятся за тобой.`
+			`Вы бросаетесь к ангарной бухте и взрываетесь в спешке. Вы быстро подсчитываете свою добычу и видите, что вы почти на 25 000 кредитов богаче! На полпути из атмосферы вы получаете сообщение от портовых властей, предупреждающее вас, что пока они задержали двух пиратов, оставшиеся двое добрались до своих кораблей и находятся в горячем преследовании.`
+				launch
+
+	to complete
+		never
+
+	npc
+		personality launching heroic plunders vindictive nemesis
+			confusion 20
+		government "Pirate"
+		fleet
+			names "pirate"
+			variant
+				"Sparrow" 2
+			variant
+				"Wasp" 2
+			variant
+				"Wasp"
+				"Sparrow"

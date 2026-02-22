@@ -1,0 +1,530 @@
+# Copyright (c) 2016 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+outfit "Small Collector Module"
+	category "Power"
+	series "Solar"
+	index 08010
+	licenses
+		Coalition
+	cost 60000
+	thumbnail "outfit/small collector module"
+	"mass" 8
+	"outfit space" -6
+	"solar collection" .8
+	"solar heat" .4
+	description "Солнечная энергия является основой торгового флота Коалиции. Дизайн этих панелей был усовершенствован на протяжении тысячелетий, становясь все более эффективным."
+
+outfit "Large Collector Module"
+	category "Power"
+	series "Solar"
+	index 08020
+	licenses
+		Coalition
+	cost 300000
+	thumbnail "outfit/large collector module"
+	"mass" 28
+	"outfit space" -21
+	"solar collection" 3.3
+	"solar heat" 1.5
+	description "Одной из таких солнечных панелей достаточно для удовлетворения энергетических потребностей среднего гражданского корабля Коалиции, особенно учитывая энергоэффективность их двигателей и тот факт, что по их законам только судам Гелиарха разрешено иметь оружие."
+
+outfit "Small Reactor Module"
+	category "Power"
+	series "Generators"
+	index 08030
+	licenses
+		Heliarch
+	cost 5497000
+	thumbnail "outfit/small reactor module"
+	"mass" 42
+	"outfit space" -42
+	"energy generation" 9.8
+	"heat generation" 19
+	description "Солнечная энергия достаточна для торговли, но чрезмерная бережливость редко является выигрышной стратегией в войне. Для кораблей, которые должны иметь надежный источник энергии для питания оружия, гелиархи используют компактные ядерные реакторы."
+	description "Луч антипротонов вызывает слияние в крошечных топливных гранулах, что позволяет полностью сгореть гораздо эффективнее, чем в противном случае."
+
+outfit "Large Reactor Module"
+	category "Power"
+	series "Generators"
+	index 08040
+	licenses
+		Heliarch
+	cost 17754000
+	thumbnail "outfit/large reactor module"
+	"mass" 98
+	"outfit space" -98
+	"energy generation" 24.2
+	"heat generation" 45
+	description "Несмотря на то, что они не могут воспроизводить Используя технологии производства электроэнергии Quarg, научные команды Heliarch постоянно стремятся реализовать свои последние предположения о том, как они работают. Для этого более крупного модуля постоянный поток инъекционных антипротонов катализирует реакции в тщательно ограниченной термоядерной плазме, извлекая как можно больше энергии физически."
+	description "Этот усовершенствованный термоядерный реактор был разработан для самых мощных военных кораблей «Гелиарх». Его структура не претерпела существенных изменений за тысячелетия, прошедшие с момента первой битвы с «Кваргом», но каждое поколение реакторов делается несколько эффективнее предыдущих."
+
+outfit "Small Cogeneration Module"
+	category "Power"
+	series "Generators"
+	index 08010
+	licenses
+		Coalition
+	cost 176000
+	thumbnail "outfit/small cogeneration module"
+	"mass" 11
+	"outfit space" -11
+	"energy generation" 1.15
+	"heat generation" .85
+	description "Кимек изначально создавал гораздо более крупные версии этого модуля, предназначенные для обеспечения энергией их голодных башен."
+	description "Эта компактная конструкция восстанавливает большую часть отработанного тепла, что делает ее очень эффективным топливным элементом."
+
+outfit "Large Cogeneration Module"
+	category "Power"
+	series "Generators"
+	index 08020
+	licenses
+		Coalition
+	cost 799000
+	thumbnail "outfit/large cogeneration module"
+	"mass" 46
+	"outfit space" -46
+	"energy generation" 5.3
+	"heat generation" 3.45
+	description "Без большой интересной работы, доступной в мирное время, многие инженеры Коалиции работают с существующим оборудованием, чтобы повысить его эффективность."
+
+outfit "Small Battery Module"
+	category "Power"
+	series "Batteries"
+	index 08010
+	licenses
+		Coalition
+	cost 22000
+	thumbnail "outfit/small battery module"
+	"mass" 4
+	"outfit space" -4
+	"energy capacity" 3600
+	description "Поскольку корабли Коалиции полагаются на солнечную энергию, они также должны иметь возможность хранить значительное количество энергии. Этот небольшой аккумулятор намного эффективнее, чем сопоставимые человеческие технологии."
+
+outfit "Large Battery Module"
+	category "Power"
+	series "Batteries"
+	index 08020
+	licenses
+		Coalition
+	cost 170000
+	thumbnail "outfit/large battery module"
+	"mass" 18
+	"outfit space" -18
+	"energy capacity" 18000
+	description "Этот аккумулятор хранит достаточно энергии, чтобы позволить Коалиционному кораблю продолжать маневрировать, даже когда его солнечные батареи производят только часть своей максимальной мощности."
+
+
+outfit "Small Shield Module"
+	category "Systems"
+	series "Shields"
+	index 08010
+	licenses
+		Coalition
+	cost 84000
+	thumbnail "outfit/small shield module"
+	"mass" 11
+	"outfit space" -11
+	"shield generation" .28
+	"shield energy" .28
+	"shield heat" .1
+	description "Хотя боевые действия в коалиционном пространстве почти неслыханны, почти все их корабли способны перезаряжать свои щиты, когда это необходимо."
+
+outfit "Large Shield Module"
+	category "Systems"
+	series "Shields"
+	index 08020
+	licenses
+		Coalition
+	cost 553000
+	thumbnail "outfit/large shield module"
+	"mass" 39
+	"outfit space" -39
+	"shield generation" 1.3
+	"shield energy" 1.3
+	"shield heat" .5
+	description "Коалиция производит тяжелые щитовые генераторы для своих кораблей на случай, если они когда-либо столкнутся с агрессией со стороны кварга или другого вида."
+
+outfit "Overcharged Shield Module"
+	category "Systems"
+	series "Shields"
+	index 08030
+	licenses
+		Heliarch
+	cost 1216000
+	thumbnail "outfit/overcharged shield module"
+	"mass" 44
+	"outfit space" -44
+	"shield generation" 4.6
+	"shield energy" 4.6
+	"shield heat" 1.4
+	"energy consumption" .5
+	description "Эти модульные щитовые генераторы являются самыми мощными излучателями, производимыми в коалиционном пространстве, и поэтому они строго контролируются и используются исключительно Гелиархами. Дополнения, сделанные к модулю Большого щита, более чем в три раза увеличили его генерацию щита, но за счет этого потребовались постоянные поставки энергии для его стабилизации."
+
+outfit "Small Repair Module"
+	category "Systems"
+	series "Repair"
+	index 08010
+	licenses
+		Coalition
+	cost 64000
+	thumbnail "outfit/small repair module"
+	"mass" 6
+	"outfit space" -6
+	"hull repair rate" .12
+	"hull energy" .12
+	"hull heat" .1
+	description "Корабли Arach, которые больше полагаются на прочный корпус, чем на энергетические щиты, часто несут один из этих ремонтных модулей, чтобы позволить повреждённому корпусу быть склеенным на лету."
+
+outfit "Large Repair Module"
+	category "Systems"
+	series "Repair"
+	index 08020
+	licenses
+		Coalition
+	cost 553000
+	thumbnail "outfit/large repair module"
+	"mass" 21
+	"outfit space" -21
+	"hull repair rate" .57
+	"hull energy" .57
+	"hull heat" .5
+	description "В этом хабе находится небольшой флот ремонтных роботов, которые могут подниматься по корпусу корабля и ремонтировать повреждения, даже в середине боя."
+
+outfit "Overclocked Repair Module"
+	category "Systems"
+	series "Repair"
+	index 08030
+	licenses
+		Heliarch
+	cost 1126000
+	thumbnail "outfit/overclocked repair module"
+	"mass" 32
+	"outfit space" -32
+	"hull repair rate" 1.4
+	"hull energy" 1.4
+	"hull heat" 1.2
+	"heat generation" .6
+	description "Эти усовершенствованные ремонтные модули выдаются кораблям Heliarch, обеспечивая ремонт корпуса, не имеющего аналогов во всем пространстве Коалиции. Легионы небольших ремонтных беспилотников идут с обширными путями, которые они используют, чтобы быстро обойти корабль, и поэтому наряд может помешать системам охлаждения и рассеивания тепла корабля."
+
+outfit "Cooling Module"
+	category "Systems"
+	series "Cooling"
+	index 08010
+	licenses
+		Coalition
+	cost 160000
+	thumbnail "outfit/cooling module"
+	"mass" 5
+	"outfit space" -5
+	"active cooling" 21
+	"cooling energy" 1.4
+	description "Этот охлаждающий модуль потребляет энергию. Чтобы сохранить мощность, он не набирает полную силу, если корабль не очень близок к перегреву."
+
+outfit "Fuel Module"
+	category "Systems"
+	series "Fuel"
+	index 08020
+	licenses
+		Coalition
+	cost 270000
+	thumbnail "outfit/fuel module"
+	"mass" 19
+	"outfit space" -19
+	"fuel capacity" 400
+	"fuel protection" .25
+	description "В первые дни освоения космоса Сарыды разработали топливный модуль, чтобы путешествовать далеко от Сароса, не беспокоясь о том, чтобы застрять без топлива."
+	description "В настоящее время почти каждая система в Коалиции имеет заправочные сооружения, но некоторые капитаны все еще находят применение в дополнительных прыжках, предлагаемых этими модулями."
+
+outfit "Decoy Plating"
+	category "Systems"
+	series "Jammers"
+	index 08010
+	cost 93000
+	thumbnail "outfit/decoy plating"
+	"mass" 7
+	"outfit space" -7
+	"scan interference" 2
+	"radar jamming" 5
+	description "Это покрытие использует журналы сканирования судна и воспроизводит данные других судов поблизости, эффективно отклоняя попытки сканирования истинного груза и оборудования судна."
+	description "Из-за необходимости защитить себя от разрушительных торпед Heliarch, Lunarium включил небольшие независимые радиолокационные системы помех в каждый участок покрытия, хотя бы для того, чтобы действовать как последняя линия обороны."
+
+outfit "Refueling Module"
+	category "Systems"
+	series "Fuel"
+	index 08030
+	cost 822000
+	thumbnail "outfit/refueling module"
+	"mass" 10
+	"outfit space" -10
+	"fuel capacity" -100
+	"fuel generation" .05
+	"energy consumption" .11
+	description "Чтобы избежать риска быть осмотренными Гелиархами, когда они заправляются на планетах, капитаны Lunarium используют этот наряд при перевозке припасов или украденных нарядов."
+	description "Механизмы наряда требуют выделенного количества топлива, чтобы он работал должным образом, поэтому корабль может установить только так много из них, прежде чем станет неспособным прыгать в другую систему."
+
+outfit "Shield Refactor Module"
+	category "Systems"
+	series "Shields"
+	index 08040
+	cost 3248000
+	thumbnail "outfit/shield refactor module"
+	"mass" 7
+	"outfit space" -7
+	"hull repair rate" -.25
+	"shield energy multiplier" .2
+	"shield heat" .32
+	"shield generation multiplier" .2
+	"hull repair multiplier" -.2
+	description "Теоретически, все генераторы щитов могут работать гораздо быстрее, чем обычно, если их подтолкнуть к их истинному пределу. Однако постоянная необходимость реформировать щиты во время нагретого боя быстро перегружает генераторы щитов и повреждает их в процессе. Перемещая специализированные системы ремонта корпуса, чтобы сосредоточиться исключительно на ремонте таких повреждений, это компактное устройство позволяет щитовым генераторам достичь своего истинного потенциала."
+	description "Столь необходимое благо против разрушительного воздействия торпед Heliarch на обшивку корпуса, Lunarium очень благоприятствует производству этой дорогой детали из-за ее преимуществ перед другими генераторами щитов."
+
+outfit "Small Recovery Module"
+	category "Systems"
+	series "Shields"
+	index 08050
+	cost 625000
+	thumbnail "outfit/small recovery module"
+	"mass" 25
+	"outfit space" -25
+	"shield generation" .97
+	"shield energy" .43
+	"shield heat" .7
+	"hull repair rate" .43
+	"hull energy" .97
+	"hull heat" .07
+	description "Объединив технологии создания щитов и ремонта корпуса коалиции в одно оборудование, Lunarium повысил эффективность обоих, обеспечив лучшую защиту от оружия Heliarch."
+
+outfit "Scanning Module"
+	category "Systems"
+	series "Scanners"
+	index 08010
+	licenses
+		Heliarch
+	cost 453600
+	thumbnail "outfit/scan module"
+	"mass" 3
+	"outfit space" -3
+	"outfit scan power" 25
+	"outfit scan efficiency" 18
+	"cargo scan power" 25
+	"cargo scan efficiency" 18
+	"tactical scan power" 25
+	description "Эта система позволяет Гелиархам сканировать близлежащие корабли, позволяя им обнаруживать оружие или незаконные товары."
+
+outfit "Outskirts Gauger"
+	category "Systems"
+	series "Scanners"
+	index 08020
+	cost 1406000
+	thumbnail "outfit/outskirts gauger"
+	"mass" 8
+	"outfit space" -8
+	"unique" 1
+	"tactical scan power" 169
+	"energy consumption" .2
+	description "Получив данные с одного из своих давно потерянных спутников, новейший сканер House Idriss превосходно считывает различные энергетические сигнатуры на огромных расстояниях."
+	description "Постоянно выполняя свои вычисления о каждой мелочи, которую он обнаруживает в своем впечатляющем диапазоне, датчик нуждается в постоянном запасе энергии для функционирования."
+
+outfit "Small Thrust Module"
+	category "Engines"
+	series "Engines"
+	index 08011
+	licenses
+		Coalition
+	"cost" 66000
+	thumbnail "outfit/small thrust module"
+	"mass" 9
+	"outfit space" -9
+	"engine capacity" -9
+	"thrust" 12.45
+	"thrusting energy" 0.46
+	"thrusting heat" 3
+	"flare sprite" "effect/coalition flare/small"
+		"frame rate" 10
+	"flare sound" "atomic tiny"
+	description "Этот крошечный двигатель производит значительное количество тяги, но также и значительное количество тепла."
+
+outfit "Large Thrust Module"
+	category "Engines"
+	series "Engines"
+	index 08021
+	licenses
+		Coalition
+	"cost" 292000
+	thumbnail "outfit/large thrust module"
+	"mass" 32
+	"outfit space" -32
+	"engine capacity" -32
+	"thrust" 45.9
+	"thrusting energy" 1.7
+	"thrusting heat" 11
+	"flare sprite" "effect/coalition flare/large"
+		"frame rate" 7
+	"flare sound" "atomic small"
+	description "Коалиционные инженеры предпочитают сосредоточиться на совершенствовании нескольких универсальных конструкций, а не на создании широкого спектра из них. Этот двигатель довольно эффективен, но для создания достаточной тяги крупным кораблям потребуется несколько из них, сложенных вместе."
+
+outfit "Small Reverse Module"
+	category "Engines"
+	series "Engines"
+	index 08012
+	licenses
+		Coalition
+	"cost" 66000
+	thumbnail "outfit/small reverse module"
+	"mass" 9
+	"outfit space" -9
+	"weapon capacity" -9
+	"reverse thrust" 12.45
+	"reverse thrusting energy" 0.46
+	"reverse thrusting heat" 3
+	"reverse flare sprite" "effect/coalition flare/small"
+		"frame rate" 10
+	"reverse flare sound" "atomic tiny"
+	description "Размещение этого крошечного двигателя перед грузовым судном или транспортом позволяет торговцам Коалиции значительно повысить свою энергоэффективность, что имеет большое преимущество при использовании солнечной энергии."
+	description "Поскольку реверсивный двигатель должен быть обращен вперед, он должен быть установлен в разделе оружия вашего корабля, а не в разделе двигателя."
+
+outfit "Large Reverse Module"
+	category "Engines"
+	series "Engines"
+	index 08022
+	licenses
+		Coalition
+	"cost" 292000
+	thumbnail "outfit/large reverse module"
+	"mass" 32
+	"outfit space" -32
+	"weapon capacity" -32
+	"reverse thrust" 45.9
+	"reverse thrusting energy" 1.7
+	"reverse thrusting heat" 11
+	"reverse flare sprite" "effect/coalition flare/large"
+		"frame rate" 7
+	"reverse flare sound" "atomic small"
+	description "Имея значительный потенциал оружия, оставшийся неиспользованным в мирное время, капитаны более крупных грузовых кораблей и транспортных средств Коалиции могут использовать большие обратные модули для быстрого замедления своих кораблей, что позволяет им экономить время и энергию."
+	description "Поскольку реверсивный двигатель должен быть обращен вперед, он должен быть установлен в разделе оружия вашего корабля, а не в разделе двигателя."
+
+outfit "Small Steering Module"
+	category "Engines"
+	series "Engines"
+	index 08010
+	licenses
+		Coalition
+	"cost" 60000
+	thumbnail "outfit/small steering module"
+	"mass" 7
+	"outfit space" -7
+	"engine capacity" -7
+	"turn" 268.2
+	"turning energy" 0.26
+	"turning heat" 1.8
+	"steering flare sprite" "effect/coalition flare/small"
+		"frame rate" 10
+	"steering flare sound" "atomic tiny"
+	description "Несмотря на высокую эффективность, этого модуля не хватает ни для одного, кроме самых маленьких кораблей. Вместо этого модули спроектированы с расчетом на то, что корабли могут использовать два или три из них в тандеме."
+
+outfit "Large Steering Module"
+	category "Engines"
+	series "Engines"
+	index 08020
+	licenses
+		Coalition
+	"cost" 269000
+	thumbnail "outfit/large steering module"
+	"mass" 25
+	"outfit space" -25
+	"engine capacity" -25
+	"turn" 1120.5
+	"turning energy" 1.0
+	"turning heat" 6.5
+	"steering flare sprite" "effect/coalition flare/large"
+		"frame rate" 7
+	"steering flare sound" "atomic small"
+	description "Сосредоточив внимание на небольших модульных двигателях, а не на массивных капитальных двигателях, которые разрабатываются большинством других видов, Коалиция теряет часть потенциальной эффективности для очень больших судов, но получает значительную гибкость."
+
+outfit "Enforcer Confrontation Gear"
+	category "Hand to Hand"
+	series "H2H"
+	index 08020
+	licenses
+		Heliarch
+	cost 369000
+	thumbnail "outfit/enforcer confrontation gear"
+	"capture attack" 3.1
+	"capture defense" 4.9
+	"unplunderable" 1
+	description "Это оружие использует конденсированные взрывы энергии, чтобы отправить любого, кто осмелится угрожать безопасности коалиции."
+
+outfit "Enforcer Riot Staff"
+	category "Hand to Hand"
+	series "H2H"
+	index 08010
+	licenses
+		Heliarch
+	cost 97000
+	thumbnail "outfit/enforcer riot staff"
+	"capture attack" 2.0
+	"capture defense" 3.5
+	"unplunderable" 1
+	description "Сделанное, чтобы иметь дело с случайными диссидентами, которые появляются вокруг коалиционного пространства нелетальным образом, это оружие видит минимальное использование в корабельном бою, но в любом случае переносится в случае, если диссидент попадает на борт."
+
+outfit "Guardian Turret"
+	category "Hand to Hand"
+	series "Fortifications"
+	index 08025
+	licenses
+		Heliarch
+	cost 876000
+	thumbnail "outfit/guardian turret"
+	"mass" 1
+	"outfit space" -1
+	"capture defense" 19
+	"unplunderable" 1
+	description "Полезные для защиты как зданий, так и кораблей, эти компактные автоматические башни были спроектированы и построены Гелиархами на основе собственного антибордерного оборудования Quarg. Активные, тонкие лучи света соединяют башню и ее цель, но много раз необходимы для подтверждения выполнения."
+	description "Каждая башня также поставляется с компактным излучателем, предназначенным для обеспечения защиты на небольшой площади вокруг основания башни. Эта технология не только сохранила большинство башен от снайперских атак, но и обеспечила выживание многих Гелиархов, которые в противном случае столкнулись бы с мучительными последствиями."
+	description "Единственным недостатком является относительно утомительный процесс регистрации каждого члена экипажа с системами башен, чтобы он мог распознавать и избегать стрельбы по союзникам во время посадок."
+
+outfit "Anti-Materiel Gun"
+	category "Hand to Hand"
+	series "H2H"
+	index 08030
+	cost 257200
+	thumbnail "outfit/anti-materiel gun"
+	"capture attack" 3.4
+	"capture defense" 1.9
+	"unplunderable" 1
+	description "Легкое в использовании и относительно дешевое в изготовлении, это оружие родилось путем реконструкции любимого оружия Гелиархов, с новым стволом, формирующим энергию в смертельные взрывы, которые делают короткую работу даже самых жестких бронежилетов."
+
+outfit "Coalition License"
+	category "Licenses"
+	series "Licenses"
+	index 08010
+	thumbnail "outfit/coalition license"
+	description "Цифровой чип в виде стилизованного значка, этот документ означает разрешение владельца на просмотр, использование и обработку транзакций, связанных с гражданской коалиционной технологией."
+	description "Существует история споров вокруг этой лицензии, так как на протяжении тысячелетий несколько законов Гелиарха были взад и вперед относительно условий, которые должны быть выполнены для того, чтобы кто-то получил лицензию. Этот спор начался с третьего Закона о гражданских товарах и тарифах, созданного всего через несколько десятилетий после войны за независимость. Она продолжается вплоть до сравнительно недавнего двадцать шестого добавления ко второй статье Девятой поправки по торговле и трафику, принятой двести лет назад, что сделало требования к приобретению гораздо более гибкими."
+
+outfit "Heliarch License"
+	category "Licenses"
+	series "Licenses"
+	index 08020
+	thumbnail "outfit/heliarch license"
+	description "Богатый круг из золота и платины, он служит как символом ранга, так и лицензией на доступ к эксклюзивным объектам Гелиарха. Изготовленный на заказ, чтобы соответствовать человеческой голове, он удивительно легкий и удобный."
+
+outfit "Beyond the Hyperdrive"
+	category "Unique"
+	series "Non-Functional Unique"
+	index 11
+	thumbnail "outfit/beyond the hyperdrive"
+	"unique" 1
+	description "Книга, подаренная вам Анной Фангвин, автором, который добился успеха в коалиционном пространстве. Это подписанная копия."
+	description "История рассказывает о капитане-человеке, который крадет прыжок от Кварга и путешествует за пределы гиперланов, узнавая новые вещи о пришельцах галактики."

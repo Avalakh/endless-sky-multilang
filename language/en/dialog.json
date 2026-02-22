@@ -1,0 +1,14 @@
+{
+  "dialog.first_name": "First name:",
+  "dialog.last_name": "Last name:",
+  "dialog.done": "[done]",
+  "dialog.ok": "[ok]",
+  "dialog.delete_pilot_confirm": "Are you sure you want to delete the selected pilot, \"{{name}}\", and all their saved games? Confirm the name of the pilot you want to delete.",
+  "dialog.snapshot_name_prompt": "Enter a name for this snapshot, or use the most recent save's date:",
+  "dialog.delete_save_confirm": "Are you sure you want to delete the selected saved game file, \"{{path}}\"?",
+  "dialog.load_snapshot_overwrite": "If you load this snapshot, it will overwrite your current game. Any progress will be lost, unless you have saved other snapshots. Are you sure you want to do that?",
+  "dialog.warning_snapshot_overwrite": "Warning: \"{{name}}\" is being used for an existing snapshot. Overwrite it?",
+  "dialog.error_create_file": "Error: unable to create the file \"{{path}}\".",
+  "dialog.deleting_pilot_failed": "Deleting pilot files failed.",
+  "dialog.deleting_snapshot_failed": "Deleting snapshot file failed."
+}

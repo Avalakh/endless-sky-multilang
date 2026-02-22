@@ -1,0 +1,5 @@
+{
+  "mission.available_here": "Missions available here:",
+  "mission.your_current": "Your current missions:",
+  "mission.abort_confirm": "Abort mission \"{{name}}\"?"
+}

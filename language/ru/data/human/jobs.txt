@@ -1,0 +1,4665 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+mission "Escort (Tiny, Northern, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Несмотря на вашу относительную неопытность, капитан <npc> готов заплатить вам <payment> за сопровождение в опасный регион пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 8
+	to offer
+		random < 40
+		"combat rating" < 6
+		or
+			"combat rating" > 0
+			has "ships: Interceptor"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+		distance 2 4
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 40
+		system destination
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Berserker"
+			variant
+				"Scrapper"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 40
+		system destination
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Berserker"
+			variant
+				"Scrapper"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Shuttle"
+			variant
+				"Star Barge"
+	on complete
+		payment 15000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Tiny, Northern, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Несмотря на вашу относительную неопытность, капитан <npc> готов заплатить вам <payment> за сопровождение из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 8
+	to offer
+		random < 40
+		"combat rating" < 6
+		or
+			"combat rating" > 0
+			has "ships: Interceptor"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth" "core"
+		distance 2 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 40
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Berserker"
+			variant
+				"Scrapper"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 40
+		system
+			distance 1
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Berserker"
+			variant
+				"Scrapper"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Shuttle"
+			variant
+				"Star Barge"
+	on complete
+		payment 15000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Small, Northern, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их в опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 70
+		"combat rating" > 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 60000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Small, Northern, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы выпроводить их безопасно из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 40
+		"combat rating" > 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth" "core"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		system
+			distance 1
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		system
+			distance 1
+		fleet "Small Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 60000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Medium, Northern, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их в опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 40
+		"combat rating" > 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates" 2
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 90000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Medium, Northern, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы выпроводить их безопасно из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 40
+		"combat rating" > 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth" "core"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		fleet "Small Northern Pirates" 2
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system
+			distance 1 2
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 90000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Large, Northern, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их в опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 30
+		"combat rating" > 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Behemoth"
+	on complete
+		payment 120000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Large, Northern, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы выпроводить их безопасно из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 30
+		"combat rating" > 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth" "core"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1 2
+		fleet "Small Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Behemoth"
+	on complete
+		payment 120000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Extra Large, Northern, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их в опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 15
+		"combat rating" > 100
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Behemoth"
+	on complete
+		payment 150000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Extra Large, Northern, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы выпроводить их безопасно из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 15
+		"combat rating" > 100
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "north"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "deep" "paradise" "near earth" "core"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1 2
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1 1
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Behemoth"
+	on complete
+		payment 150000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+
+mission "Escort (Tiny, Core, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Несмотря на вашу относительную неопытность, капитан <npc> готов заплатить вам <payment> за сопровождение в опасный регион пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 8
+	to offer
+		random < 40
+		"combat rating" < 6
+		or
+			"combat rating" > 0
+			has "ships: Interceptor"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier" "dirt belt"
+		distance 2 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 40
+		system destination
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Berserker"
+			variant
+				"Scrapper"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 40
+		system destination
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Berserker"
+			variant
+				"Scrapper"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Shuttle"
+			variant
+				"Star Barge"
+	on complete
+		payment 20000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Tiny, Core, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Несмотря на вашу относительную неопытность, капитан <npc> готов заплатить вам <payment> за сопровождение из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 8
+	to offer
+		random < 40
+		"combat rating" < 6
+		or
+			"combat rating" > 0
+			has "ships: Interceptor"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+		distance 2 5
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 40
+		system
+			distance 2 2
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Berserker"
+			variant
+				"Scrapper"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 40
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Berserker"
+			variant
+				"Scrapper"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Shuttle"
+			variant
+				"Star Barge"
+	on complete
+		payment 20000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Small, Core, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их в опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 70
+		"combat rating" > 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier" "dirt belt"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Core Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 60000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Small, Core, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы выпроводить их безопасно из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 70
+		"combat rating" > 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+		distance 3 5
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		system
+			distance 1
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		system
+			distance 1 2
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		fleet "Small Core Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 60000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Medium, Core, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их в опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 40
+		"combat rating" > 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier" "dirt belt"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Core Pirates" 2
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Core Pirates" 2
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 90000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Medium, Core, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы выпроводить их безопасно из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 40
+		"combat rating" > 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+		distance 3 5
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system
+			distance 1
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system
+			distance 1
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system
+			distance 1 2
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		fleet "Small Core Pirates" 2
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 90000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Large, Core, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их в опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 50
+		"combat rating" > 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier" "dirt belt"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Large Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+		system destination
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Large Core Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Container Transport"
+	on complete
+		payment 120000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Large, Core, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы выпроводить их безопасно из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 50
+		"combat rating" > 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+		distance 3 5
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1
+		fleet "Large Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1 2
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		fleet "Large Core Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Container Transport"
+	on complete
+		payment 120000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Extra Large, Core, Dangerous Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их в опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 20
+		"combat rating" > 100
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier" "dirt belt"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Large Core Pirates"
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+		system destination
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Large Core Pirates"
+		fleet "Small Core Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Container Transport"
+	on complete
+		payment 150000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Extra Large, Core, Dangerous Origin)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы выпроводить их безопасно из этой опасной области пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 20
+		"combat rating" > 100
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "core" "north" "frontier"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise" "near earth"
+		distance 3 5
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1
+		fleet "Large Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system
+			distance 1 2
+		fleet "Small Core Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		fleet "Small Core Pirates"
+		fleet "Large Core Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Container Transport"
+	on complete
+		payment 150000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+
+mission "Escort (Tiny, Southern, Dangerous Origin or Destination)"
+	name "Обсуждение <planet>"
+	description "Несмотря на вашу относительную неопытность, капитан <npc> готов заплатить вам <payment> за сопровождение через этот опасный регион пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 8
+	to offer
+		random < 50
+		"combat rating" < 6
+		or
+			"combat rating" > 0
+			has "ships: Interceptor"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+		distance 2 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 40
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Hawk"
+			variant
+				"Scrapper"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 40
+		system destination
+		fleet
+			names "pirate"
+			variant
+				"Sparrow"
+			variant
+				"Fury"
+			variant
+				"Hawk"
+			variant
+				"Scrapper"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Shuttle"
+			variant
+				"Star Barge"
+	on complete
+		payment 15000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Small, Southern, Dangerous Origin or Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их через этот опасный регион пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 70
+		"combat rating" > 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		fleet "Small Southern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Southern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 60000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Medium, Southern, Dangerous Origin or Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их через этот опасный регион пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 40
+		"combat rating" > 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		fleet "Small Southern Pirates" 2
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Southern Pirates" 2
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter"
+	on complete
+		payment 90000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Large, Southern, Dangerous Origin or Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их через этот опасный регион пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 50
+		"combat rating" > 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		fleet "Large Southern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Large Southern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Bulk Freighter"
+	on complete
+		payment 120000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort (Extra Large, Southern, Dangerous Origin or Destination)"
+	name "Обсуждение <planet>"
+	description "Капитан <npc> заплатит вам <payment>, чтобы безопасно сопровождать их через этот опасный регион пространства, чтобы достичь <destination> по <date>."
+	repeat
+	job
+	deadline 10
+	to offer
+		random < 20
+		"combat rating" > 100
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "south" "rim" "dirt belt"
+		distance 3 4
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		fleet "Large Southern Pirates"
+		fleet "Small Southern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Large Southern Pirates"
+		fleet "Small Southern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Behemoth"
+	on complete
+		payment 150000
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+
+
+mission "Southern Pirate Attack"
+	name "Защита <planet>"
+	description "Победить пиратский рейд на <destination>."
+	minor
+	repeat
+	to offer
+		"combat rating" > 100
+		random < 10
+	source
+		not government "Pirate"
+		attributes "frontier"
+		attributes "rim" "south" "dirt belt"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		fleet "Small Southern Pirates"
+		fleet "Large Southern Pirates" 2
+	npc
+		government "Militia"
+		personality heroic staying
+		fleet "Small Militia" 2
+	on offer
+		conversation
+			`Внезапно вы слышите поднятые голоса и крики снаружи: "На нас напали! <planet> подвергся нападению пиратов. Нам нужен каждый боеспособный корабль, чтобы присоединиться к обороне! Власти, вероятно, хорошо заплатят вам, если вы поможете им, но это также может быть простым способом убить себя.`
+			choice
+				`(Останьтесь здесь, пока борьба не закончится.)`
+					decline
+				`(Присоединяйтесь к флоту.)`
+			`Несколько пилотов ополчения собрались, чтобы помочь отразить нападение пиратов. Вы присоединяетесь к ним и вместе взлетаете...`
+				launch
+	on visit
+		dialog phrase "сражение пиратского флота в гостях"
+	on complete
+		payment 150000
+		dialog phrase "общий диалог пиратских атак"
+
+mission "Northern Pirate Attack"
+	name "Защита <planet>"
+	description "Победить пиратский рейд на <destination>."
+	minor
+	repeat
+	to offer
+		"combat rating" > 100
+		random < 10
+	source
+		not government "Pirate"
+		attributes "frontier"
+		attributes "north" "paradise" "deep"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates" 2
+	npc
+		government "Republic"
+		personality heroic staying
+		fleet "Small Republic" 2
+	on offer
+		conversation
+			`Внезапно вы слышите поднятые голоса и крики снаружи: "На нас напали! <planet> подвергся нападению пиратов. Нам нужен каждый боеспособный корабль, чтобы присоединиться к обороне! Власти, вероятно, хорошо заплатят вам, если вы поможете им, но это также может быть простым способом убить себя.`
+			choice
+				`(Останьтесь здесь, пока борьба не закончится.)`
+					decline
+				`(Присоединяйтесь к флоту.)`
+			`Местный гарнизон ВМС готовится отразить пиратскую атаку. Вы присоединяетесь к ним и вместе взлетаете...`
+				launch
+	on visit
+		dialog phrase "сражение пиратского флота в гостях"
+	on complete
+		payment 250000
+		dialog phrase "общий диалог пиратских атак"
+
+mission "Core Pirate Attack"
+	name "Защита <planet>"
+	description "Победить пиратский рейд на <destination>."
+	minor
+	repeat
+	to offer
+		"combat rating" > 100
+		random < 10
+	source
+		not government "Pirate"
+		attributes "frontier"
+		attributes "core" "near earth"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		fleet "Small Core Pirates"
+		fleet "Large Core Pirates" 2
+	npc
+		government "Syndicate"
+		personality heroic staying
+		fleet "Small Syndicate" 2
+	on offer
+		conversation
+			`Внезапно вы слышите поднятые голоса и крики снаружи: "На нас напали! <planet> подвергся нападению пиратов. Нам нужен каждый боеспособный корабль, чтобы присоединиться к обороне! Власти, вероятно, хорошо заплатят вам, если вы поможете им, но это также может быть простым способом убить себя.`
+			choice
+				`(Останьтесь здесь, пока борьба не закончится.)`
+					decline
+				`(Присоединяйтесь к флоту.)`
+			`Местные силы обороны Синдиката готовятся отразить нападение пиратов. Вы присоединяетесь к ним и вместе взлетаете...`
+				launch
+	on visit
+		dialog phrase "сражение пиратского флота в гостях"
+	on complete
+		payment 200000
+		dialog phrase "общий диалог пиратских атак"
+
+mission "Raider Attack 1"
+	name "Защита <planet>"
+	description "Победить инопланетный рейд на <destination>."
+	minor
+	repeat
+	to offer
+		"combat rating" > 550
+		random < 7
+		has "main plot completed"
+	source
+		planet "Sundive"
+		planet "Shangri-La"
+		planet "Nimbus"
+	npc evade
+		government "Korath"
+		personality target timid unconstrained uninterested harvests plunders
+		fleet "Korath Raid" 2
+	npc
+		government "Syndicate"
+		personality heroic staying vindictive
+		fleet "Large Syndicate"
+		fleet "Small Syndicate"
+	on offer
+		conversation
+			`Внезапно вы слышите поднятые голоса и крики снаружи: "На нас напали! <planet> подвергается атаке инопланетных рейдеров. Нам нужен каждый боеспособный корабль, чтобы присоединиться к обороне! Власти, вероятно, хорошо заплатят вам, если вы поможете им, но это также может быть простым способом убить себя.`
+			choice
+				`(Останьтесь здесь, пока борьба не закончится.)`
+					decline
+				`(Присоединяйтесь к флоту.)`
+			`Местные силы обороны Синдиката готовятся отразить нападение инопланетян. Вы присоединяетесь к ним и вместе взлетаете...`
+				launch
+	on visit
+		dialog `Вы приземлились на <planet>, но Корат все еще кружит над головой. Вы должны взлететь и помочь закончить их.`
+	on complete
+		payment 550000
+		dialog `Правительство <planet> платит вам <payment> за помощь в отгоне рейдеров.`
+
+mission "Raider Attack 2"
+	name "Защита <planet>"
+	description "Победить инопланетный рейд на <destination>."
+	minor
+	repeat
+	to offer
+		"combat rating" > 750
+		random < 5
+		has "main plot completed"
+	source
+		planet "Sundive"
+		planet "Shangri-La"
+		planet "Nimbus"
+	npc evade
+		government "Korath"
+		personality target timid unconstrained uninterested harvests plunders
+		fleet "Korath Raid" 3
+		
+	npc
+		government "Syndicate"
+		personality heroic staying vindictive
+		fleet "Large Syndicate" 2
+	on offer
+		conversation
+			`Внезапно вы слышите поднятые голоса и крики снаружи: "На нас напали! <planet> подвергается атаке инопланетных рейдеров. Нам нужен каждый боеспособный корабль, чтобы присоединиться к обороне! Власти, вероятно, хорошо заплатят вам, если вы поможете им, но это также может быть простым способом убить себя.`
+			choice
+				`(Останьтесь здесь, пока борьба не закончится.)`
+					decline
+				`(Присоединяйтесь к флоту.)`
+			`Местные силы обороны Синдиката готовятся отразить нападение инопланетян. Вы присоединяетесь к ним и вместе взлетаете...`
+				launch
+	on visit
+		dialog `Вы приземлились на <planet>, но Корат все еще кружит над головой. Вы должны взлететь и помочь закончить их.`
+	on complete
+		payment 750000
+		dialog `Правительство <planet> платит вам <payment> за помощь в отгоне рейдеров.`
+
+
+
+mission "Cargo [0]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 5 2 .1
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 8
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		dialog phrase "родовая доставка груза"
+
+mission "Cargo [1]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 90
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		dialog phrase "родовая доставка груза"
+
+mission "Cargo [2]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 80
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		dialog phrase "родовая доставка груза"
+
+mission "Cargo [3]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 70
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 3 14
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog phrase "родовая доставка груза"
+
+mission "Cargo [4]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 60
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 4 16
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 4000
+		dialog phrase "родовая доставка груза"
+
+mission "Cargo [5]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 5 2 .1
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 1 3
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		dialog phrase "родовая доставка груза"
+
+mission "Bulk Delivery [0]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 25 2 .05
+	to offer
+		random < 70
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 8
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		dialog phrase "родовая доставка груза"
+
+mission "Bulk Delivery [1]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 25 2 .05
+	to offer
+		random < 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 3 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog phrase "родовая доставка груза"
+
+mission "Bulk Delivery [2]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 25 2 .05
+	to offer
+		random < 50
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 4 16
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 4000
+		dialog phrase "родовая доставка груза"
+
+mission "Bulk Delivery [3]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 25 2 .05
+	to offer
+		random < 70
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 1 3
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		dialog phrase "родовая доставка груза"
+
+mission "Rush Delivery [0]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 90
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 4 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 16000
+		dialog phrase "родовая доставка груза"
+
+mission "Rush Delivery [1]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 80
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 5 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 18000
+		dialog phrase "родовая доставка груза"
+
+mission "Rush Delivery [2]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 70
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 6 14
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 20000
+		dialog phrase "родовая доставка груза"
+
+mission "Rush Delivery [3]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 60
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 7 16
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 22000
+		dialog phrase "родовая доставка груза"
+
+mission "Rush Delivery [4]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 5 2 .1
+	to offer
+		random < 90
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 1 3
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog phrase "родовая доставка груза"
+
+
+
+mission "Passengers [0]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 1 10 .9
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog phrase "общий платеж пассажира"
+
+mission "Passengers [1]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 1 10 .9
+	to offer
+		random < 75
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		dialog phrase "общий платеж пассажира"
+
+mission "Passengers [2]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 1 10 .9
+	to offer
+		random < 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		dialog phrase "общий платеж пассажира"
+
+mission "Passengers [3]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 1 10 .9
+	to offer
+		random < 25
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		dialog phrase "общий платеж пассажира"
+
+mission "Passengers [4]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Пассажиры <bunks> хотят избежать загрязнения и преступности на <origin> и остановиться на <destination>. Платеж <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 50
+	source
+		attributes "urban"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog phrase "общий платеж пассажира"
+
+mission "Passengers [5]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 1 10 .9
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 1 3
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 500
+		dialog phrase "общий платеж пассажира"
+
+mission "Passengers to Quarg [1]"
+	name "Пассажирский транспорт <planet>"
+	description "Принесите <fare> на планету Quarg <destination>. Платеж <payment>."
+	job
+	repeat
+	passengers 1 10 .9
+	to offer
+		random < 10
+		has "landing access: Humanika"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination "Humanika"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog phrase "общий платеж пассажира"
+
+mission "Passengers to Quarg [2]"
+	name "Пассажирский транспорт <planet>"
+	description "Принесите <fare> на планету Quarg <destination>. Платеж <payment>."
+	job
+	repeat
+	passengers 1 10 .9
+	to offer
+		random < 10
+		has "landing access: Humanika"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination "Humanika"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog phrase "общий платеж пассажира"
+
+mission "Transport miners to <planet>"
+	job
+	repeat
+	description "Это семейство майнеров <bunks> надеется найти работу на <destination>, и они заплатят вам <payment>, чтобы взять их туда."
+	passengers 2 2 .8
+	to offer
+		random < 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "mining"
+		distance 3 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog "Вы желаете семье майнеров удачи на <planet> и получаете оплату <payment>."
+
+mission "Transport farmers to <planet>"
+	job
+	repeat
+	description "Это семейство фермеров <bunks> надеется найти работу над <destination>, и они заплатят вам <payment>, чтобы взять их туда."
+	passengers 2 2 .8
+	to offer
+		random < 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "farming"
+		distance 3 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog "Вы желаете фермерской семье удачи на <planet> и получаете оплату <payment>."
+
+mission "Transport mill workers to <planet>"
+	job
+	repeat
+	description "Это семейство работников мельницы <bunks> надеется найти работу на <destination>, и они заплатят вам <payment>, чтобы взять их туда."
+	passengers 2 2 .8
+	to offer
+		random < 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "textiles"
+		distance 3 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog "Вы желаете работникам удачи на <planet> и получаете оплату за <payment>."
+
+mission "Transport workers to <planet>"
+	job
+	repeat
+	description "Это семейство заводских рабочих <bunks> надеется найти работу на <destination>, и они заплатят вам <payment>, чтобы взять их туда."
+	passengers 2 2 .8
+	to offer
+		random < 80
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "factory"
+		distance 3 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		dialog "Вы желаете работникам удачи на <planet> и получаете оплату за <payment>."
+
+mission "Tourists out [0]"
+	name "Пригласите туриста на <planet>"
+	job
+	repeat
+	description "Этот турист хочет увидеть <destination> и заплатит вам <payment>."
+	passengers 1
+	to offer
+		random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "tourism"
+		distance 6 35
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 6000
+		dialog phrase "общий платеж пассажира"
+
+mission "Tourists out [1]"
+	name "Приглашаем туристов на <planet>"
+	job
+	repeat
+	description "Эти туристы хотят увидеть <destination>. Они готовы заплатить вам <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "tourism"
+		distance 2 25
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 4000
+		dialog phrase "общий платеж пассажира"
+
+mission "Wealthy tourists out"
+	name "Привлечение состоятельных туристов в <planet>"
+	job
+	repeat
+	description "Эти богатые туристы хотят увидеть <destination> и хотят отправиться в путешествие на роскошном корабле. Они готовы заплатить вам <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 75
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		attributes "rich" "urban"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "tourism"
+		distance 4 30
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 200
+		dialog phrase "общий платеж пассажира"
+
+mission "Wealthy tourist group out [0]"
+	name "Богатая туристическая группа <planet>"
+	job
+	repeat
+	description "Группа состоятельных туристов, состоящая из членов <bunks>, хочет увидеть <destination> и желает отправиться в путешествие на роскошном корабле. Они готовы заплатить вам <payment>."
+	passengers 15 5 .09
+	to offer
+		random < 75
+		random < ( "passenger space" - 35 ) * 2
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		attributes "rich" "urban"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "tourism"
+		distance 4 30
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 210000 135
+		dialog phrase "общий платеж пассажира"
+
+mission "Wealthy tourist group out [1]"
+	name "Богатая туристическая группа <planet>"
+	job
+	repeat
+	description "Группа состоятельных туристов, состоящая из членов <bunks>, хочет увидеть <destination> и желает отправиться в путешествие на роскошном корабле. Они готовы заплатить вам <payment>."
+	passengers 15 5 .09
+	to offer
+		random < 75
+		random < ( "passenger space" - 35 ) * 2
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		attributes "rich" "urban"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "tourism"
+		distance 4 30
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 210000 135
+		dialog phrase "общий платеж пассажира"
+
+mission "Tourists back [0]"
+	name "Привезите туриста домой в <planet>"
+	job
+	repeat
+	description "Этот турист направляется домой к <destination> и заплатит вам <payment>."
+	passengers 1
+	to offer
+		random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "tourism"
+	destination
+		distance 6 35
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 6000
+		dialog phrase "общий платеж пассажира"
+
+mission "Tourists back [1]"
+	name "Туристы возвращаются домой на <planet>"
+	job
+	repeat
+	description "Туристы <bunks> отправляются домой к <destination>. Они готовы заплатить вам <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "tourism"
+	destination
+		distance 2 25
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 4000
+		dialog phrase "общий платеж пассажира"
+
+mission "Wealthy tourists back"
+	name "Богатые туристы возвращаются домой на <planet>"
+	job
+	repeat
+	description "Эти состоятельные туристы отправляются домой в <destination> и хотят отправиться в путешествие на роскошном корабле. Они готовы заплатить вам <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 75
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		attributes "tourism"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "rich" "urban"
+		distance 4 30
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 200
+		dialog phrase "общий платеж пассажира"
+
+mission "Wealthy tourist group back [0]"
+	name "Богатые туристы возвращаются домой на <planet>"
+	job
+	repeat
+	description "Группа состоятельных туристов, состоящая из членов <bunks>, направляется домой к <destination> и желает отправиться в путешествие на роскошном корабле. Они готовы заплатить вам <payment>."
+	passengers 15 5 .09
+	to offer
+		random < 75
+		random < ( "passenger space" - 35 ) * 2
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		attributes "tourism"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "rich" "urban"
+		distance 4 30
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 210000 135
+		dialog phrase "общий платеж пассажира"
+
+mission "Wealthy tourist group back [1]"
+	name "Богатые туристы возвращаются домой на <planet>"
+	job
+	repeat
+	description "Группа состоятельных туристов, состоящая из членов <bunks>, направляется домой к <destination> и желает отправиться в путешествие на роскошном корабле. Они готовы заплатить вам <payment>."
+	passengers 15 5 .09
+	to offer
+		random < 75
+		random < ( "passenger space" - 35 ) * 2
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		attributes "tourism"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "rich" "urban"
+		distance 4 30
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 210000 135
+		dialog phrase "общий платеж пассажира"
+
+mission "Family [0]"
+	name "Транспортное семейство <planet>"
+	job
+	repeat
+	description "Семейство <bunks> переходит на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 2 4 .5
+	to offer
+		random < 60
+		"passenger space" >= 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 4 16
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 4000
+		dialog "Семья, которую вы перевозите, покидает ваш корабль после оплаты <payment>."
+
+mission "Family [1]"
+	name "Транспортное семейство <planet>"
+	job
+	repeat
+	description "Семейство <bunks> переходит на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 2 4 .5
+	to offer
+		random < 50
+		"passenger space" >= 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 5 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 6000
+		dialog "Семья, которую вы перевозите, покидает ваш корабль после оплаты <payment>."
+
+mission "Family [2]"
+	name "Транспортное семейство <planet>"
+	job
+	repeat
+	description "Семейство <bunks> переходит на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 2 4 .5
+	to offer
+		random < 40
+		"passenger space" >= 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 6 24
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 8000
+		dialog "Семья, которую вы перевозите, покидает ваш корабль после оплаты <payment>."
+
+mission "Family [3]"
+	name "Транспортное семейство <planet>"
+	job
+	repeat
+	description "Семейство <bunks> переходит на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 2 4 .5
+	to offer
+		random < 30
+		"passenger space" >= 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 8 32
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog "Семья, которую вы перевозите, покидает ваш корабль после оплаты <payment>."
+
+mission "Strike Breakers [mining]"
+	name "Ударные выключатели для <planet>"
+	job
+	repeat
+	description "Приведите ударные выключатели <bunks> к <destination>, чтобы занять место бастующих шахтеров. Компания заплатит вам <payment>."
+	passengers 5 5 .2
+	to offer
+		random < 10
+		"passenger space" > 15
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "mining"
+		distance 2 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog "Вы разгружаете забастовщиков среди разъяренной толпы протестующих, удерживаемых полицией. Когда вы возвращаетесь на свой корабль, вы обнаруживаете, что компания перевела согласованный платеж <payment> на ваш счет."
+
+mission "Strike Breakers [large mining]"
+	name "Ударные выключатели для <planet>"
+	job
+	repeat
+	description "Приведите ударные выключатели <bunks> к <destination>, чтобы занять место бастующих шахтеров. Компания заплатит вам <payment>."
+	passengers 40 4 .08
+	to offer
+		random < "passenger space" - 45
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "mining"
+		distance 2 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 130000 100
+		dialog "Вы разгружаете забастовщиков среди разъяренной толпы протестующих, удерживаемых полицией. Когда вы возвращаетесь на свой корабль, вы обнаруживаете, что компания перевела согласованный платеж <payment> на ваш счет."
+
+mission "Strike Breakers [textile]"
+	name "Ударные выключатели для <planet>"
+	job
+	repeat
+	description "Приведите забастовочные выключатели <bunks> в <destination>, чтобы занять место бастующих текстильщиков. Компания заплатит вам <payment>."
+	passengers 5 5 .2
+	to offer
+		random < 10
+		"passenger space" > 15
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "textiles"
+		distance 2 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog "Вы разгружаете забастовщиков среди разъяренной толпы протестующих, удерживаемых полицией. Когда вы возвращаетесь на свой корабль, вы обнаруживаете, что компания перевела согласованный платеж <payment> на ваш счет."
+
+mission "Strike Breakers [large textile]"
+	name "Ударные выключатели для <planet>"
+	job
+	repeat
+	description "Приведите забастовочные выключатели <bunks> в <destination>, чтобы занять место бастующих текстильщиков. Компания заплатит вам <payment>."
+	passengers 40 4 .08
+	to offer
+		random < "passenger space" - 45
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "textiles"
+		distance 2 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 130000 100
+		dialog "Вы разгружаете забастовщиков среди разъяренной толпы протестующих, удерживаемых полицией. Когда вы возвращаетесь на свой корабль, вы обнаруживаете, что компания перевела согласованный платеж <payment> на ваш счет."
+
+mission "Strike Breakers [factory]"
+	name "Ударные выключатели для <planet>"
+	job
+	repeat
+	description "Приведите ударные выключатели <bunks> в <destination>, чтобы занять место бастующих заводских рабочих. Компания заплатит вам <payment>."
+	passengers 5 5 .2
+	to offer
+		random < 10
+		"passenger space" > 15
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "factory"
+		distance 2 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 10000
+		dialog "Вы разгружаете забастовщиков среди разъяренной толпы протестующих, удерживаемых полицией. Когда вы возвращаетесь на свой корабль, вы обнаруживаете, что компания перевела согласованный платеж <payment> на ваш счет."
+
+mission "Strike Breakers [large factory]"
+	name "Ударные выключатели для <planet>"
+	job
+	repeat
+	description "Приведите ударные выключатели <bunks> в <destination>, чтобы занять место бастующих заводских рабочих. Компания заплатит вам <payment>."
+	passengers 40 4 .08
+	to offer
+		random < "passenger space" - 45
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "factory"
+		distance 2 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 130000 100
+		dialog "Вы разгружаете забастовщиков среди разъяренной толпы протестующих, удерживаемых полицией. Когда вы возвращаетесь на свой корабль, вы обнаруживаете, что компания перевела согласованный платеж <payment> на ваш счет."
+
+mission "Colonists [0]"
+	name "Колонисты <planet>"
+	job
+	repeat
+	description "Эти люди надеются присоединиться к колонии на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 10 4 .1
+	to offer
+		random < ( "passenger space" - 20 ) / 2
+	source
+		attributes "urban" "near earth" "core" "factory"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "frontier" "dirt belt" "south" "farming" "mining" "rim" "forest"
+		not attributes "station" "urban"
+		distance 2 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 70000 100
+		dialog "Колонисты передают вам <payment>, чтобы начать новую жизнь на <planet>."
+
+mission "Colonists [1]"
+	name "Колонисты <planet>"
+	job
+	repeat
+	description "Эти люди надеются присоединиться к колонии на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 10 4 .1
+	to offer
+		random < ( "passenger space" - 20 ) / 2
+	source
+		attributes "urban" "near earth" "core" "factory"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "frontier" "dirt belt" "south" "farming" "mining" "rim" "forest"
+		not attributes "station" "urban"
+		distance 4 30
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 80000 100
+		dialog "Колонисты передают вам <payment>, чтобы начать новую жизнь на <planet>."
+
+mission "Colonists [2]"
+	name "Колонисты <planet>"
+	job
+	repeat
+	description "Эти люди надеются присоединиться к колонии на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 10 4 .1
+	to offer
+		random < ( "passenger space" - 20 ) / 2
+	source
+		attributes "urban" "near earth" "core" "factory"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "frontier" "dirt belt" "south" "farming" "mining" "rim" "forest"
+		not attributes "station" "urban"
+		distance 2 20
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 90000 100
+		dialog "Колонисты передают вам <payment>, чтобы начать новую жизнь на <planet>."
+
+mission "Colonists [3]"
+	name "Колонисты <planet>"
+	job
+	repeat
+	description "Эти люди надеются присоединиться к колонии на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 10 4 .1
+	to offer
+		random < ( "passenger space" - 20 ) / 2
+	source
+		attributes "urban" "near earth" "core" "factory"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "frontier" "dirt belt" "south" "farming" "mining" "rim" "forest"
+		not attributes "station" "urban"
+		distance 4 30
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 100000 100
+		dialog "Колонисты передают вам <payment>, чтобы начать новую жизнь на <planet>."
+
+mission "Stranded Field Trip"
+	name "Экскурсия в <planet>"
+	job
+	repeat
+	description `Эти ученики <bunks> оказались в затруднительном положении из-за неожиданного банкротства их заказанного транспорта. Для них доступна награда <payment>, а их багаж <tons> будет возвращен домой в <destination>.`
+	passengers 20 4 .1
+	cargo "educational supplies" 2 10 .6
+	to offer
+		random < ( "passenger space" - 30 ) / 2
+		random < 10
+	source
+		attributes "near earth" "deep" "paradise" "tourism"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		attributes "education" "near earth" "deep" "paradise" "urban"
+		not attributes "station" "urban"
+		distance 4 16
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 100000 150
+		dialog `Студенты взволнованно бросаются с вашего корабля в объятия своих ожидающих родителей. Приключение было веселым, но они очень рады вернуться домой после столь долгого времени. Школа вносит <payment> на ваш счет.`
+
+mission "Prisoners [0]"
+	name "Транспортировка заключенных в <planet>"
+	job
+	repeat
+	description "Приведите мелких преступников <bunks> в <destination>, где они будут отбывать наказание в качестве шахтеров. Они должны содержаться в соответствующих помещениях, предназначенных для перевозки преступников. Платеж <payment>."
+	passengers 2 10 .9
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "mining"
+		attributes "north" "south" "rim" "frontier" "core"
+	to offer
+		random < 15
+	to accept
+		has "outfit (installed): Brig"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 5000 165
+		dialog "Пассажиры несчастливо перетасовываются с корабля под бдительным оком нескольких хорошо вооруженных охранников, когда они готовятся погасить свои долги обществу в качестве принудительных рабочих в шахтах <planet>. Вы получаете оплату <payment>."
+
+mission "Prisoners [1]"
+	name "Транспортировка заключенных в <planet>"
+	job
+	repeat
+	description "Перевозите мелких преступников <bunks> в <destination>, где они будут отбывать наказание в качестве фабричных рабочих. Они должны содержаться в соответствующих помещениях, предназначенных для перевозки преступников. Платеж <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 15
+	to accept
+		has "outfit (installed): Brig"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+		attributes "north" "south" "rim" "frontier" "core"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 5000 165
+		dialog "Пассажиры несчастья перетасовываются с корабля под бдительным оком нескольких хорошо вооруженных охранников, когда они готовятся погасить свои долги обществу в качестве принудительных рабочих на заводах <planet>. Вы получаете оплату <payment>."
+
+mission "Prisoners [2]"
+	name "Транспортировка заключенных в <planet>"
+	job
+	repeat
+	description "Перевозите мелких преступников <bunks> в <destination>, где они будут отбывать наказание в качестве домашних слуг. Они должны содержаться в соответствующих помещениях, предназначенных для перевозки преступников. Платеж <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 15
+	to accept
+		has "outfit (installed): Brig"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 5000 165
+		dialog "Пассажиры перетасовываются с корабля под бдительным оком нескольких хорошо вооруженных охранников, когда они готовятся погасить свои долги обществу в качестве домашних слуг для богатой элиты <planet>. Вы получаете оплату <payment>."
+
+mission "Prisoners [3]"
+	name "Транспортировка заключенных в <planet>"
+	job
+	repeat
+	description "Перевозите мелких преступников <bunks> в колонию на <destination>. Они должны содержаться в соответствующих помещениях, предназначенных для перевозки преступников. Платеж <payment>."
+	passengers 2 15 .9
+	to offer
+		random < 15
+	to accept
+		has "outfit (installed): Brig"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "moon" "military"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 5000 165
+		dialog "Пассажиры несчастливо перетасовываются с корабля под бдительным оком нескольких хорошо вооруженных охранников, когда они готовятся погасить свои долги обществу в исправительной колонии в этом отдаленном мире. Вы получаете платеж <payment>."
+
+mission "Prisoners [4]"
+	name "Транспортировка заключенных в <planet>"
+	job
+	repeat
+	description "Перевозите жестоких преступников <bunks> в колонию на <destination>. Они должны содержаться в соответствующих помещениях, предназначенных для перевозки преступников. Платеж <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 10
+		"combat rating" > 50
+	to accept
+		has "outfit (installed): Brig"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "moon" "military"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 25000 175
+		dialog "Ваши закованные в кандалы пассажиры предлагают горькие проклятия, поскольку грубые и хорошо вооруженные охранники практически избили их из вашего корабля, заставив их двигаться в направлении исправительной колонии в этом отдаленном мире. Вы получаете платеж <payment>."
+	npc
+		government "Pirate"
+		personality nemesis plunders
+		system
+			distance 3 4
+		fleet "pirate raid"
+
+mission "Released Prisoners [0]"
+	name "Перевозка условно-досрочного освобождения в <planet>"
+	job
+	repeat
+	description "Перевозите заключённых <bunks> домой после окончания каторжных работ. Платеж <payment>."
+	passengers 2 10 .9
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "mining" "factory"
+		attributes "north" "south" "rim" "frontier" "core"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 15
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 3000 150
+		dialog "Освобожденные заключенные выходят в космодром, не имея ничего, кроме своих скудных вещей и документов. Вы получаете платеж <payment>."
+
+mission "Released Prisoners [1]"
+	name "Перевозка условно-досрочного освобождения в <planet>"
+	job
+	repeat
+	description "Перевозите заключенных <bunks> домой после отбывания наказания в качестве домашней прислуги. Платеж <payment>."
+	passengers 2 10 .9
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "paradise"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 15
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 3000 150
+		dialog "Освобожденные заключенные выходят в космодром, не имея ничего, кроме своих скудных вещей и документов. Вы получаете платеж <payment>."
+
+mission "Released Prisoners [2]"
+	name "Перевозка условно-досрочного освобождения в <planet>"
+	job
+	repeat
+	description "Перевозите заключенных <bunks> домой после отбывания наказания в исправительной колонии. Платеж <payment>."
+	passengers 2 10 .9
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "frontier" "moon" "military"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 15
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 3000 150
+		dialog "Освобожденные заключенные идут в космодром, не имея ничего, кроме разгрузочных документов и одежды на спине. Вы получаете платеж <payment>."
+
+mission "Passenger Runoff [0]"
+	name "Пассажирский транспорт <planet>"
+	description "Принесите фигурку с капюшоном в <destination>. Платеж <payment>."
+	job
+	repeat
+	passengers 1
+	"apparent payment" 12000
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 8
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 1
+		random < 10
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog `Когда ваш корабль приземляется на посадочную площадку, мигающий свет уведомляет вас о том, что дверь грузового отсека была открыта с помощью аварийного выпуска. Вы видите, как ваш пассажир убегает в космодром.`
+
+mission "Passenger Runoff [1]"
+	name "Пассажирский транспорт <planet>"
+	description "Приведите подростка к <destination>. Платеж <payment>."
+	job
+	repeat
+	passengers 1
+	"apparent payment" 12000
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 8
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 1
+		random < 10
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog `После приземления вы идете в пассажирские отсеки, чтобы уведомить их о прибытии и попросить оплату. Дверь открывается, когда вы поднимаете руку, чтобы постучать, и мимо вас пробегает подросток. Прежде чем вы сможете восстановиться, они уже ушли и направляются в глубины космодрома.`
+
+mission "Passenger Runoff With Payment [0]"
+	name "Пассажирский транспорт <planet>"
+	description "Принесите фигурку с капюшоном в <destination>. Платеж <payment>."
+	job
+	repeat
+	passengers 1
+	"apparent payment" 12000
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 8
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 1
+		random < 40
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000
+		dialog `Когда ваш корабль приземляется на посадочную площадку, мигающий свет уведомляет вас о том, что дверь грузового отсека была открыта с помощью аварийного выпуска. Проверяя бухту, вы находите оплату <payment> и замечаете, как ваш пассажир убегает в космодром.`
+
+mission "Passenger Runoff With Payment [1]"
+	name "Пассажирский транспорт <planet>"
+	description "Приведите подростка к <destination>. Платеж <payment>."
+	job
+	repeat
+	passengers 1
+	"apparent payment" 12000
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 8
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 1
+		random < 40
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000
+		dialog `Когда ваш корабль приземляется на посадочную площадку, мигающий свет уведомляет вас о том, что дверь грузового отсека была открыта с помощью аварийного выпуска. Проверяя бухту, вы находите оплату <payment> и замечаете, как ваш пассажир убегает в космодром.`
+
+mission "Large Bulk Delivery [0]"
+	name "Большая массовая доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 40 2 .02
+	to offer
+		random < 70
+		"cargo space" > 100
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 2 8
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 4000
+		dialog phrase "родовая доставка груза"
+
+mission "Large Bulk Delivery [1]"
+	name "Большая массовая доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 40 2 .02
+	to offer
+		random < 60
+		"cargo space" > 100
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 3 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 6000
+		dialog phrase "родовая доставка груза"
+
+mission "Large Bulk Delivery [2]"
+	name "Большая массовая доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 40 2 .02
+	to offer
+		random < 50
+		"cargo space" > 100
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 4 16
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 8000
+		dialog phrase "родовая доставка груза"
+
+mission "Large Rush Delivery [0]"
+	name "Быстрая доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 20 6 .1
+	to offer
+		random < 90
+		"cargo space" >= 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 4 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 36000
+		dialog phrase "родовая доставка груза"
+
+mission "Large Rush Delivery [1]"
+	name "Быстрая доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 20 6 .1
+	to offer
+		random < 80
+		"cargo space" >= 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 5 12
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 38000
+		dialog phrase "родовая доставка груза"
+
+mission "Large Rush Delivery [2]"
+	name "Быстрая доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 20 6 .1
+	to offer
+		random < 70
+		"cargo space" >= 50
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 6 14
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 40000
+		dialog phrase "родовая доставка груза"
+
+mission "Large Rush Delivery [3]"
+	name "Быстрая доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 20 6 .1
+	to offer
+		random < 60
+		"cargo space" >= 50
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination
+		distance 7 16
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 42000
+		dialog phrase "родовая доставка груза"
+
+mission "Recycle garbage"
+	name "Перерабатывать мусор"
+	description "<origin> производит много мусора, который необходимо утилизировать за пределами станции. Транспортировка <cargo> в промышленный переработчик твердых отходов на <destination>. Платеж <payment>."
+	job
+	repeat
+	to offer
+		random < 70
+	cargo "Garbage" 15 100
+	source
+		attributes station
+	destination
+		attributes "factory" "mining" "dirt belt"
+		distance 9 12
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		dialog "Вы сбрасываете <commodity> на особо вонючую переработку твердых отходов и получаете оплату за <payment>."
+		payment
+		payment 20000
+
+mission "FW Wildfire Aid [1]"
+	job
+	repeat
+	name "Пожарная помощь <planet>"
+	substitutions
+		"<problem>" "forest fire"
+		"<problem>" "brush fire"
+			"random" < 60
+		"<problem>" "wildfire"
+			"random" < 30
+	description "Крупный <problem> произошел на <destination> и пострадали различные поселения на планете. Принесите <cargo> в <planet> от <date>, чтобы помочь в борьбе с пожарами. Платеж <payment>."
+	cargo "flames aid" 25 2 .05
+	deadline
+	to offer
+		random < 5
+	source
+		government "Free Worlds"
+	destination
+		government "Free Worlds"
+		distance 2 8
+		attributes "forest"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 8500 80
+		dialog "Вы сбрасываете свой груз <commodity> и получаете оплату <payment>. Группа граждан <planet> благодарит вас за помощь и прощается с вами."
+
+mission "FW Wildfire Aid [2]"
+	job
+	repeat
+	name "Пожарные в <planet>"
+	substitutions
+		"<problem>" "forest fire"
+		"<problem>" "brush fire"
+			"random" < 60
+		"<problem>" "wildfire"
+			"random" < 30
+	description "Крупный <problem> произошел на <destination> и пострадали различные поселения на планете. Перевозите команду пожарных <bunks> на <planet> от <date> для оказания помощи в борьбе с пожарами. Платеж <payment>."
+	passengers 5 10
+	deadline
+	to offer
+		random < 5
+	source
+		government "Free Worlds"
+	destination
+		government "Free Worlds"
+		distance 2 8
+		attributes "forest"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10500 80
+		dialog "Вы желаете пожарной команде успехов в их усилиях и получите оплату <payment>. Группа граждан <planet> приходит, чтобы провести команду в ближайшую палатку, и спасибо за помощь."
+
+mission "FW Cold Aid [1]"
+	name "Холодный рельеф <planet>"
+	description `Крупный <problem> произошел на <destination> и пострадали различные поселения на планете. Перенесите <cargo> в <planet> от <date>, чтобы помочь в усилиях по восстановлению. Платеж <payment>.`
+	job
+	repeat
+	deadline
+	source
+		government "Free Worlds"
+	destination
+		government "Free Worlds"
+		distance 2 8
+		attributes "frozen"
+	substitutions
+		"<problem>" "cold snap"
+		"<problem>" "freeze"
+			"random" < 60
+		"<problem>" "snowstorm"
+			"random" < 30
+		"<problem>" "blizzard"
+			"random" < 10
+	cargo "cold aid" 10 15 0.5
+	to offer
+		random < 1
+	on complete
+		payment 8500 80
+		dialog `Вы передаете свой груз <cargo> нуждающемуся сообществу в обмен на <payment>.`
+
+mission "FW Cold Aid [2]"
+	name "Холодный рельеф <planet>"
+	description `Крупный <problem> произошел на <destination> и пострадали различные поселения на планете. Перенесите <cargo> в <planet> от <date>, чтобы помочь в усилиях по восстановлению. Платеж <payment>.`
+	job
+	repeat
+	deadline
+	source
+		government "Free Worlds"
+	destination
+		government "Free Worlds"
+		distance 2 8
+		attributes "frozen"
+	substitutions
+		"<problem>" "cold snap"
+		"<problem>" "freeze"
+			"random" < 60
+		"<problem>" "snowstorm"
+			"random" < 30
+		"<problem>" "blizzard"
+			"random" < 10
+	cargo "cold aid" 10 15 0.5
+	to offer
+		random < 1
+	on complete
+		payment 8500 80
+		dialog `Вы передаете свой груз <cargo> нуждающемуся сообществу в обмен на <payment>.`
+
+
+
+mission "Bounty Hunting (Very Tiny)"
+	name "Истребитель рядом с <system>"
+	description "Небольшой пиратский истребитель <npc> атакует торговцев возле системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 14
+	"apparent payment" 25000
+	to offer
+		or
+			"combat rating" > 2
+			has "ships: Interceptor"
+			has "ships: Light Warship"
+		or
+			and
+				"combat rating" < 80
+				random < 55
+			and
+				"combat rating" < 54
+				random < 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 1 3
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Bounty (Very Tiny)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 25000
+			fail
+
+mission "Bounty Hunting (Very Tiny, Local)"
+	name "Разыскиваемый истребитель входит в <system>"
+	description "Небольшой пиратский истребитель под названием <npc> атакует торговцев в близлежащих звездных системах и, как сообщается, входит в эту систему. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 3
+	"apparent payment" 25000
+	to offer
+		or
+			"combat rating" > 2
+			has "ships: Interceptor"
+			has "ships: Light Warship"
+		"combat rating" < 80
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty"
+		personality heroic entering staying marked target
+		fleet "Bounty (Very Tiny)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 25000
+			fail
+
+
+
+mission "Bounty Hunting (Tiny)"
+	name "Разыскиваемый перехватчик рядом с <system>"
+	description "Хорошо вооруженный пиратский перехватчик <npc> атакует торговцев возле системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 14
+	"apparent payment" 50000
+	to offer
+		or
+			"combat rating" > 7
+			has "ships: Interceptor"
+			has "ships: Light Warship"
+		or
+			and
+				"combat rating" < 125
+				random < 55
+			and
+				"combat rating" < 54
+				random < 50
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 2 3
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Bounty (Tiny)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 50000
+			fail
+
+mission "Bounty Hunting (Tiny, Local)"
+	name "Разыскиваемый перехватчик входит в <system>"
+	description "Хорошо вооруженный пиратский перехватчик под названием <npc> атакует торговцев в близлежащих звездных системах и, как сообщается, входит в эту систему. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 3
+	"apparent payment" 50000
+	to offer
+		or
+			"combat rating" > 7
+			has "ships: Interceptor"
+			has "ships: Light Warship"
+		"combat rating" < 54
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty"
+		personality heroic entering staying marked target
+		fleet "Bounty (Tiny)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 50000
+			fail
+
+mission "Bounty Hunting (Very Small)"
+	name "Маленький пират рядом с <system>"
+	description "Небольшой пиратский корабль <npc> атаковал торговцев возле системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 14
+	"apparent payment" 95000
+	to offer
+		or
+			"combat rating" > 54
+			has "ships: Light Warship"
+			has "ships: Medium Warship"
+		or
+			and
+				"combat rating" < 220
+				random < 45
+			and
+				"combat rating" < 80
+				random < 35
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 2 3
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Bounty (Very Small)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 95000
+			fail
+
+mission "Bounty Hunting (Very Small, Local)"
+	name "Разыскиваемый маленький пират вошел в <system>"
+	description "Небольшой пиратский корабль под названием <npc> атакует торговцев в близлежащих звездных системах и, как сообщается, входит в эту систему. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 3
+	"apparent payment" 95000
+	to offer
+		or
+			"combat rating" > 54
+			has "ships: Light Warship"
+			has "ships: Medium Warship"
+		"combat rating" < 80
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty"
+		personality heroic entering staying marked target
+		fleet "Bounty (Very Small)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 95000
+			fail
+
+mission "Bounty Hunting (Small)"
+	name "Разыскиваемый легкий военный корабль рядом с <system>"
+	description "Легкий пиратский военный корабль <npc> атакует торговцев вблизи системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 14
+	"apparent payment" 180000
+	to offer
+		or
+			"combat rating" > 80
+			has "ships: Light Warship"
+			has "ships: Medium Warship"
+			has "ships: Heavy Warship"
+		or
+			and
+				"combat rating" < 403
+				random < 40
+			and
+				"combat rating" < 350
+				random < 30
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 2 3
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Bounty (Small)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 180000
+			fail
+
+mission "Bounty Hunting (Small, Local)"
+	name "Разыскиваемый легкий военный корабль вошел в <system>"
+	description "Легкий пиратский военный корабль <npc> атакует торговцев в близлежащих звездных системах и, как сообщается, входит в эту систему. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 3
+	"apparent payment" 180000
+	to offer
+		or
+			"combat rating" > 80
+			has "ships: Light Warship"
+			has "ships: Medium Warship"
+			has "ships: Heavy Warship"
+		"combat rating" < 350
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty"
+		personality heroic entering staying marked target
+		fleet "Bounty (Small)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 180000
+			fail
+
+mission "Bounty Hunting (Medium)"
+	name "Разыскиваемый средний военный корабль около <system>"
+	description "Средний пиратский военный корабль <npc> атакует торговцев вблизи системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 16
+	"apparent payment" 240000
+	to offer
+		"combat rating" > 125
+		or
+			random < 30
+			and
+				"combat rating" < 650
+				random < 30
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 2 4
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Bounty (Medium)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 240000
+			fail
+
+mission "Bounty Hunting (Medium, Local)"
+	name "Разыскиваемый средний военный корабль входит в <system>"
+	description "Средний пиратский военный корабль под названием <npc> атакует торговцев в близлежащих звездных системах и, как сообщается, входит в эту систему. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 3
+	"apparent payment" 240000
+	to offer
+		"combat rating" > 125
+		or
+			random < 5
+			and
+				"combat rating" < 1300
+				random < 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty"
+		personality heroic entering staying marked target
+		fleet "Bounty (Medium)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 240000
+			fail
+
+mission "Bounty Hunting (Big)"
+	name "Тяжелый военный корабль близ <system>"
+	description "Тяжелый военный корабль, известный как <npc>, атаковал торговцев вблизи системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 16
+	"apparent payment" 300000
+	to offer
+		"combat rating" > 403
+		or
+			random < 35
+			and
+				"combat rating" < 2000
+				random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 3 4
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Bounty (Big)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 300000
+			fail
+
+mission "Bounty Hunting (Big, Local)"
+	name "Разыскиваемый тяжелый военный корабль вошел в <system>"
+	description "Тяжелый военный корабль, известный как <npc>, атаковал торговцев в близлежащих звездных системах и, как сообщается, входит в эту систему. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 3
+	"apparent payment" 300000
+	to offer
+		"combat rating" > 403
+		or
+			random < 5
+			and
+				"combat rating" < 2000
+				random < 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty"
+		personality heroic entering staying marked target
+		fleet "Bounty (Big)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 300000
+			fail
+
+mission "Bounty Hunting (Small, Hidden)"
+	name "Замаскированный легкий военный корабль рядом с <system>"
+	description "Легкий пиратский военный корабль под названием <npc> представляет собой торговое судно в рамках скачка системы <system>. Найдите торговое судно с соответствующим названием и уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 30
+	"apparent payment" 360000
+	to offer
+		"combat rating" > 80
+		or
+			random < 2
+			and
+				"combat rating" < 403
+				random < 7
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty (Disguised)"
+		personality heroic marked staying
+		system
+			distance 1 1
+		fleet "Bounty (Small)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 360000
+			fail
+
+mission "Bounty Hunting (Medium, Hidden)"
+	name "Замаскированный средний военный корабль рядом с <system>"
+	description "Средний пиратский военный корабль под названием <npc> представляет собой торговое судно в рамках скачка системы <system>. Найдите торговое судно с соответствующим названием и уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 30
+	"apparent payment" 480000
+	to offer
+		"combat rating" > 125
+		or
+			random < 2
+			and
+				"combat rating" < 1300
+				random < 7
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty (Disguised)"
+		personality heroic marked staying
+		system
+			distance 1 1
+		fleet "Bounty (Medium)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 480000
+			fail
+
+mission "Bounty Hunting (Big, Hidden)"
+	name "Замаскированный тяжелый военный корабль рядом с <system>"
+	description "Тяжелый военный корабль, известный как <npc>, представляет собой торговое судно в рамках системы <system>. Найдите торговое судно с соответствующим названием и уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 30
+	"apparent payment" 600000
+	to offer
+		"combat rating" > 403
+		or
+			random < 2
+			and
+				"combat rating" < 2000
+				random < 7
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty (Disguised)"
+		personality heroic marked staying
+		system
+			distance 1 1
+		fleet "Bounty (Big)"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 600000
+			fail
+
+mission "Bounty Hunting (Small, Boarding, Entering)"
+	name "Украденный корабль рядом с <system>"
+	description "Разыскиваемый преступник убегает на украденном корабле <npc>, который вот-вот войдет в эту систему. Садитесь на корабль и задерживайте преступника на бриге, а затем доставьте их в <destination> по <date>. Вознаграждение за захват: <payment>."
+	passengers 1
+	deadline 14
+	repeat
+	job
+	to offer
+		"combat rating" > 20
+		random < 15
+	to accept
+		has "outfit (installed): Brig"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+		distance 2 6
+	npc board
+		government "Bounty"
+		personality timid fleeing marked uninterested entering target
+		fleet
+			names "civilian"
+			variant
+				"Flivver (Racing)"
+			variant
+				"Arrow"
+			variant
+				"Scout (Speedy)"
+			variant
+				"Clipper (Speedy)"
+		dialog "Вы прокладываете себе путь на корабль и ограничиваете бегущего преступника бригом вашего корабля. Пришло время доставить их в <planet>."
+	on visit
+		dialog phrase "посадка на охоту за головами в гостях"
+	on complete
+		payment 175000
+		dialog "Правительство <planet> с благодарностью платит вам <payment> за поимку преступника."
+
+mission "Bounty Hunting (Medium, Boarding, Entering)"
+	name "Украденный корабль рядом с <system>"
+	description "Несколько разыскиваемых преступников бегут на украденном военном корабле <npc>, который вот-вот войдет в эту систему. Садитесь на корабль и задерживайте преступников на бриге, а затем доставьте их в <destination> по <date>. Вознаграждение за захват: <payment>."
+	passengers 4
+	deadline 14
+	repeat
+	job
+	to offer
+		"combat rating" > 148
+		random < 15
+	to accept
+		has "outfit (installed): Brig"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	destination
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+		distance 2 6
+	npc board
+		government "Bounty"
+		personality timid fleeing marked uninterested entering target
+		fleet
+			names "civilian"
+			variant
+				"Corvette (Speedy)"
+			variant
+				"Osprey (Missile)"
+			variant
+				"Argosy (Missile)"
+			variant
+				"Modified Argosy (Heavy)"
+			variant
+				"Raven (Heavy)"
+		dialog "Вы прокладываете себе путь на корабль, подчиняете бегущих преступников и ограничиваете их бригом вашего корабля. Пришло время доставить их в <planet>."
+	on visit
+		dialog phrase "посадка на охоту за головами в гостях"
+	on complete
+		payment 350000
+		dialog "Правительство <planet> с благодарностью платит вам <payment> за поимку преступной группировки."
+
+mission "Bounty Hunting (Solo Marauder I)"
+	name "Перехватчик Marauder рядом с <system>"
+	description "Перехватчик Marauder под названием <npc> атакует торговцев вблизи системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 16
+	"apparent payment" 130000
+	to offer
+		or
+			"combat rating" > 54
+			has "ships: Interceptor"
+			has "ships: Light Warship"
+		"combat rating" > 20
+		"combat rating" < 220
+		random < 3
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 2 3
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder I"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 130000
+			fail
+
+mission "Bounty Hunting (Solo Marauder II)"
+	name "Маленький мародёр рядом с <system>"
+	description "Небольшое судно под названием <npc> атаковало торговцев возле системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 16
+	"apparent payment" 200000
+	to offer
+		or
+			"combat rating" > 80
+			has "ships: Light Warship"
+			has "ships: Medium Warship"
+		"combat rating" > 54
+		"combat rating" < 220
+		random < 3
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 2 3
+			government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		fleet "Marauder II"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 200000
+			fail
+
+mission "Bounty Hunting (Solo Marauder III)"
+	name "Мародер рядом с <system>"
+	description "Судно под названием <npc> атакует торговцев возле системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 16
+	"apparent payment" 310000
+	to offer
+		"combat rating" > 125
+		"combat rating" < 650
+		random < 3
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 2 4
+			government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		fleet "Marauder III"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 310000
+			fail
+
+mission "Bounty Hunting (Solo Marauder IV)"
+	name "Большой мародёр рядом с <system>"
+	description "Большое судно Marauder под названием <npc> атакует торговцев возле системы <system>. Уничтожьте его <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 18
+	"apparent payment" 500000
+	to offer
+		"combat rating" > 403
+		"combat rating" < 1300
+		random < 3
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 3 4
+			government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		fleet "Marauder IV"
+		dialog phrase "generic hunted bounty упразднили и оплатили диалог"
+		on kill
+			payment 500000
+			fail
+
+mission "Bounty Hunting (Marauder I)"
+	name "Маленькие мародеры рядом с <system>"
+	description "Флот небольших кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 16
+	"apparent payment" 360000
+	to offer
+		"combat rating" > 220
+		or
+			and
+				"combat rating" < 500
+				random < 30
+			and
+				"combat rating" < 350
+				random < 30
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 3 4
+			government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		fleet "Marauder fleet I"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 360000
+			fail
+
+mission "Bounty Hunting (Marauder II)"
+	name "Маленькие мародеры рядом с <system>"
+	description "Флот небольших кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 16
+	"apparent payment" 410000
+	to offer
+		"combat rating" > 350
+		or
+			and
+				"combat rating" < 1600
+				random < 30
+			and
+				"combat rating" < 403
+				random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 3 4
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet II"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 410000
+			fail
+
+mission "Bounty Hunting (Marauder III)"
+	name "Маленькие мародеры рядом с <system>"
+	description "Флот небольших кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 16
+	"apparent payment" 450000
+	to offer
+		"combat rating" > 500
+		or
+			random < 20
+			and
+				"combat rating" < 650
+				random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 3 4
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet III"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 450000
+			fail
+
+mission "Bounty Hunting (Marauder IV)"
+	name "Мародеры рядом с <system>"
+	description "Флот кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 18
+	"apparent payment" 510000
+	to offer
+		"combat rating" > 650
+		or
+			random < 20
+			and
+				"combat rating" < 800
+				random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 3 5
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet IV"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 510000
+			fail
+
+mission "Bounty Hunting (Marauder V)"
+	name "Мародеры рядом с <system>"
+	description "Флот кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 18
+	"apparent payment" 550000
+	to offer
+		"combat rating" > 800
+		or
+			random < 20
+			and
+				"combat rating" < 1000
+				random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 3 5
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet V"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 550000
+			fail
+
+
+mission "Bounty Hunting (Marauder VI)"
+	name "Мародеры рядом с <system>"
+	description "Флот кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 18
+	"apparent payment" 590000
+	to offer
+		"combat rating" > 1000
+		or
+			random < 20
+			and
+				"combat rating" < 1300
+				random < 5
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 3 5
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet VI"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 590000
+			fail
+
+mission "Bounty Hunting (Marauder VII)"
+	name "Мародеры рядом с <system>"
+	description "Флот крупных кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 18
+	"apparent payment" 680000
+	to offer
+		"combat rating" > 1300
+		random < 25
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 4 5
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet VII"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 680000
+			fail
+
+mission "Bounty Hunting (Marauder VIII)"
+	name "Мародеры рядом с <system>"
+	description "Флот крупных кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 18
+	"apparent payment" 740000
+	to offer
+		"combat rating" > 1600
+		random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			distance 4 5
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet VIII"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 740000
+			fail
+
+mission "Bounty Hunting (Marauder IX)"
+	name "Мародеры рядом с <system>"
+	description "Флот крупных кораблей Marauder, возглавляемый судном под названием <npc>, атаковал торговцев возле системы <system>. Уничтожьте весь парк <day> для оплаты (<payment>)."
+	repeat
+	job
+	deadline 18
+	"apparent payment" 800000
+	to offer
+		"combat rating" > 2000
+		random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "deep" "near earth" "paradise"
+	npc kill
+		government "Bounty"
+		personality heroic unconstrained staying marked target tracked
+		system
+			distance 4 5
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet IX"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 800000
+			fail
+
+mission "Bounty Hunting (Marauder X)"
+	name "Знаменитые мародеры рядом с <system>"
+	description "Легендарный <npc> и сопровождающий его флот терроризируют торговцев и правоохранительные органы в этом регионе космоса. Уничтожьте весь парк для оплаты (<payment>). Предупреждаем, что <npc>, как известно, заманивает в засаду тех, кто пытается охотиться на них."
+	repeat
+	job
+	"apparent payment" 10000000
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		"combat rating" > 8103
+		random < 5
+	npc kill
+		government "Bounty"
+		personality heroic unconstrained marked target tracked
+		system
+			distance 7 9
+			attributes "rim" "south" "north" "dirt belt" "core" "frontier"
+			not system "Ultima Thule"
+		fleet "Marauder fleet X"
+		dialog phrase "общий охотничий флот премий ликвидирован и платежный диалог"
+		on kill
+			payment 5000000
+			fail
+
+
+
+mission "Republic Navy Advisory System [frozen]"
+	name "Холодный рельеф <planet>"
+	description "Доставить гуманитарную помощь <cargo> <destination> от <date> после сильного похолодания. Платеж <payment>."
+	minor
+	repeat
+	deadline
+	source
+		government "Republic" "Syndicate"
+	destination
+		government "Republic" "Syndicate" "Independent" "Neutral"
+		distance 1 8
+		attributes "frozen"
+	substitutions
+		"<problem>" "cold snap"
+		"<problem>" "freeze"
+			"random" < 60
+		"<problem>" "snowstorm"
+			"random" < 30
+		"<problem>" "blizzard"
+			"random" < 10
+	cargo "cold aid" 10 15 0.5
+	to offer
+		random < 1
+	on offer
+		dialog `Из громкоговорителей космодрома раздается голос. "Это Консультативная система ВМС Республики. <planet> испытывает тяжелый <problem>. Добровольцам предлагается поставлять <cargo> в <planet> по <date>. Стипендия <payment> предоставляется для покрытия расходов на топливо, экипаж и любых непредвиденных расходов»`
+	on complete
+		payment 8500 80
+		dialog `Дрожащие, благодарные работники по оказанию помощи приветствуют ваш груз. Вы смотрите на это, чувствуя удовлетворение, что <cargo> скоро придет к тем, кто нуждается в нем больше всего. Вернувшись на корабль, вы получаете уведомление о том, что получили <payment> за свои услуги.`
+
+mission "Republic Navy Advisory System [volcanic]"
+	name "Вулканическое облегчение <planet>"
+	description "Доставить гуманитарную помощь <cargo> <destination> от <date> после сильного извержения вулкана. Платеж <payment>."
+	minor
+	repeat
+	deadline
+	source
+		government "Republic" "Syndicate"
+	destination
+		government "Republic" "Syndicate" "Independent" "Neutral"
+		distance 1 8
+		attributes "volcanic" "lava"
+	substitutions
+		"<problem>" "volcanic event"
+		"<problem>" "volcanic eruption"
+			"random" < 60
+		"<problem>" "gas eruption"
+			"random" < 30
+	cargo "flames aid" 10 15 0.5
+	to offer
+		random < 1
+	on offer
+		dialog `Из громкоговорителей космодрома раздается голос. "Это Консультативная система ВМС Республики. <planet> испытывает тяжелый <problem>. Добровольцам предлагается поставлять <cargo> в <planet> по <date>. Стипендия <payment> предоставляется для покрытия расходов на топливо, экипаж и любых непредвиденных расходов»`
+	on complete
+		payment 8500 80
+		dialog `Работники по оказанию помощи приветствуют вашу доставку. Вы смотрите на это, чувствуя удовлетворение, что <cargo> скоро придет к тем, кто нуждается в нем больше всего. Вернувшись на корабль, вы получаете уведомление о том, что получили <payment> за свои услуги.`
+
+mission "Republic Navy Advisory System [wildfire cargo]"
+	name "Облегчение пожаров в <planet>"
+	description "Доставить гуманитарную помощь <cargo> <destination> от <date> после сильного лесного пожара. Платеж <payment>."
+	minor
+	repeat
+	deadline
+	source
+		government "Republic"
+	destination
+		government "Republic" "Syndicate" "Independent" "Neutral"
+		distance 1 8
+		attributes "forest"
+	substitutions
+		"<problem>" "forest fire"
+		"<problem>" "brush fire"
+			"random" < 60
+		"<problem>" "wildfire"
+			"random" < 30
+	cargo "flames aid" 10 15 0.5
+	to offer
+		random < 1
+	on offer
+		dialog `Из громкоговорителей космодрома раздается голос. "Это Консультативная система ВМС Республики. <planet> испытывает тяжелый <problem>. Добровольцам предлагается поставлять <cargo> в <planet> по <date>. Стипендия <payment> предоставляется для покрытия расходов на топливо, экипаж и любых непредвиденных расходов»`
+	on complete
+		payment 8500 80
+		dialog `Охваченные пеплом, спасатели приветствуют вашу партию. Вы смотрите на это, чувствуя удовлетворение, что <cargo> скоро придет к тем, кто нуждается в нем больше всего. Вернувшись на корабль, вы получаете уведомление о том, что получили <payment> за свои услуги.`
+
+mission "Republic Navy Advisory System [wildfire firefighters]"
+	name "Транспортные пожарные"
+	description "Транспортировка пожарных <bunks> в <planet> по <date>. Платеж <payment>."
+	minor
+	repeat
+	deadline
+	source
+		government "Republic" "Syndicate"
+	destination
+		government "Republic" "Syndicate" "Independent" "Neutral"
+		distance 1 8
+		attributes "forest"
+	substitutions
+		"<problem>" "forest fire"
+		"<problem>" "brush fire"
+			"random" < 60
+		"<problem>" "wildfire"
+			"random" < 30
+	passengers 5 15
+	to offer
+		random < 1
+	on offer
+		dialog `Из громкоговорителей космодрома раздается голос. "Это Консультативная система ВМС Республики. <planet> испытывает тяжелый <problem>. Добровольцам предлагается транспортировать пожарных <bunks> в <planet> по <date>. Стипендия <payment> предоставляется для покрытия расходов на топливо, экипаж и любых непредвиденных расходов»`
+	on complete
+		payment 9000 85
+		dialog "Вы приземляетесь на импровизированном месте посадки в нескольких минутах полета от пламени. Дымчатая дымка, которая дрейфует в ваш корабль, когда пожарные открывают люк, заставляет ваши глаза и нос чесаться. Когда вы наблюдаете за тем, как ваши пассажиры направляются к постановочной площадке поблизости, вы думаете об аде, в который они скоро добровольно войдут. Цирп из вашей системы связи показывает, что ваша стипендия <payment> была депонирована, и вы начинаете свой атмосферный полет обратно на главный космодром <planet>."
+
+mission "Mineral Shortages (Silicon)"
+	name "Собранный кремний для <planet>"
+	job
+	repeat
+	deadline 7
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Silicon"
+		"<amount>" "120"
+	to offer
+		random < 5
+		"outfit (all): Silicon" < 30
+	to accept
+		"cargo space" >= 120
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 55200
+		outfit "Silicon" -120
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Lead)"
+	name "Производитель: <planet>"
+	job
+	repeat
+	deadline 7
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Lead"
+		"<amount>" "120"
+	to offer
+		random < 5
+		"outfit (all): Lead" < 30
+	to accept
+		"cargo space" >= 120
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 124200
+		outfit "Lead" -120
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Iron)"
+	name "Сбор железа в <planet>"
+	job
+	repeat
+	deadline 7
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Iron"
+		"<amount>" "120"
+	to offer
+		random < 5
+		"outfit (all): Iron" < 30
+	to accept
+		"cargo space" >= 120
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 165600
+		outfit "Iron" -120
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Aluminum)"
+	name "Сбор алюминия в <planet>"
+	job
+	repeat
+	deadline 7
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Aluminum"
+		"<amount>" "90"
+	to offer
+		random < 5
+		"outfit (all): Aluminum" < 20
+	to accept
+		"cargo space" >= 90
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 186300
+		outfit "Aluminum" -90
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Titanium)"
+	name "Сбор титана в <planet>"
+	job
+	repeat
+	deadline 7
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Titanium"
+		"<amount>" "90"
+	to offer
+		random < 5
+		"outfit (all): Titanium" < 20
+	to accept
+		"cargo space" >= 90
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 258750
+		outfit "Titanium" -90
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Copper)"
+	name "Собранная медь для <planet>"
+	job
+	repeat
+	deadline 7
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Copper"
+		"<amount>" "90"
+	to offer
+		random < 5
+		"outfit (all): Copper" < 20
+	to accept
+		"cargo space" >= 90
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 310500
+		outfit "Copper" -90
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Neodymium)"
+	name "Сбор неодима в <planet>"
+	job
+	repeat
+	deadline 14
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Neodymium"
+		"<amount>" "60"
+	to offer
+		random < 5
+		"outfit (all): Neodymium" < 10
+	to accept
+		"cargo space" >= 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 262200
+		outfit "Neodymium" -60
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Tungsten)"
+	name "Собранный вольфрам для <planet>"
+	job
+	repeat
+	deadline 14
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Tungsten"
+		"<amount>" "60"
+	to offer
+		random < 5
+		"outfit (all): Tungsten" < 10
+	to accept
+		"cargo space" >= 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 310500
+		outfit "Tungsten" -60
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Uranium)"
+	name "Сбор урана в <planet>"
+	job
+	repeat
+	deadline 14
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Uranium"
+		"<amount>" "60"
+	to offer
+		random < 5
+		"outfit (all): Uranium" < 10
+	to accept
+		"cargo space" >= 60
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 345000
+		outfit "Uranium" -60
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Silver)"
+	name "Сбор серебра в <planet>"
+	job
+	repeat
+	deadline 28
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Silver"
+		"<amount>" "30"
+	to offer
+		random < 5
+		"outfit (all): Silver" < 5
+	to accept
+		"cargo space" >= 30
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 207000
+		outfit "Silver" -30
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Gold)"
+	name "Сбор золота в <planet>"
+	job
+	repeat
+	deadline 28
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Gold"
+		"<amount>" "30"
+	to offer
+		random < 5
+		"outfit (all): Gold" < 5
+	to accept
+		"cargo space" >= 30
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 276000
+		outfit "Gold" -30
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Mineral Shortages (Platinum)"
+	name "Сбор платины в <planet>"
+	job
+	repeat
+	deadline 28
+	description "Заводы на <planet> страдают от нехватки минералов. Храните <amount> тонны <mineral> и возвращайтесь к <destination> от <date>. Платеж <payment>."
+	substitutions
+		"<mineral>" "Platinum"
+		"<amount>" "30"
+	to offer
+		random < 5
+		"outfit (all): Platinum" < 5
+	to accept
+		"cargo space" >= 30
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		attributes "factory"
+	on visit
+		dialog phrase "непатентованный минерал в гостях"
+	on complete
+		payment 345000
+		outfit "Platinum" -30
+		dialog phrase "родовая доставка полезных ископаемых"
+
+mission "Student transport"
+	job
+	repeat
+	name "Студент-перевозчик <planet>"
+	description "Этот студент нуждается в транспорте в <destination> по <date> для обучения в одном из университетов <planet>. Они будут платить вам <payment>."
+	deadline
+	to offer
+		random < 20
+	source
+		government "Free Worlds" "Independent" "Neutral" "Republic" "Syndicate"
+	passengers 1
+	destination
+		attributes "education"
+		distance 2 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog phrase "общий платеж пассажира"
+		payment
+		payment 4000
+
+mission "Rich student transport"
+	job
+	repeat
+	name "Перевозка состоятельного студента в <planet>"
+	description "Этот богатый студент нуждается в транспорте в <destination> от <date>, чтобы учиться в одном из университетов высокого класса <planet>. Они будут платить вам <payment>."
+	deadline
+	passengers 1
+	to offer
+		random < 10
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Free Worlds" "Independent" "Neutral" "Republic" "Syndicate"
+	destination
+		attributes "education"
+		distance 2 20
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog phrase "общий платеж пассажира"
+		payment
+		payment 10000
+
+mission "Student field research (farming)"
+	job
+	repeat
+	name "Студент-перевозчик <planet>"
+	description "Этот студент нуждается в транспорте в <destination>, где они будут выполнять полевые исследования на <student research> <planet>. Они будут платить вам <payment>."
+	to offer
+		random < 5
+	source
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes "education"
+	passengers 1
+	substitutions
+		"<student research>" "farms of"
+		"<student research>" "soil quality of"
+			random < 80
+		"<student research>" "river water quality of"
+			random < 60
+		"<student research>" "agricultural industry of"
+			random < 40
+	destination
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes farming
+		distance 2 10
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog phrase "общий платеж пассажира"
+		payment
+		payment 4000
+
+mission "Student field research (mining / oil)"
+	job
+	repeat
+	name "Студент-перевозчик <planet>"
+	description "Этот студент нуждается в транспорте в <destination>, где они будут выполнять полевые исследования на <student research> <planet>. Они будут платить вам <payment>."
+	to offer
+		random < 5
+	source
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes "education"
+	passengers 1
+	substitutions
+		"<student research>" "geology of"
+		"<student research>" "working conditions of"
+			random < 80
+		"<student research>" "tectonic activity of"
+			random < 60
+		"<student research>" "mining industry of"
+			random < 40
+		"<student research>" "petroleum industry of"
+			random < 20
+	destination
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes mining oil
+		distance 2 10
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog phrase "общий платеж пассажира"
+		payment
+		payment 4000
+
+mission "Student field research (forest)"
+	job
+	repeat
+	name "Студент-перевозчик <planet>"
+	description "Этот студент нуждается в транспорте в <destination>, где они будут выполнять полевые исследования на <student research> <planet>. Они будут платить вам <payment>."
+	to offer
+		random < 5
+	source
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes "education"
+	passengers 1
+	substitutions
+		"<student research>" "biosphere of"
+		"<student research>" "soil quality of"
+			random < 83
+		"<student research>" "tree species of"
+			random < 67
+		"<student research>" "forests of"
+			random < 50
+		"<student research>" "forestry industry of"
+			random < 33
+		"<student research>" "indigenous wildlife of"
+			random < 17
+	destination
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes forest
+		distance 2 10
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog phrase "общий платеж пассажира"
+		payment
+		payment 4000
+
+mission "Student field research (urban / factory)"
+	job
+	repeat
+	name "Студент-перевозчик <planet>"
+	description "Этот студент нуждается в транспорте в <destination>, где они будут выполнять полевые исследования на <student research> <planet>. Они будут платить вам <payment>."
+	to offer
+		random < 5
+	source
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes "education"
+	passengers 1
+	substitutions
+		"<student research>" "quality of life of the inhabitants of"
+		"<student research>" "cities of"
+			random < 80
+		"<student research>" "manufacturing industry of"
+			random < 60
+		"<student research>" "air quality of"
+			random < 40
+		"<student research>" "working conditions on"
+			random < 20
+	destination
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes urban factory
+		not planet "New Sahara"
+		distance 2 10
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog phrase "общий платеж пассажира"
+		payment
+		payment 4000
+
+mission "Student field research (fishing)"
+	job
+	repeat
+	name "Студент-перевозчик <planet>"
+	description "Этот студент нуждается в транспорте в <destination>, где они будут выполнять полевые исследования на <student research> <planet>. Они будут платить вам <payment>."
+	to offer
+		random < 5
+	source
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes "education"
+	passengers 1
+	substitutions
+		"<student research>" "biosphere of"
+		"<student research>" "oceans of"
+			random < 83
+		"<student research>" "indigenous fish of"
+			random < 67
+		"<student research>" "water quality of"
+			random < 50
+		"<student research>" "fishing industry of"
+			random < 33
+		"<student research>" "aquacultural industry of"
+			random < 17
+	destination
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes fishing
+		distance 2 10
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog phrase "общий платеж пассажира"
+		payment
+		payment 4000
+
+mission "Student field research (volcanic)"
+	job
+	repeat
+	name "Студент-перевозчик <planet>"
+	description "Этот студент нуждается в транспорте в <destination>, где они будут выполнять полевые исследования на <student research> <planet>. Они будут платить вам <payment>."
+	to offer
+		random < 5
+	source
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes "education"
+	passengers 1
+	substitutions
+		"<student research>" "tectonic activity on"
+		"<student research>" "volcanic activity on"
+			random < 75
+		"<student research>" "volcanoes of"
+			random < 50
+		"<student research>" "atmosphere of"
+			random < 25
+	destination
+		government "Republic" "Syndicate" "Free Worlds" "Independent" "Neutral"
+		attributes volcanic
+		distance 2 10
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		dialog phrase "общий платеж пассажира"
+		payment
+		payment 4000

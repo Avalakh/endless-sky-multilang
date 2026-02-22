@@ -1,0 +1,2106 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+mission "Human Vacation [1]"
+	name "Человек, отдыхающий на <planet>"
+	job
+	repeat
+	description "Этот человек хочет отдохнуть в хайском мире <destination> и заплатит вам <payment>."
+	passengers 1
+	to offer
+		random < 50
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		attributes "human tourism"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 8000 150
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+mission "Human Vacation [2]"
+	name "Люди отдыхают в <planet>"
+	job
+	repeat
+	description "Эти люди хотят отдохнуть в мире Hai <destination> и заплатят вам <payment>."
+	passengers 2 12 .8
+	to offer
+		random < 20
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		attributes "human tourism"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 5000 150
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+mission "Hai Vacation [1]"
+	name "Отпускник Hai для <planet>"
+	job
+	repeat
+	description "Этот хай хочет отдохнуть в странном хайском мире <destination> и заплатит вам <payment>."
+	passengers 1
+	to offer
+		random < 70
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		attributes "hai tourism"
+		not attributes "station"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 6000 150
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+mission "Hai Vacation [2]"
+	name "Хайские отдыхающие на <planet>"
+	job
+	repeat
+	description "Это <bunks> Хай хочет отдохнуть в странном хайском мире <destination> и заплатит вам <payment>."
+	passengers 2 12 .8
+	to offer
+		random < 50
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		attributes "hai tourism"
+		not attributes "station"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 4000 150
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+mission "Hai Vacation [3]"
+	name "Хайские отдыхающие на <planet>"
+	job
+	repeat
+	description "Это <bunks> Хай хочет отдохнуть в странном хайском мире <destination> и заплатит вам <payment>."
+	passengers 2 12 .8
+	to offer
+		random < 30
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		attributes "hai tourism"
+		not attributes "station"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 4000 150
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+mission "Hai Vacation [4]"
+	name "Хайские отдыхающие на <planet>"
+	job
+	repeat
+	description "Это <bunks> Хай хочет отдохнуть в странном хайском мире <destination> и заплатит вам <payment>."
+	passengers 2 12 .8
+	to offer
+		random < 20
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		attributes "hai tourism"
+		not attributes "station"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 6000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Wealthy Hai [1]"
+	name "Богатый хай для <planet>"
+	job
+	repeat
+	description "Это богатое семейство <bunks> Hai заплатит <payment> за быстрое и комфортное путешествие на <planet> по <date>."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 55
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+		has "outfit (installed): Quantum Keystone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 15000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+mission "Wealthy Hai [2]"
+	name "Богатый хай для <planet>"
+	job
+	repeat
+	description "Это богатое семейство <bunks> Hai заплатит <payment> за быстрое и комфортное путешествие на <planet> по <date>."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 15
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+		has "outfit (installed): Quantum Keystone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 15000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+
+phrase "hai festival payment dialog"
+	word
+		`К счастью, ваш <passengers> не вызвал слишком много проблем во время поездки. Собирая свои вещи, они платят вам <payment> и пробиваются на фестиваль.`
+
+mission "Hai Festival [1]"
+	name "Фестиваль <planet>"
+	job
+	repeat
+	description "В течение месяца каждый год у Хай есть огромный праздничный фестиваль. Эта группа <bunks> Hai заплатит вам <payment> за транспортировку их и их <tons> поставок в <planet> по <date>."
+	deadline 0 2
+	passengers 10 20
+	cargo "party supplies" 1 2
+	to offer
+		or
+			and
+				month == 3
+				day <= 17
+			and
+				month == 2
+				day >= 27
+		random < 60
+	to fail
+		month >= 4
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 10000 200
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "платежный диалог hai festival"
+
+mission "Hai Festival [2]"
+	name "Фестиваль <planet>"
+	job
+	repeat
+	description "В течение месяца каждый год у Хай есть огромный праздничный фестиваль. Эта группа людей <bunks> заплатит вам <payment> за транспортировку их и их <tons> поставок <planet> по <date>."
+	deadline 0 2
+	passengers 10 20
+	cargo "party supplies" 1 2
+	to offer
+		or
+			and
+				month == 3
+				day <= 17
+			and
+				month == 2
+				day >= 27
+		random < 60
+	to fail
+		month >= 4
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 10000 200
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "платежный диалог hai festival"
+
+mission "Hai Festival [3]"
+	name "Фестиваль <planet>"
+	job
+	repeat
+	description "В течение месяца каждый год у Хай есть огромный праздничный фестиваль. Эта группа <bunks> Hai и люди будут платить вам <payment> за то, что вы перевозите их и их <tons> поставок в <planet> по <date>."
+	deadline 0 2
+	passengers 10 20
+	cargo "party supplies" 1 2
+	to offer
+		or
+			and
+				month == 3
+				day <= 17
+			and
+				month == 2
+				day >= 27
+		random < 60
+	to fail
+		month >= 4
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 10000 200
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "платежный диалог hai festival"
+
+
+phrase "unfettered aid payment dialog"
+	word
+		`Вы оставляете помощь (или, как они любят ссылаться на нее, «дань») для Неограниченных и получаете <payment> от вашего контакта на <origin>.`
+
+phrase "unfettered aid pickup dialog"
+	word
+		`Работники дока Хай загружают еду для Неограниченных на ваш корабль. Один из них говорит вам:,`
+		`Когда хай загружает еду на ваш корабль, один из них говорит:,`
+	word
+		`  `
+	word
+		`"Спасибо. Это гораздо лучше, чем смотреть, как наши сородичи голодают»`
+		`Скажите нашим братьям и сестрам, что если они только покаются, они будут рады вернуться домой`
+
+mission "Unfettered Aid [0]"
+	name "Отгрузка помощи в Unfettered"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the cargo."
+	description "Доставить <tons> еды в Unfettered на <destination>. Вам будет выплачен <payment>."
+	cargo "food (aid)" 25 2 .05
+	to offer
+		random < 40
+		"cargo space" >= 50
+		has "Ask the Hai about the Unfettered: offered"
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		distance 3 4
+		attributes "unfettered"
+	on accept
+		dialog phrase "неограниченный диалог помощи"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 5000 1600
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 7.5
+		dialog phrase "неограниченный диалог по оплате помощи"
+
+mission "Unfettered Aid [1]"
+	name "Отгрузка помощи в Unfettered"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the cargo."
+	description "Доставить <tons> еды в Unfettered на <destination>. Вам будет выплачен <payment>."
+	cargo "food (aid)" 30 2 .05
+	to offer
+		random < 30
+		"cargo space" > 60
+		has "Ask the Hai about the Unfettered: offered"
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		distance 4 5
+		attributes "unfettered"
+	on accept
+		dialog phrase "неограниченный диалог помощи"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 6000 1800
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 7.5
+		dialog phrase "неограниченный диалог по оплате помощи"
+
+mission "Unfettered Aid [2]"
+	name "Отгрузка помощи в Unfettered"
+	job
+	repeat
+	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the cargo."
+	description "Доставить <tons> еды в Unfettered на <destination>. Вам будет выплачен <payment>."
+	cargo "food (aid)" 35 2 .05
+	to offer
+		random < 20
+		"cargo space" > 65
+		has "Ask the Hai about the Unfettered: offered"
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		distance 5 6
+		attributes "unfettered"
+	on accept
+		dialog phrase "неограниченный диалог помощи"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment 7000 2000
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 7.5
+		dialog phrase "неограниченный диалог по оплате помощи"
+
+
+mission "Delivery to Human Space [0]"
+	name "Специальная доставка <planet>"
+	job
+	repeat
+	description "Люди хотят, чтобы <cargo> был доставлен в <destination> в человеческом пространстве. Платеж <payment>."
+	cargo random 2 2 .29
+	to offer
+		random < 30
+	source
+		government "Hai"
+		near "Heia Due" 2
+	destination
+		attributes "north"
+	"distance calculation settings"
+		"only unrestricted wormholes"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 50000
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog phrase "родовая доставка груза"
+
+mission "Delivery to Human Space [1]"
+	name "Специальная доставка <planet>"
+	job
+	repeat
+	description "Hai хочет, чтобы <cargo> был доставлен в <destination> в человеческом пространстве. Платеж <payment>."
+	cargo random 2 2 .29
+	to offer
+		random < 25
+	source
+		government "Hai"
+		near "Heia Due" 2
+	destination
+		attributes "north"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 50000
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog phrase "родовая доставка груза"
+
+mission "Delivery to Human Space [2]"
+	name "Специальная доставка <planet>"
+	job
+	repeat
+	description "Люди хотят, чтобы <cargo> был доставлен в <destination> в человеческом пространстве. Платеж <payment>."
+	cargo random 2 2 .29
+	to offer
+		random < 20
+	source
+		government "Hai"
+		near "Heia Due" 2
+	destination
+		attributes "north"
+	"distance calculation settings"
+		"only unrestricted wormholes"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 50000
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Retrieve Human Luxury Goods"
+	name "Специальный заказ от <planet stopovers>"
+	job
+	repeat
+	description "Хайская светская львица на <planet> хочет показать свои знания о человеческой культуре своим сверстникам. Они хотят <cargo> от <stopovers> от <date>. Платеж <payment>."
+	cargo "Luxury Goods" 2 2 .29
+	deadline 24
+	to offer
+		random < 15
+	source
+		government "Hai"
+		near "Heia Due" 2
+		not attributes "station"
+	stopover
+		attributes "north"
+	"distance calculation settings"
+		"only unrestricted wormholes"
+	on stopover
+		dialog "Вы собираете запрошенные <commodity> и загружаете их на свой корабль для возвращения в <planet>."
+	on visit
+		dialog phrase "общая недостающая остановка или груз"
+	on complete
+		payment 100000 200
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog "Ваш платеж <payment> ждет, когда вы приземлитесь, вместе с инструкциями по доставке. Вы отправляете <commodity> специальным курьером."
+
+mission "Hai Retrieve Human Food"
+	name "Специальный заказ от <planet stopovers>"
+	job
+	repeat
+	description "А. Хайский гурман на <planet> скучает по местному тарифу и хочет попробовать еду, о которой они слышали от туристов. Они хотят <cargo> от <stopovers> от <date>. Платеж <payment>."
+	cargo "Food" 2 2 .29
+	deadline 24
+	to offer
+		random < 15
+	source
+		government "Hai"
+		near "Heia Due" 2
+	stopover
+		attributes "north"
+	"distance calculation settings"
+		"only unrestricted wormholes"
+	on stopover
+		dialog "Вы собираете запрошенные <commodity> и загружаете их на свой корабль для возвращения в <planet>."
+	on visit
+		dialog phrase "общая недостающая остановка или груз"
+	on complete
+		payment 100000 200
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog "Как только вы приземлитесь, вы получите сообщение от гурмана Хай с благодарностью и оплатой <payment>."
+
+mission "Hai Retrieve Human Electronics"
+	name "Специальный заказ от <planet stopovers>"
+	job
+	repeat
+	description "Хайский мастер на <planet> хочет экспериментировать с человеческими технологиями. Они хотят <cargo> от <stopovers> от <date>. Платеж <payment>."
+	cargo "Electronics" 2 2 .29
+	deadline 24
+	to offer
+		random < 15
+	source
+		government "Hai"
+		near "Heia Due" 2
+	stopover
+		attributes "north"
+	"distance calculation settings"
+		"only unrestricted wormholes"
+	on stopover
+		dialog "Вы собираете запрошенные <commodity> и загружаете их на свой корабль для возвращения в <planet>."
+	on visit
+		dialog phrase "общая недостающая остановка или груз"
+	on complete
+		payment 100000 200
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog "Хейский мастер ждет вас, когда вы приедете. Они платят вам <payment>, а затем бегут за грузовыми поддонами, как будто они планируют открыть их прямо там, в космодроме."
+
+
+
+mission "Escort to Human Space (Small)"
+	name "Специальный эскорт для <planet>"
+	description "Капитан <npc> заплатит вам <payment> за сопровождение, чтобы добраться до <destination> в человеческом пространстве на <date>."
+	repeat
+	job
+	deadline 15
+	to offer
+		random < 70
+		"combat rating" > 5
+	source
+		government "Hai"
+		near "Heia Due" 2
+	destination
+		attributes "north"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system "Rajak"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter (Hai)"
+	on complete
+		payment 120000
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort to Human Space (Medium)"
+	name "Специальный эскорт для <planet>"
+	description "Капитан <npc> заплатит вам <payment> за сопровождение, чтобы добраться до <destination> в человеческом пространстве на <date>."
+	repeat
+	job
+	deadline 15
+	to offer
+		random < 40
+		"combat rating" > 20
+	source
+		government "Hai"
+		near "Heia Due" 2
+	destination
+		attributes "north"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system "Cardax"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system "Rigel"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system "Rajak"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Small Northern Pirates" 2
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Freighter (Hai)"
+	on complete
+		payment 180000
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort to Human Space (Large)"
+	name "Специальный эскорт для <planet>"
+	description "Капитан <npc> заплатит вам <payment> за сопровождение, чтобы добраться до <destination> в человеческом пространстве на <date>."
+	repeat
+	job
+	deadline 15
+	to offer
+		random < 30
+		"combat rating" > 60
+	source
+		government "Hai"
+		near "Heia Due" 2
+	destination
+		attributes "north"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system "Rajak"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Behemoth (Hai)"
+	on complete
+		payment 240000
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+mission "Escort to Human Space (Extra Large)"
+	name "Специальный эскорт для <planet>"
+	description "Капитан <npc> заплатит вам <payment> за сопровождение, чтобы добраться до <destination> в человеческом пространстве на <date>."
+	repeat
+	job
+	deadline 15
+	to offer
+		random < 15
+		"combat rating" > 100
+	source
+		government "Hai"
+		near "Heia Due" 2
+	destination
+		attributes "north"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system "Rigel"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system "Cardax"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis waiting harvests plunders
+		system "Rajak"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		fleet
+			names "civilian"
+			variant
+				"Behemoth (Hai)"
+	on complete
+		payment 300000
+		"reputation: Hai" += 5
+		"reputation: Hai (Wormhole Access)" += 5
+		"reputation: Hai Merchant" += 5
+		"reputation: Hai Merchant (Human)" += 5
+		"reputation: Hai Merchant (Sympathizers)" += 5
+		dialog phrase "общий диалог по безопасному сопровождению"
+	on visit
+		dialog phrase "общий диалог «прибыл-без-npc»"
+
+
+
+mission "Hai Passengers [1]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 1 10 .7
+	to offer
+		random < 75
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+mission "Hai Passengers [2]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 1 10 .7
+	to offer
+		random < 50
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+mission "Hai Passengers [3]"
+	name "Пассажирский транспорт <planet>"
+	job
+	repeat
+	description "Принесите <fare> в <destination>. Платеж <payment>."
+	passengers 1 10 .7
+	to offer
+		random < 25
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "общий платеж пассажира"
+
+mission "Hai Family [0]"
+	name "Транспортное семейство <planet>"
+	job
+	repeat
+	description "Семейство <bunks> переходит на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 2 4 .5
+	to offer
+		random < 60
+		"passenger space" >= 5
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		distance 4 16
+		government "Hai"
+		not attributes "station"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 4000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog "Семья, которую вы перевозите, покидает ваш корабль после оплаты <payment>."
+
+mission "Hai Family [1]"
+	name "Транспортное семейство <planet>"
+	job
+	repeat
+	description "Семейство <bunks> переходит на <destination>. Они заплатят вам <payment>, чтобы забрать их туда."
+	passengers 2 4 .5
+	to offer
+		random < 40
+		"passenger space" >= 5
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		distance 5 20
+		government "Hai"
+		not attributes "station"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 6000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog "Семья, которую вы перевозите, покидает ваш корабль после оплаты <payment>."
+
+mission "Transport Hai miners to <planet>"
+	job
+	repeat
+	description "Это семейство майнеров <bunks> надеется найти работу на <destination>, и они заплатят вам <payment>, чтобы взять их туда."
+	passengers 3 3 .6
+	to offer
+		random < 40
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		attributes "mining"
+		distance 3 12
+		government "Hai"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog "Вы желаете семье майнеров удачи на <planet> и получаете оплату <payment>."
+
+mission "Transport Hai farmers to <planet>"
+	job
+	repeat
+	description "Это семейство фермеров <bunks> надеется найти работу над <destination>, и они заплатят вам <payment>, чтобы взять их туда."
+	passengers 3 3 .6
+	to offer
+		random < 40
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		attributes "farming"
+		distance 3 12
+		government "Hai"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog "Вы желаете фермерской семье удачи на <planet> и получаете оплату <payment>."
+
+mission "Transport Hai mill workers to <planet>"
+	job
+	repeat
+	description "Это семейство работников мельницы <bunks> надеется найти работу на <destination>, и они заплатят вам <payment>, чтобы взять их туда."
+	passengers 3 3 .6
+	to offer
+		random < 40
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		attributes "textiles"
+		distance 3 12
+		government "Hai"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog "Вы желаете работникам удачи на <planet> и получаете оплату за <payment>."
+
+mission "Transport Hai workers to <planet>"
+	job
+	repeat
+	description "Это семейство заводских рабочих <bunks> надеется найти работу на <destination>, и они заплатят вам <payment>, чтобы взять их туда."
+	passengers 3 3 .6
+	to offer
+		random < 70
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		attributes "factory"
+		distance 3 12
+		government "Hai"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment
+		payment 2000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog "Вы желаете работникам удачи на <planet> и получаете оплату за <payment>."
+
+
+
+mission "Hai Cargo [0]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 8 4 .1
+	to offer
+		random < 90
+	source
+		government "Hai"
+	destination
+		distance 2 8
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Cargo [1]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 8 4 .1
+	to offer
+		random < 70
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Cargo [2]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 8 4 .1
+	to offer
+		random < 60
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Cargo [3]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 8 4 .1
+	to offer
+		random < 50
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 3 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 2000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Cargo [4]"
+	name "Доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 8 4 .1
+	to offer
+		random < 40
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 4 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 4000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Bulk Delivery [0]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 35 3 .05
+	to offer
+		random < 70
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Bulk Delivery [1]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 35 3 .05
+	to offer
+		random < 60
+	source
+		government "Hai"
+	destination
+		distance 3 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 2000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Bulk Delivery [2]"
+	name "Полная доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 35 3 .05
+	to offer
+		random < 50
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 4 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 4000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Large Bulk Delivery [0]"
+	name "Большая массовая доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 50 3 .02
+	to offer
+		random < 60
+		"cargo space" > 100
+	source
+		government "Hai"
+	destination
+		distance 2 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 4000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Large Bulk Delivery [1]"
+	name "Большая массовая доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 50 3 .02
+	to offer
+		random < 50
+		"cargo space" > 100
+	source
+		government "Hai"
+	destination
+		distance 3 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 6000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Large Bulk Delivery [2]"
+	name "Большая массовая доставка <planet>"
+	job
+	repeat
+	description "Доставить <cargo> в <destination>. Платеж <payment>."
+	cargo random 50 3 .02
+	to offer
+		random < 40
+		"cargo space" > 100
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 4 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 8000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Rush Delivery [0]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 8 3 .1
+	to offer
+		random < 70
+	source
+		government "Hai"
+	destination
+		distance 3 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 16000
+		"reputation: Hai" += 2
+		"reputation: Hai (Wormhole Access)" += 2
+		"reputation: Hai Merchant" += 2
+		"reputation: Hai Merchant (Human)" += 2
+		"reputation: Hai Merchant (Sympathizers)" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Rush Delivery [1]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 8 3 .1
+	to offer
+		random < 60
+	source
+		government "Hai"
+	destination
+		distance 4 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 18000
+		"reputation: Hai" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Rush Delivery [2]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 8 3 .1
+	to offer
+		random < 50
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 5 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 20000
+		"reputation: Hai" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Rush Delivery [3]"
+	name "Rush доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 8 3 .1
+	to offer
+		random < 40
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 6 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 22000
+		"reputation: Hai" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Large Rush Delivery [0]"
+	name "Быстрая доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 30 8 .1
+	to offer
+		random < 80
+		"cargo space" >= 50
+	source
+		government "Hai"
+	destination
+		distance 3 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 36000
+		"reputation: Hai" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Large Rush Delivery [1]"
+	name "Быстрая доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 30 8 .1
+	to offer
+		random < 60
+		"cargo space" >= 50
+	source
+		government "Hai"
+	destination
+		distance 4 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 38000
+		"reputation: Hai" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Large Rush Delivery [2]"
+	name "Быстрая доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 30 8 .1
+	to offer
+		random < 40
+		"cargo space" >= 50
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 5 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 40000
+		"reputation: Hai" += 2
+		dialog phrase "родовая доставка груза"
+
+mission "Hai Large Rush Delivery [3]"
+	name "Быстрая доставка <planet>"
+	job
+	repeat
+	deadline
+	description "Доставить <cargo> в <destination> по <date>. Платеж <payment>."
+	cargo random 30 8 .1
+	to offer
+		random < 30
+		"cargo space" >= 50
+	source
+		attributes "mining" "textiles" "factory" "farming" "fishing" "oil"
+		government "Hai"
+	destination
+		distance 6 7
+		government "Hai"
+	on visit
+		dialog phrase "общий груз в гостях"
+	on complete
+		payment
+		payment 42000
+		"reputation: Hai" += 2
+		dialog phrase "родовая доставка груза"
+
+
+
+mission "Hai Prisoner Roleplay"
+	name `Хайский «тюремный» круиз на <planet>`
+	job
+	repeat
+	description "Группа Хай хочет испытать, каково это — быть преступниками. Перевозите <bunks> из них в <planet> на бриге. Платеж <payment>."
+	passengers 3 20
+	to offer
+		random < 5
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		distance 3 7
+		government "Hai"
+		not attributes "station"
+	to accept
+		has "outfit (installed): Brig"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 15000 150
+		"reputation: Hai" += 5
+		dialog "Хай покидает ваш корабль, дрожа от волнения. Один из них передает вам платеж <payment>, прежде чем бежать, чтобы догнать своих друзей."
+
+
+
+mission "Swiftsong Business Convention [1]"
+	job
+	repeat
+	name "Бизнес-конференция <planet>"
+	description "Группа <bunks> Хай, которому нужно попасть на бизнес-конвенцию, заплатит вам <payment> в обмен на транспортировку их и их <tons> поставок в <planet>."
+	passengers 4 2 .1
+	cargo "office supplies" 1 2
+	to offer
+		random < 8
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Во время поездки ваши пассажиры, казалось, практиковали презентацию для конвенции. Вы чувствуете оттенок нервозности, когда они дают вам <payment> и покидают ваш корабль.`
+
+
+
+mission "Swiftsong Business Convention [2]"
+	job
+	repeat
+	name "Бизнес-конференция <planet>"
+	description "Группа <bunks> Хай, которому нужно попасть на бизнес-конвенцию, заплатит вам <payment> в обмен на транспортировку их и их <tons> поставок в <planet>."
+	passengers 4 4 .1
+	cargo "office supplies" 1 3
+	to offer
+		random < 2
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "общий груз и пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Во время поездки ваши пассажиры, казалось, практиковали презентацию для конвенции. Вы чувствуете оттенок нервозности, когда они дают вам <payment> и покидают ваш корабль.`
+
+
+
+mission "Swiftsong Film Festival [1]"
+	job
+	repeat
+	name "Кинофестиваль <planet>"
+	description "Группа <bunks> Любители фильмов Hai заплатят вам <payment> в обмен на их транспортировку в <planet>, где проходит кинофестиваль."
+	passengers 4 2 .1
+	to offer
+		random < 8
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Hai взволнованно дрожит, когда они дают вам <payment> и отходят от вашего корабля. Некоторые из сюжетов фильма, которые они обсуждали во время поездки, были ошеломляющими.`
+
+
+
+mission "Swiftsong Film Festival [2]"
+	job
+	repeat
+	name "Кинофестиваль <planet>"
+	description "Группа <bunks> Любители фильмов Hai заплатят вам <payment> в обмен на транспортировку их в <planet>, где проходит большой кинофестиваль."
+	passengers 4 4 .1
+	to offer
+		random < 3
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Hai взволнованно дрожит, когда они дают вам <payment> и отходят от вашего корабля. Некоторые из сюжетов фильма, которые они обсуждали во время поездки, были ошеломляющими.`
+
+
+
+mission "Swiftsong Music Festival [1]"
+	job
+	repeat
+	name "Музыкальный фестиваль <planet>"
+	description "Группа <bunks> Hai заплатит вам <payment> в обмен на их транспортировку в <planet>, где проходит музыкальный фестиваль."
+	passengers 4 2 .1
+	to offer
+		random < 8
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Hai взволнованно дрожит, когда они дают вам <payment> и отходят от вашего корабля. Вы можете услышать музыку, бьющую с космодрома.`
+
+
+
+mission "Swiftsong Music Festival [2]"
+	job
+	repeat
+	name "Музыкальный фестиваль <planet>"
+	description "Группа <bunks> Hai заплатит вам <payment> в обмен на их транспортировку в <planet>, где проходит большой музыкальный фестиваль."
+	passengers 4 4 .1
+	to offer
+		random < 3
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Hai взволнованно дрожит, когда они дают вам <payment> и отходят от вашего корабля. Вы можете услышать музыку, бьющую с космодрома.`
+
+
+
+mission "Swiftsong Computer Security Conference [1]"
+	job
+	repeat
+	name "<planet> Компьютерная безопасность"
+	description "Группа <bunks> Hai заплатит вам <payment> в обмен на их транспортировку в <planet>, где проходит конференция по компьютерной безопасности."
+	passengers 4 2 .1
+	to offer
+		random < 8
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Hai взволнованно дрожит, когда они дают вам <payment> и отходят от вашего корабля. Разговоры ваших пассажиров проходили в основном над вашей головой, но в остальном они были приятными на протяжении всей поездки.`
+
+
+
+mission "Swiftsong Computer Security Conference [2]"
+	job
+	repeat
+	name "<planet> Компьютерная безопасность"
+	description "Группа <bunks> Hai заплатит вам <payment> в обмен на их транспортировку в <planet>, где проходит большая конференция по компьютерной безопасности."
+	passengers 4 4 .1
+	to offer
+		random < 3
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Hai взволнованно дрожит, когда они дают вам <payment> и отходят от вашего корабля. Разговоры ваших пассажиров проходили в основном над вашей головой, но в остальном они были приятными на протяжении всей поездки.`
+
+
+mission "Swiftsong Science Fiction Convention [1]"
+	job
+	repeat
+	name "<planet> научно-фантастическая конвенция"
+	description "Группа <bunks> Hai заплатит вам <payment> в обмен на их транспортировку в <planet>, где проходит научно-фантастическая конвенция."
+	passengers 4 2 .1
+	to offer
+		random < 8
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 50
+		"reputation: Hai" += 3
+		dialog `Hai взволнованно дрожит, когда они дают вам <payment> и отходят от вашего корабля. Когда они уходят, один из них дает вам жест рукой, который вы узнаете из старой научной фантастики.`
+
+
+
+mission "Swiftsong Science Fiction Convention [2]"
+	job
+	repeat
+	name "<planet> научно-фантастическая конвенция"
+	description "Группа <bunks> Hai заплатит вам <payment> в обмен на их транспортировку в <planet>, где проходит большая научно-фантастическая конвенция."
+	passengers 4 4 .1
+	to offer
+		random < 3
+	source
+		government "Hai"
+		not planet "Swiftsong"
+	destination "Swiftsong"
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 100
+		"reputation: Hai" += 3
+		dialog `Hai взволнованно дрожит, когда они дают вам <payment> и отходят от вашего корабля. Когда они уходят, один из них дает вам жест рукой, который вы узнаете из старой научной фантастики.`
+
+
+mission "Superstitious Hai [1]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Этот хайский матриарх заплатит <payment> за судно, оборудованное ключевым камнем, чтобы транспортировать свое семейство <bunks> в <destination> по <date>. Они попросили, чтобы на их корабле был установлен аутентичный краеугольный камень Хай."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		has "outfit (installed): Quantum Keystone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+mission "Superstitious Hai [2]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Это семейство владельцев ранчо <bunks> заплатит <payment> за поездку на корабле, оборудованном ключевым камнем, на <destination> от <date>. Они попросили, чтобы на их корабле был установлен аутентичный краеугольный камень Хай."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		has "outfit (installed): Quantum Keystone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		attributes farming
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+mission "Superstitious Hai [3]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Этот пожилой Hai заплатит <payment> за поездку на корабле, оборудованном ключевым камнем, в свой дом престарелых на <destination> от <date>. Они попросили, чтобы на их корабле был установлен аутентичный краеугольный камень Хай."
+	passengers 1
+	deadline
+	to offer
+		random < 5
+	to accept
+		has "outfit (installed): Quantum Keystone"
+	source
+		government "Hai"
+		not attributes "retirement"
+	destination
+		government "Hai"
+		attributes "retirement"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Superstitious Hai [4]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Эта группа сельскохозяйственных рабочих <bunks> заплатит <payment> за поездку на корабле, оборудованном ключевым камнем, на <destination> от <date>. Они попросили, чтобы на их корабле был установлен аутентичный краеугольный камень Хай."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		has "outfit (installed): Quantum Keystone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		attributes "farming"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Superstitious Hai [5]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Группа пожилых людей Hai <bunks> заплатит <payment> за отпуск до <destination> на корабле, оборудованном камнем <date>. Они попросили, чтобы на их корабле был установлен аутентичный краеугольный камень Хай."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		has "outfit (installed): Quantum Keystone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		attributes "hai tourism"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Superstitious Hai [6]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Это семейство <bunks> Hai заплатит <payment> за поездку на корабле, оборудованном ключевым камнем, на <destination> от <date>. Они попросили, чтобы на их корабле был установлен аутентичный краеугольный камень Хай."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		has "outfit (installed): Quantum Keystone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Superstitious Hai [7]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Этот хайский матриарх заплатит <payment> за судно, оборудованное ключевым камнем, чтобы транспортировать свое семейство <bunks> в <destination> по <date>."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		or
+			has "outfit (installed): Quantum Keystone"
+			has "outfit (installed): Shield Beetle Pendant"
+			has "outfit (installed): Tree Skeleton Key Stone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+mission "Superstitious Hai [8]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Это семейство владельцев ранчо <bunks> заплатит <payment> за поездку на корабле, оборудованном ключевым камнем, на <destination> от <date>."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		or
+			has "outfit (installed): Quantum Keystone"
+			has "outfit (installed): Shield Beetle Pendant"
+			has "outfit (installed): Tree Skeleton Key Stone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		attributes farming
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+mission "Superstitious Hai [9]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Этот пожилой Hai заплатит <payment> за поездку на корабле, оборудованном ключевым камнем, в свой дом престарелых на <destination> от <date>."
+	passengers 1
+	deadline
+	to offer
+		random < 5
+	to accept
+		or
+			has "outfit (installed): Quantum Keystone"
+			has "outfit (installed): Shield Beetle Pendant"
+			has "outfit (installed): Tree Skeleton Key Stone"
+	source
+		government "Hai"
+		not attributes "retirement"
+	destination
+		government "Hai"
+		attributes "retirement"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Superstitious Hai [10]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Эта группа сельскохозяйственных рабочих <bunks> заплатит <payment> за поездку на корабле, оборудованном ключевым камнем, на <destination> от <date>."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		or
+			has "outfit (installed): Quantum Keystone"
+			has "outfit (installed): Shield Beetle Pendant"
+			has "outfit (installed): Tree Skeleton Key Stone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		attributes "farming"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Superstitious Hai [11]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Группа пожилых людей Hai <bunks> заплатит <payment> за отпуск до <destination> на корабле, оборудованном камнем <date>."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		or
+			has "outfit (installed): Quantum Keystone"
+			has "outfit (installed): Shield Beetle Pendant"
+			has "outfit (installed): Tree Skeleton Key Stone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		attributes "hai tourism"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
+
+
+mission "Superstitious Hai [12]"
+	name "Оригинальное название: <planet>"
+	job
+	repeat
+	description "Это семейство <bunks> Hai заплатит <payment> за поездку на корабле, оборудованном ключевым камнем, на <destination> от <date>."
+	passengers 2 4 .8
+	deadline
+	to offer
+		random < 5
+	to accept
+		or
+			has "outfit (installed): Quantum Keystone"
+			has "outfit (installed): Shield Beetle Pendant"
+			has "outfit (installed): Tree Skeleton Key Stone"
+	source
+		government "Hai"
+	destination
+		government "Hai"
+		distance 4 8
+	on visit
+		dialog phrase "пассажир в гостях"
+	on complete
+		payment 10000 300
+		"reputation: Hai" += 3
+		"reputation: Hai (Wormhole Access)" += 3
+		"reputation: Hai Merchant" += 3
+		"reputation: Hai Merchant (Human)" += 3
+		"reputation: Hai Merchant (Sympathizers)" += 3
+		dialog phrase "общий платеж пассажира"
