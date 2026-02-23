@@ -34,8 +34,9 @@ test-report.xml
 # Generated documentation
 docs/api/
 
-# User-installed plugins
-/plugins/
+# User-installed plugins (track ru-data-translation.7z)
+/plugins/*
+!/plugins/ru-data-translation.7z
 
 # OS-specific generated files
 .DS_Store
