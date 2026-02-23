@@ -220,7 +220,15 @@ void PlanetPanel::Draw()
 		if(planet.HasNamedPort())
 		{
 			info.SetCondition("has port");
-			info.SetString("port name", port.DisplayName());
+			const string &portDisplayName = port.DisplayName();
+			string portKey = "port." + portDisplayName;
+			string portLabel = Translation::Tr(portKey);
+			if(portLabel != portKey)
+				info.SetString("port name", portLabel);
+			else if(portDisplayName == "Space_port")
+				info.SetString("port name", "Spaceport");
+			else
+				info.SetString("port name", portDisplayName);
 		}
 
 		if(hasShipyard)

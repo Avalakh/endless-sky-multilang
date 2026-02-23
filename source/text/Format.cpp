@@ -129,7 +129,7 @@ namespace {
 		int places = 0;
 		do {
 			if(places && !(places % 3))
-				result += ',';
+				result += ' ';
 			++places;
 
 			result += static_cast<char>('0' + value % 10);
@@ -671,7 +671,7 @@ string Format::StripCommas(const string &text)
 {
 	string result;
 	for(char c : text)
-		if(c != ',')
+		if(c != ',' && c != ' ')
 			result += c;
 	return result;
 }

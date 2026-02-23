@@ -386,6 +386,55 @@ void UniverseObjects::LoadFile(const filesystem::path &path, const PlayerInfo &p
 			overwrite = true;
 			continue;
 		}
+		// Default behavior for duplicate named root nodes: latest definition replaces prior one.
+		// This keeps plugin overlays from producing duplicate-definition conflicts.
+		if(!overwrite && hasValue)
+		{
+			if((key == "swizzle" && swizzles.Has(node.Token(1)))
+				|| (key == "conversation" && conversations.Has(node.Token(1)))
+				|| (key == "effect" && effects.Has(node.Token(1)))
+				|| (key == "event" && events.Has(node.Token(1)))
+				|| (key == "fleet" && fleets.Has(node.Token(1)))
+				|| (key == "formation" && formations.Has(node.Token(1)))
+				|| (key == "galaxy" && galaxies.Has(node.Token(1)))
+				|| (key == "government" && governments.Has(node.Token(1)))
+				|| (key == "hazard" && hazards.Has(node.Token(1)))
+				|| (key == "interface" && interfaces.Has(node.Token(1)))
+				|| (key == "minable" && minables.Has(node.Token(1)))
+				|| (key == "mission" && missions.Has(node.Token(1)))
+				|| (key == "outfit" && outfits.Has(node.Token(1)))
+				|| (key == "outfitter" && outfitSales.Has(node.Token(1)))
+				|| (key == "person" && persons.Has(node.Token(1)))
+				|| (key == "phrase" && phrases.Has(node.Token(1)))
+				|| (key == "planet" && planets.Has(node.Token(1)))
+				|| (key == "shipyard" && shipSales.Has(node.Token(1)))
+				|| (key == "system" && systems.Has(node.Token(1)))
+				|| (key == "test" && tests.Has(node.Token(1)))
+				|| (key == "test-data" && testDataSets.Has(node.Token(1)))
+				|| (key == "news" && news.Has(node.Token(1)))
+				|| (key == "wormhole" && wormholes.Has(node.Token(1)))
+				|| (key == "gamerules preset" && gamerulesPresets.Has(node.Token(1)))
+				|| (key == "message category" && messageCategories.Has(node.Token(1)))
+				|| (key == "message" && messages.Has(node.Token(1)))
+				|| (key == "disable" && disabled.contains(node.Token(1))))
+				overwrite = true;
+			else if(key == "ship")
+			{
+				const string &name = node.Token((node.Size() > 2) ? 2 : 1);
+				overwrite = ships.Has(name);
+			}
+			else if(key == "start")
+			{
+				auto existingStart = find_if(startConditions.begin(), startConditions.end(),
+					[&node](const StartConditions &it) noexcept -> bool { return it.Identifier() == node.Token(1); });
+				overwrite = existingStart != startConditions.end();
+			}
+			else if(key == "star")
+			{
+				const Sprite *sprite = SpriteSet::Get(node.Token(1));
+				overwrite = solarPower.contains(sprite) || solarWind.contains(sprite) || starIcons.contains(sprite);
+			}
+		}
 
 		if(key == "color" && node.Size() >= 5)
 		{

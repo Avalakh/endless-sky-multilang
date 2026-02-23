@@ -3,10 +3,12 @@
 translate_data.py
 
 Translates Endless Sky .txt data files from data/ to Russian,
-writing outputs to language/ru/data/ while preserving file structure.
+writing outputs to %APPDATA%/endless-sky/plugins/ru-data-translation/data/
+while preserving file structure.
 
 Translatable elements (per docs/Структура-и-реализация-переводов.md §9):
   - description / name fields inside outfit, ship, mission, start
+  - description / spaceport fields inside planet (map planets.txt, map beyond patir.txt)
   - All backtick strings inside conversation and choice blocks
   - Strings inside word blocks (phrase, news, etc.)
   - Items inside trade commodity blocks
@@ -32,6 +34,7 @@ import re
 import sys
 import json
 import time
+import os
 import argparse
 import requests
 from pathlib import Path
@@ -42,7 +45,8 @@ from typing import Optional
 SCRIPT_DIR = Path(__file__).resolve().parent
 BASE_DIR = SCRIPT_DIR.parent
 DATA_DIR = BASE_DIR / "data"
-OUTPUT_DIR = BASE_DIR / "language" / "ru" / "data"
+APPDATA_DIR = Path(os.environ.get("APPDATA", Path.home() / "AppData" / "Roaming"))
+OUTPUT_DIR = APPDATA_DIR / "endless-sky" / "plugins" / "ru-data-translation" / "data"
 CACHE_FILE = SCRIPT_DIR / "translation_cache.json"
 
 API_URL = "http://localhost:5000/translate"
@@ -64,6 +68,7 @@ TRANSLATABLE_FIELDS: dict[str, frozenset[str]] = {
     "ship":    frozenset({"description"}),
     "mission": frozenset({"name", "description"}),
     "start":   frozenset({"name", "description"}),
+    "planet":  frozenset({"description", "spaceport"}),  # map planets.txt, map beyond patir.txt
 }
 
 # Sub-block keywords that introduce a "conversation" context
@@ -101,6 +106,14 @@ CONTROL_KEYWORDS = frozenset({
     "weight", "engine", "gun", "turret", "outfits",
     "on", "to", "has", "not", "and", "or", "action",
 })
+
+# "dialog phrase \"id\"" is a reference to a phrase, not display text — never translate.
+def _is_dialog_phrase_reference(stripped: str) -> bool:
+    if not stripped.startswith("dialog"):
+        return False
+    rest = stripped[len("dialog") :].strip()
+    return rest.startswith("phrase ") and ("\"" in rest or "'" in rest)
+
 
 # Placeholder pattern: <anything> — preserved verbatim inside translations.
 PLACEHOLDER_RE = re.compile(r"<[^>]+>")
@@ -450,7 +463,10 @@ class Collector:
             return
 
         # ── log / dialog: translate all quoted arguments ──────────────────────
+        # "dialog phrase \"id\"" is a reference, not display text — skip.
         if tok in ALWAYS_TRANSLATE_VALUE:
+            if _is_dialog_phrase_reference(stripped):
+                return
             for val in extract_all_quoted(stripped):
                 if val.strip():
                     self.strings.append(val.strip())
@@ -591,7 +607,10 @@ class Translator:
             return line
 
         # ── log / dialog ──────────────────────────────────────────────────────
+        # "dialog phrase \"id\"" is a reference, not display text — leave unchanged.
         if tok in ALWAYS_TRANSLATE_VALUE:
+            if _is_dialog_phrase_reference(stripped):
+                return line
             return tabs + self._sub_all_quoted(stripped) + newline
 
         # ── quoted-key attribute lines ────────────────────────────────────────
@@ -610,16 +629,27 @@ class Translator:
 
     # ── string substitution helpers ───────────────────────────────────────────
 
-    def _lookup(self, text: str) -> str:
+    def _lookup(self, text: str, quote: Optional[str] = None) -> str:
         """
         Look up a translation for `text`. Preserves leading/trailing spaces
         so dialog indentation (e.g. `   "Quoted speech"`) survives.
         """
         key = text.strip()
         translated = self._tr.get(key, key)
+        if quote in ('"', "`"):
+            translated = self._sanitize_for_quote(translated, quote)
         leading = len(text) - len(text.lstrip(" "))
         trailing = len(text) - len(text.rstrip(" "))
         return " " * leading + translated + " " * trailing
+
+    @staticmethod
+    def _sanitize_for_quote(text: str, quote: str) -> str:
+        """
+        Endless Sky strings are delimiter-based; unescaped quote delimiters
+        inside translated text can break parsing. To keep generated data safe
+        in all contexts, normalize both ES quote styles.
+        """
+        return text.replace('"', "'").replace("`", "'")
 
     def _sub_backtick(self, stripped: str) -> str:
         """Replace the content of a backtick string."""
@@ -630,7 +660,7 @@ class Translator:
         if end == -1:
             return stripped
         original = stripped[pos + 1 : end]
-        return stripped[: pos + 1] + self._lookup(original) + stripped[end:]
+        return stripped[: pos + 1] + self._lookup(original, "`") + stripped[end:]
 
     def _sub_first_quoted(self, stripped: str) -> str:
         """Replace the first quoted string (double or backtick)."""
@@ -648,7 +678,7 @@ class Translator:
         if end == -1:
             return stripped
         original = stripped[pos + 1 : end]
-        return stripped[: pos + 1] + self._lookup(original) + stripped[end:]
+        return stripped[: pos + 1] + self._lookup(original, q) + stripped[end:]
 
     def _sub_all_quoted(self, stripped: str) -> str:
         """Replace every quoted string in a line (for log/dialog)."""
@@ -660,7 +690,7 @@ class Translator:
                 end = stripped.find(q, i + 1)
                 if end != -1:
                     original = stripped[i + 1 : end]
-                    result.append(q + self._lookup(original) + q)
+                    result.append(q + self._lookup(original, q) + q)
                     i = end + 1
                     continue
             result.append(stripped[i])
@@ -684,7 +714,7 @@ class Translator:
         if end == -1:
             return stripped
         original = after_s[1:end]
-        translated = self._lookup(original)
+        translated = self._lookup(original, q)
         return field_name + ws + q + translated + after_s[end:]
 
     # ── context helpers ───────────────────────────────────────────────────────

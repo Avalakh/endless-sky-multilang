@@ -43,6 +43,72 @@ using namespace std;
 namespace {
 	bool showUnderlines = false;
 
+	enum class VerticalPlacement {
+		BOTTOM,
+		MIDDLE,
+		TOP
+	};
+
+	VerticalPlacement GlyphVerticalPlacement(uint32_t codepoint)
+	{
+		switch(codepoint)
+		{
+			// Midline punctuation / operators / dashes.
+			case 0x002Bu: // +
+			case 0x003Du: // =
+			case 0x002Au: // *
+			case 0x002Fu: // /
+			case 0x005Cu: // '\'
+			case 0x007Cu: // |
+			case 0x003Cu: // <
+			case 0x003Eu: // >
+			case 0x007Eu: // ~
+			case 0x002Du: // -
+			case 0x2010u: // ‐
+			case 0x2011u: // ‑
+			case 0x2012u: // ‒
+			case 0x2013u: // –
+			case 0x2014u: // —
+			case 0x00ABu: // «
+			case 0x00BBu: // »
+			case 0x2039u: // ‹
+			case 0x203Au: // ›
+			case 0x00B7u: // ·
+			case 0x2022u: // •
+			case 0x2219u: // ∙
+				return VerticalPlacement::MIDDLE;
+
+			// Top punctuation / quote-like / accent marks.
+			case 0x0027u: // '
+			case 0x0022u: // "
+			case 0x0060u: // `
+			case 0x005Eu: // ^
+			case 0x00B4u: // ´
+			case 0x00A8u: // ¨
+			case 0x00AFu: // ¯
+			case 0x02BCu: // ʼ
+			case 0x02C7u: // ˇ
+			case 0x02CAu: // ˊ
+			case 0x02CBu: // ˋ
+			case 0x02DCu: // ˜
+			case 0x2018u: // ‘
+			case 0x2019u: // ’
+			case 0x201Au: // ‚
+			case 0x201Bu: // ‛
+			case 0x201Cu: // “
+			case 0x201Du: // ”
+			case 0x201Eu: // „
+			case 0x201Fu: // ‟
+			case 0x2032u: // ′
+			case 0x2033u: // ″
+				return VerticalPlacement::TOP;
+
+			// Default: baseline/bottom-aligned symbols (letters, digits, . , _ etc).
+			default:
+				return VerticalPlacement::BOTTOM;
+		}
+	}
+
 	/// Returns a substitute codepoint for unsupported special characters, or 0 if none.
 	/// Only maps symbols where substitute preserves meaning; otherwise caller uses space.
 	uint32_t SubstituteUnsupported(uint32_t codepoint)
@@ -207,7 +273,26 @@ void Font::LoadFromTtf(const filesystem::path &ttfPath, int pixelHeight)
 		fill(temp.begin(), temp.end(), 0);
 		stbtt_MakeCodepointBitmap(&font, temp.data(), w, h, cellW, scale, scale, codepoints[i]);
 		int dx = i * cellW + (cellW - w) / 2;
-		int dy = (cellH - h) / 2;
+		const int bottomAnchor = cellH;
+		const int middleAnchor = bottomAnchor - cellH / 2;
+		const int topAnchor = bottomAnchor - cellH;
+
+		int dy = 0;
+		switch(GlyphVerticalPlacement(codepoints[i]))
+		{
+			case VerticalPlacement::BOTTOM:
+				dy = bottomAnchor - h;
+				break;
+			case VerticalPlacement::MIDDLE:
+				dy = static_cast<int>(round(middleAnchor - h / 2.));
+				break;
+			case VerticalPlacement::TOP:
+				dy = topAnchor;
+				break;
+		}
+		// Additional global lift for Russian TTF text: raise all placements by one font height.
+		dy -= cellH / 2;
+		dy = max(0, min(cellH - h, dy));
 		for(int y = 0; y < h; ++y)
 			for(int x = 0; x < w; ++x)
 			{
@@ -284,9 +369,10 @@ void Font::DrawAliased(const string &str, double x, double y, const Color &color
 	glUniform2fv(scaleI, 1, scale);
 	glUniform2f(glyphSizeI, glyphWidth * scaleFactor, glyphHeight * scaleFactor);
 
+	const double drawY = y;
 	GLfloat textPos[2] = {
 		static_cast<float>(x - 1.),
-		static_cast<float>(y)};
+		static_cast<float>(drawY)};
 	int previous = 0;
 	bool isAfterSpace = true;
 	bool underlineChar = false;
