@@ -1,5 +1,5 @@
 Мультиязычная версия. Пока только русский язык. + Плагин с переводом, для текста из txt файлов. 
-Плагин в папке plugins, для работы поместить в %appdata%/roaming/endless-sky/plugins
+Плагин в папке plugins, для работы распаковать в %appdata%/roaming/endless-sky/plugins
 
 # Endless Sky
 
