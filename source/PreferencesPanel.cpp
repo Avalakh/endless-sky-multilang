@@ -134,6 +134,22 @@ namespace {
 		string s = Translation::Tr(key);
 		return (s == key) ? setting : s;
 	}
+
+	string ControlsCategoryLabel(const string &category)
+	{
+		string key = "prefs.controls_category." + category;
+		string s = Translation::Tr(key);
+		return (s == key) ? category : s;
+	}
+
+	string CommandLabel(const string &description)
+	{
+		if(description.empty())
+			return description;
+		string key = "prefs.command." + description;
+		string s = Translation::Tr(key);
+		return (s == key) ? description : s;
+	}
 }
 
 
@@ -703,8 +719,11 @@ void PreferencesPanel::DrawControls()
 			}
 			table.DrawGap(10);
 			table.DrawUnderline(medium);
-			table.Draw(categoryString, bright);
-			table.Draw("Key", bright);
+			table.Draw(ControlsCategoryLabel(categoryString), bright);
+			{
+				string keyLabel = Translation::Tr("prefs.controls.Key");
+				table.Draw((keyLabel == "prefs.controls.Key") ? "Key" : keyLabel, bright);
+			}
 			table.DrawGap(5);
 		}
 		else
@@ -720,11 +739,12 @@ void PreferencesPanel::DrawControls()
 				table.DrawHighlight(isEditing ? dim : isEmpty ? noCommand : warning);
 			}
 
+			const string commandLabel = CommandLabel(command.Description());
 			// Mark the selected row.
 			bool isHovering = (index == hover && !isEditing);
 			if(!isHovering && index == selected)
 			{
-				auto textWidth = FontSet::Get(14).Width(command.Description());
+				auto textWidth = FontSet::Get(14).Width(commandLabel);
 				table.SetHighlight(-120, textWidth - 110);
 				table.DrawHighlight(back);
 			}
@@ -734,12 +754,12 @@ void PreferencesPanel::DrawControls()
 			if(isHovering)
 			{
 				table.DrawHighlight(back);
-				hoverItem = command.Description();
+				hoverItem = commandLabel;
 			}
 
 			zones.emplace_back(table.GetCenterPoint(), table.GetRowSize(), command);
 
-			table.Draw(command.Description(), medium);
+			table.Draw(commandLabel, medium);
 			table.Draw(command.KeyName(), isEditing ? bright : medium);
 		}
 	}

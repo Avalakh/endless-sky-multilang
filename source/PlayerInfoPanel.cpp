@@ -36,6 +36,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "ShipInfoPanel.h"
 #include "System.h"
 #include "text/Table.h"
+#include "text/Translation.h"
 #include "text/Truncate.h"
 #include "UI.h"
 
@@ -136,6 +137,27 @@ namespace {
 	bool ReverseCompare(const shared_ptr<Ship> &lhs, const shared_ptr<Ship> &rhs)
 	{
 		return F(rhs, lhs);
+	}
+
+	// Translation helper for player info labels; fallback to original if missing.
+	string InfoStr(const string &key, const string &fallback)
+	{
+		string s = Translation::Tr("info." + key);
+		return (s == "info." + key) ? fallback : s;
+	}
+	string InfoRatingStr(const string &rating)
+	{
+		if(rating.empty()) return rating;
+		string key = "info.rating." + rating;
+		string s = Translation::Tr(key);
+		return (s == key) ? rating : s;
+	}
+	string InfoLicenseStr(const string &name)
+	{
+		if(name.empty()) return name;
+		string key = "info.license." + name;
+		string s = Translation::Tr(key);
+		return (s == key) ? name : s;
 	}
 
 	// Reverses the argument order of the given comparator function.
@@ -633,11 +655,11 @@ void PlayerInfoPanel::DrawPlayer(const Rectangle &bounds)
 	table.SetUnderline(0, columnWidth);
 	table.DrawAt(bounds.TopLeft() + Point(10., 8.));
 
-	table.DrawTruncatedPair("player:", dim, player.FirstName() + " " + player.LastName(),
+	table.DrawTruncatedPair(InfoStr("player", "player:"), dim, player.FirstName() + " " + player.LastName(),
 		bright, Truncate::MIDDLE, true);
-	table.DrawTruncatedPair("net worth:", dim, Format::CreditString(player.Accounts().NetWorth()),
+	table.DrawTruncatedPair(InfoStr("net_worth", "net worth:"), dim, Format::CreditString(player.Accounts().NetWorth()),
 		bright, Truncate::MIDDLE, true);
-	table.DrawTruncatedPair("time played:", dim, Format::PlayTime(player.GetPlayTime()),
+	table.DrawTruncatedPair(InfoStr("time_played", "time played:"), dim, Format::PlayTime(player.GetPlayTime()),
 		bright, Truncate::MIDDLE, true);
 
 	// Determine the player's combat rating.
@@ -648,18 +670,18 @@ void PlayerInfoPanel::DrawPlayer(const Rectangle &bounds)
 	{
 		table.DrawGap(10);
 		table.DrawUnderline(dim);
-		table.Draw("combat rating:", bright);
+		table.Draw(InfoStr("combat_rating", "combat rating:"), bright);
 		table.Advance();
 		table.DrawGap(5);
 
-		table.DrawTruncatedPair("rank:", dim,
-			to_string(combatLevel) + " - " + combatRating,
+		table.DrawTruncatedPair(InfoStr("rank", "rank:"), dim,
+			to_string(combatLevel) + " - " + InfoRatingStr(combatRating),
 			dim, Truncate::MIDDLE, false);
-		table.DrawTruncatedPair("experience:", dim,
+		table.DrawTruncatedPair(InfoStr("experience", "experience:"), dim,
 			Format::Number(combatExperience), dim, Truncate::MIDDLE, false);
 		bool maxRank = (combatRating == GameData::Rating("combat", combatLevel + 1));
-		table.DrawTruncatedPair("    for next rank:", dim,
-				maxRank ? "MAX" : Format::Number(ceil(exp(combatLevel + 1))),
+		table.DrawTruncatedPair(InfoStr("for_next_rank", "    for next rank:"), dim,
+				maxRank ? InfoStr("max", "MAX") : Format::Number(ceil(exp(combatLevel + 1))),
 				dim, Truncate::MIDDLE, false);
 	}
 
@@ -676,15 +698,15 @@ void PlayerInfoPanel::DrawPlayer(const Rectangle &bounds)
 
 		table.DrawGap(10);
 		table.DrawUnderline(dim);
-		table.Draw("piracy threat:", bright);
+		table.Draw(InfoStr("piracy_threat", "piracy threat:"), bright);
 		table.Draw(Format::Percentage(prob, 0), dim);
 		table.DrawGap(5);
 
 		// Format the attraction and deterrence levels with tens places, so it
 		// is clear which is higher even if they round to the same level.
-		table.DrawTruncatedPair("cargo: " + attractionRating, dim,
+		table.DrawTruncatedPair(InfoStr("cargo_label", "cargo: ") + InfoRatingStr(attractionRating), dim,
 			"(+" + Format::Number(attractionLevel, 1, false) + ")", dim, Truncate::MIDDLE, false);
-		table.DrawTruncatedPair("fleet: " + deterrenceRating, dim,
+		table.DrawTruncatedPair(InfoStr("fleet_label", "fleet: ") + InfoRatingStr(deterrenceRating), dim,
 			"(-" + Format::Number(deterrenceLevel, 1, false) + ")", dim, Truncate::MIDDLE, false);
 	}
 	// Other special information:
@@ -692,19 +714,19 @@ void PlayerInfoPanel::DrawPlayer(const Rectangle &bounds)
 	for(const auto &it : player.Accounts().SalariesIncome())
 		salary.emplace_back(it.second, it.first);
 	sort(salary.begin(), salary.end(), std::greater<>());
-	DrawList(salary, table, "salary:", player.Accounts().SalariesIncomeTotal(), 4);
+	DrawList(salary, table, InfoStr("salary", "salary:"), player.Accounts().SalariesIncomeTotal(), 4);
 
 	vector<pair<int64_t, string>> tribute;
 	for(const auto &it : player.GetTribute())
 		tribute.emplace_back(it.second, it.first->TrueName());
 	sort(tribute.begin(), tribute.end(), std::greater<>());
-	DrawList(tribute, table, "tribute:", player.GetTributeTotal(), 4);
+	DrawList(tribute, table, InfoStr("tribute", "tribute:"), player.GetTributeTotal(), 4);
 
 	int maxRows = static_cast<int>(250. - 30. - table.GetPoint().Y()) / 20;
 	vector<pair<int64_t, string>> licenses;
 	for(const auto &it : player.Licenses())
-		licenses.emplace_back(1, it);
-	DrawList(licenses, table, "licenses:", licenses.size(), maxRows, false);
+		licenses.emplace_back(1, InfoLicenseStr(it));
+	DrawList(licenses, table, InfoStr("licenses", "licenses:"), licenses.size(), maxRows, false);
 }
 
 
@@ -749,7 +771,8 @@ void PlayerInfoPanel::DrawFleet(const Rectangle &bounds)
 			|| panelState.CurrentSort() == column.shipSort)
 				? bright : dim;
 
-		table.Draw(column.name, columnHeaderColor);
+		string colLabel = Translation::Tr("info.column." + column.name);
+		table.Draw((colLabel == "info.column." + column.name) ? column.name : colLabel, columnHeaderColor);
 
 		menuZones.emplace_back(zone, column.shipSort);
 	}

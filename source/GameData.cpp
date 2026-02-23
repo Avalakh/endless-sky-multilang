@@ -262,7 +262,7 @@ void GameData::LoadShaders()
 	FontSet::Add(Files::Images() / "font/ubuntu18r.png", 18, "en");
 	string fontFile = Preferences::Font();
 	if(fontFile.empty())
-		fontFile = "ofont.ru_Shonen.ttf";
+		fontFile = "ofont.ru_SouthGhetto.ttf";
 	filesystem::path ruFont = Files::UserPlugins() / "ru-data-translation" / "fonts" / fontFile;
 	if(!filesystem::exists(ruFont))
 		ruFont = Files::GlobalPlugins() / "ru-data-translation" / "fonts" / fontFile;
