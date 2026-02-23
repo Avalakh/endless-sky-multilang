@@ -263,7 +263,11 @@ void GameData::LoadShaders()
 	string fontFile = Preferences::Font();
 	if(fontFile.empty())
 		fontFile = "ofont.ru_Shonen.ttf";
-	const filesystem::path ruFont = Files::Fonts() / fontFile;
+	filesystem::path ruFont = Files::UserPlugins() / "ru-data-translation" / "fonts" / fontFile;
+	if(!filesystem::exists(ruFont))
+		ruFont = Files::GlobalPlugins() / "ru-data-translation" / "fonts" / fontFile;
+	if(!filesystem::exists(ruFont))
+		ruFont = Files::UserPlugins() / "ru-data-translation" / "mainUI" / "fonts" / fontFile;
 	if(filesystem::exists(ruFont))
 	{
 		FontSet::AddTtf(ruFont, 14, "ru");
@@ -959,23 +963,6 @@ void GameData::LoadSources(TaskQueue &queue)
 	for(const auto &path : localPlugins)
 		if(path.extension() == ".zip" && Plugins::IsPlugin(path))
 			LoadPlugin(queue, path);
-
-	// When a non-English language is active, append language/<code> as the final
-	// source so that files in language/<code>/data/ are loaded last and override
-	// their counterparts in the base data/ directory (last loaded wins).
-	// The language root is searched at Resources first (running from project),
-	// then next to the executable (running from a build).
-	const string &lang = Preferences::Language();
-	if(!lang.empty() && lang != "en")
-	{
-		filesystem::path langRoot = Files::Resources() / "language";
-		if(!Files::Exists(langRoot) && !Files::ExecutableDirectory().empty())
-			langRoot = Files::ExecutableDirectory() / "language";
-		filesystem::path langSourceDir = langRoot / lang;
-		filesystem::path langDataDir = langSourceDir / "data";
-		if(Files::Exists(langDataDir) && filesystem::is_directory(langDataDir))
-			sources.push_back(langSourceDir);
-	}
 }
 
 

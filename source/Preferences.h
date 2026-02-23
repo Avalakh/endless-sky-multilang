@@ -156,7 +156,7 @@ public:
 	static std::string Language();
 	static void SetLanguage(const std::string &code);
 
-	/// Font file name in data/fonts for extended (e.g. Russian) UI font.
+	/// Font file name in the ru-data-translation plugin fonts directory.
 	static std::string Font();
 	static void SetFont(const std::string &filename);
 

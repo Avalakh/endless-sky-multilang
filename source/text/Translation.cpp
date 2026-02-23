@@ -34,16 +34,9 @@ namespace {
 	map<string, string> fallbackStrings;
 	bool fallbackLoaded = false;
 
-	// Language files may live in Resources (project root when running from build) or next to the executable.
-	filesystem::path LanguageDir()
+	filesystem::path MainUiLanguageDir()
 	{
-		filesystem::path fromResources = Files::Resources() / "language";
-		if(Files::Exists(fromResources))
-			return fromResources;
-		filesystem::path fromExe = Files::ExecutableDirectory() / "language";
-		if(!Files::ExecutableDirectory().empty() && Files::Exists(fromExe))
-			return fromExe;
-		return fromResources;
+		return Files::UserPlugins() / "ru-data-translation" / "mainUI";
 	}
 
 	void AppendUtf8FromCodePoint(string &out, uint32_t cp)
@@ -174,9 +167,8 @@ namespace {
 	void LoadInto(const string &languageCode, map<string, string> &target)
 	{
 		target.clear();
-		filesystem::path langRoot = LanguageDir();
+		filesystem::path langRoot = MainUiLanguageDir();
 		filesystem::path langDirPath = langRoot / languageCode;
-		filesystem::path legacyPath = langRoot / (languageCode + ".json");
 
 		if(Files::Exists(langDirPath) && filesystem::is_directory(langDirPath))
 		{
@@ -192,11 +184,6 @@ namespace {
 						target[p.first] = p.second;
 				}
 			}
-		}
-		else if(Files::Exists(legacyPath))
-		{
-			string data = Files::Read(legacyPath);
-			ParseFlatJson(data, target);
 		}
 	}
 
@@ -399,7 +386,7 @@ namespace Translation {
 	vector<string> AvailableLanguageCodes()
 	{
 		vector<string> codes;
-		filesystem::path langDir = LanguageDir();
+		filesystem::path langDir = MainUiLanguageDir();
 		if(!Files::Exists(langDir))
 			return codes;
 
@@ -425,22 +412,11 @@ namespace Translation {
 			}
 		}
 
-		for(const auto &entry : Files::List(langDir))
-		{
-			if(entry.extension() == ".json")
-			{
-				string code = entry.stem().string();
-				if(fromDirs.find(code) == fromDirs.end())
-				{
-					codes.push_back(code);
-					fromDirs.insert(code);
-				}
-			}
-		}
-
 		sort(codes.begin(), codes.end());
 		auto it = find(codes.begin(), codes.end(), "en");
-		if(it != codes.end() && it != codes.begin())
+		if(it == codes.end())
+			codes.insert(codes.begin(), "en");
+		else if(it != codes.begin())
 		{
 			codes.erase(it);
 			codes.insert(codes.begin(), "en");

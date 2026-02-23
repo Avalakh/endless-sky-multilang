@@ -750,15 +750,21 @@ void PreferencesPanel::DrawControls()
 void PreferencesPanel::DrawSettings()
 {
 	availableFonts.clear();
-	for(const auto &path : Files::List(Files::Fonts()))
+	const auto addFontsFromDir = [this](const filesystem::path &dir)
 	{
-		string ext = path.extension().string();
-		for(char &c : ext)
-			c = tolower(static_cast<unsigned char>(c));
-		if(ext == ".ttf")
-			availableFonts.push_back(path.filename().string());
-	}
+		for(const auto &path : Files::List(dir))
+		{
+			string ext = path.extension().string();
+			for(char &c : ext)
+				c = tolower(static_cast<unsigned char>(c));
+			if(ext == ".ttf")
+				availableFonts.push_back(path.filename().string());
+		}
+	};
+	addFontsFromDir(Files::UserPlugins() / "ru-data-translation" / "fonts");
+	addFontsFromDir(Files::GlobalPlugins() / "ru-data-translation" / "fonts");
 	sort(availableFonts.begin(), availableFonts.end());
+	availableFonts.erase(unique(availableFonts.begin(), availableFonts.end()), availableFonts.end());
 
 	const Color &back = *GameData::Colors().Get("faint");
 	const Color &dim = *GameData::Colors().Get("dim");
@@ -1524,7 +1530,9 @@ void PreferencesPanel::HandleSettingsString(const string &str, Point cursorPosit
 							break;
 				i = (i + 1) % availableFonts.size();
 				Preferences::SetFont(availableFonts[i]);
-				std::filesystem::path fontPath = Files::Fonts() / availableFonts[i];
+				std::filesystem::path fontPath = Files::UserPlugins() / "ru-data-translation" / "fonts" / availableFonts[i];
+				if(!std::filesystem::exists(fontPath))
+					fontPath = Files::GlobalPlugins() / "ru-data-translation" / "fonts" / availableFonts[i];
 				if(std::filesystem::exists(fontPath))
 				{
 					FontSet::AddTtf(fontPath, 14, "ru");
